@@ -1,0 +1,30 @@
+/* Colors */
+:root {
+  --cc-white: hsl(0, 0%, 100%);
+  --c-gray-drak: hsl(233, 14%, 25%);
+
+  --color-main-bg: var(--cc-white);
+  --color-text-drak: var(--c-gray-drak);
+  --color-text-light: var(--cc-white);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
