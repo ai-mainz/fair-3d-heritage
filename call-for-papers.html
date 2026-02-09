@@ -1,1 +1,427 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicons -->
+    <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any" />
+    <link rel="icon" href="/assets/favicon/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
 
+    <!-- Optional: fallback PNG sizes -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/assets/favicon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/assets/favicon/web-app-manifest-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="/assets/favicon/web-app-manifest-512x512.png"
+    />
+
+    <title>Call for papers | FAIR 3D Heritage</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+
+  <body>
+    <!-- TOPNAV -->
+    <header class="topnav" id="topnav">
+      <h2 class="visually-hidden">Header</h2>
+      <div class="wrapper">
+        <a href="index.html" class="topnav__homelink">
+          <img
+            src="assets/Logo.svg"
+            alt="FAIR 3D Heritage"
+            class="topnav__logo"
+          />
+        </a>
+
+        <button
+          class="topnav__toggle"
+          id="navToggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mainMenu"
+          type="button"
+        >
+          <img
+            src="assets/Burger.svg"
+            alt=""
+            class="topnav__toggle-icon"
+            width="24"
+            height="24"
+          />
+        </button>
+
+        <nav class="menu" id="mainMenu" aria-label="Main navigation">
+          <ul class="topnav_links">
+            <li class="topnav__item">
+              <a href="index.html" class="topnav__link">HOME</a>
+            </li>
+            <li class="topnav__item">
+              <a href="index.html#about" class="topnav__link">ABOUT</a>
+            </li>
+            <li class="topnav__item is-active">
+              <a href="call-for-papers.html" class="topnav__link"
+                >CALL FOR PAPERS</a
+              >
+            </li>
+            <li class="topnav__item">
+              <a href="program.html" class="topnav__link">PROGRAM</a>
+            </li>
+            <li class="topnav__item">
+              <a href="registration.html" class="topnav__link">REGISTRATION</a>
+            </li>
+            <li class="topnav__item">
+              <a href="contact.html" class="topnav__link">CONTACT</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- HERO (snap section #1) -->
+      <section
+        class="page-hero page-hero--cfp"
+        aria-label="Call for Papers hero"
+      >
+        <img
+          class="page-hero__bg"
+          src="/assets/call_for_papers-hero-bg-1440.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <div class="page-hero__overlay">
+          <div class="container">
+            <h1 class="page-hero__title reveal on-load delay-2">
+              CALL FOR PAPERS
+            </h1>
+          </div>
+        </div>
+      </section>
+
+      <!-- DESCRIPTION (snap section #2) -->
+      <section class="section cfp-desc" id="description">
+        <div class="container">
+          <h2 class="h2 reveal">Description</h2>
+
+          <div class="prose cfp-prose reveal">
+            <p>
+              With the proclamation of the Web3D (Web3D, 2024), 3D data sets
+              have become central to the documentation, analysis and
+              dissemination of cultural heritage on the Web. 3D reconstructions,
+              scans and models are now produced at scale across archives,
+              museums, libraries and research projects. At the same time,
+              questions of standards, metadata, paradata, publication and
+              long-term preservation are becoming increasingly urgent topics
+              while searching for customized infrastructure (Amico &amp;
+              Felicetti, 2024).
+            </p>
+
+            <p>
+              The DFG 3D-Viewer Conference brings together researchers, heritage
+              professionals, infrastructure providers and software developers to
+              discuss how interoperable, standards-based and applicable 3D
+              workflows can support sustainable digital heritage. We aim to
+              address conceptual, methodological and technical challenges and to
+              encourage exchange between communities. The conference also serves
+              as a final presentation and critical reflection of the second
+              funding phase of the DFG 3D-Viewer project (DFG 3D-Viewer, 2024),
+              situating its results within the broader landscape of digital 3D
+              heritage infrastructures.
+            </p>
+
+            <p class="cfp-sep" aria-hidden="true">
+              ___________________________________
+            </p>
+
+            <h3 class="cfp-biblio-title">Bibliography</h3>
+            <ol class="cfp-biblio">
+              <li>
+                Amico, N., &amp; Felicetti, A. (2024).
+                <em>3D data long-term preservation in cultural heritage</em>
+                [Report]. eArchiving Initiative, European Commission.
+                <a
+                  class="fx-link"
+                  href="https://digital-strategy.ec.europa.eu/en/library/report-long-term-preservation-3d-data-cultural-heritage"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  https://digital-strategy.ec.europa.eu/en/library/report-long-term-preservation-3d-data-cultural-heritage </a
+                >, last accessed 26 January 2026.
+              </li>
+              <li>
+                DFG 3D-Viewer. (2024). <em>Second funding phase</em>.
+                <a
+                  class="fx-link"
+                  href="https://dfg-viewer.de/en/second-funding-phase"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  https://dfg-viewer.de/en/second-funding-phase </a
+                >, last accessed 26 January 2026.
+              </li>
+              <li>
+                Web3D. (2024). <em>Web3D Conference Report</em>.
+                <a
+                  class="fx-link"
+                  href="https://www.web3d.org/news-story/web3d-2024-conference-report"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  https://www.web3d.org/news-story/web3d-2024-conference-report </a
+                >, last accessed 26 January 2026.
+              </li>
+            </ol>
+
+            <!-- PDF DOWNLOAD at the very bottom of the Description section -->
+            <div class="cfp-download-wrap reveal delay-2">
+              <a
+                class="btn btn--about"
+                href="https://www.hs-mainz.de/fileadmin/Technik/fr_architektur/events/FAIR-3D-Heritage_Call_for_Papers.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Download Call for Papers PDF"
+              >
+                PDF DOWNLOAD
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TOPICS (snap section #3, dark) -->
+      <section class="section section--dark cfp-topics" id="topics">
+        <div class="container">
+          <h2 class="h2 reveal cfp-topics__title">Topic areas</h2>
+
+          <div class="cfp-themes reveal">
+            <article class="cfp-theme">
+              <div class="cfp-theme__left">
+                <div class="cfp-theme__num">01</div>
+                <h3 class="cfp-theme__heading">
+                  3D World Wide Web Exploration and Visualisation
+                </h3>
+              </div>
+              <ul class="cfp-theme__list">
+                <li>3D viewers and publishing platforms for web and XR</li>
+                <li>Integration of 3D with 2D and textual sources</li>
+                <li>
+                  User experience and interaction design for exploring 3D
+                  heritage
+                </li>
+                <li>Cross-platform and cross-viewer interoperability</li>
+                <li>
+                  Integration of 3D data into Linked Open Data and knowledge
+                  graph environments (e.g. IIIF 3D, CIDOC CRM extensions)
+                </li>
+              </ul>
+            </article>
+
+            <article class="cfp-theme">
+              <div class="cfp-theme__left">
+                <div class="cfp-theme__num">02</div>
+                <h3 class="cfp-theme__heading">Best Documentation Practices</h3>
+              </div>
+              <ul class="cfp-theme__list">
+                <li>Standards and formats for 3D data</li>
+                <li>Metadata schemes and paradata for 3D models</li>
+                <li>FAIR and TRUST principles for 3D data</li>
+                <li>Knowledge-graph and semantic web approaches</li>
+                <li>Ontologies, vocabularies and guidelines for 3D data</li>
+                <li>
+                  Community-driven standards, guidelines and best practices for
+                  3D documentation and paradata
+                </li>
+                <li>
+                  Documentation and visualisation of hypothetical historical
+                  research with 3D data
+                </li>
+              </ul>
+            </article>
+
+            <article class="cfp-theme">
+              <div class="cfp-theme__left">
+                <div class="cfp-theme__num">03</div>
+                <h3 class="cfp-theme__heading">
+                  Web-based Publication Infrastructures and Preservation
+                  Strategies
+                </h3>
+              </div>
+              <ul class="cfp-theme__list">
+                <li>
+                  Repositories, archives and long-term preservation workflows
+                </li>
+                <li>
+                  National and international infrastructures for 3D cultural
+                  heritage
+                </li>
+                <li>Provenance of sources and workflows</li>
+                <li>Governance models for sustainable 3D infrastructures</li>
+                <li>
+                  Institutional responsibilities, funding models and long-term
+                  maintenance of 3D data and services
+                </li>
+              </ul>
+            </article>
+
+            <article class="cfp-theme">
+              <div class="cfp-theme__left">
+                <div class="cfp-theme__num">04</div>
+                <h3 class="cfp-theme__heading">
+                  Education, Outreach and Public Engagement with 3D
+                </h3>
+              </div>
+              <ul class="cfp-theme__list">
+                <li>
+                  Teaching with 3D models and XR in heritage and art history
+                </li>
+                <li>3D data for exhibitions, mediation and citizen science</li>
+                <li>Co-creation and participatory approaches</li>
+                <li>Ethical, legal and social aspects of 3D heritage data</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAPER SUBMISSION (snap section #4, white) -->
+      <section class="section cfp-submission" id="paper-submission">
+        <div class="container">
+          <h2 class="h2 reveal">Paper submission</h2>
+
+          <div class="prose reveal">
+            <p>
+              To propose a contribution, please submit an extended abstract of
+              up to 500 words in British English (approximately one page,
+              excluding references), including a maximum of two images and 10
+              references, in PDF format via our
+              <a
+                class="fx-link"
+                href="https://docs.google.com/forms/d/e/1FAIpQLScVl1TOcIvWDB_9jx-GIKDGhQjJZTcdNSqiaRhjgbTlbXG0RA/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Google Form</a
+              >. We welcome the following contribution types:
+            </p>
+
+            <ul class="cfp-list">
+              <li>Oral presentations on site (15 minutes + discussion)</li>
+              <li>
+                Posters (A1 Poster in the exhibition section + 6 minutes
+                presentation/demo)
+              </li>
+            </ul>
+
+            <p>
+              Abstracts should be anonymised; don’t include names or
+              affiliations in abstract text or file name. The extended abstract
+              should clearly present:
+            </p>
+
+            <ul class="cfp-list">
+              <li>research questions / objectives</li>
+              <li>context and related work</li>
+              <li>methods and data</li>
+              <li>expected or achieved results</li>
+              <li>relevance to the conference themes</li>
+            </ul>
+
+            <p>
+              Extended abstracts will undergo a short review by the programme
+              committee, focusing on relevance, clarity, and basic scientific
+              quality. Based on the review, accepted submissions will be
+              assigned either to an oral presentation or a poster presentation.
+            </p>
+
+            <div class="cfp-submit-wrap reveal delay-2">
+              <a
+                class="btn btn--about"
+                href="https://docs.google.com/forms/d/e/1FAIpQLScVl1TOcIvWDB_9jx-GIKDGhQjJZTcdNSqiaRhjgbTlbXG0RA/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Submit your paper
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCEEDINGS (snap section #5, blue) -->
+      <section class="section section--dark cfp-proceedings" id="proceedings">
+        <div class="container">
+          <h2 class="h2 reveal cfp-topics__title">Proceedings</h2>
+
+          <div class="prose reveal">
+            <p>
+              Selected authors will be invited to submit a full paper for an
+              open access proceedings volume to be published in the book series
+              <a
+                class="fx-link"
+                href="https://books.ub.uni-heidelberg.de/arthistoricum/catalog/series/caa"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Computing in Art and Architecture (CAaA)
+              </a>
+              in
+              <a
+                class="fx-link"
+                href="https://www.arthistoricum.net/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                arthistoricum.net
+              </a>
+              provided by the
+              <a
+                class="fx-link"
+                href="https://www.ub.uni-heidelberg.de/en"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Heidelberg University Library </a
+              >.
+            </p>
+
+            <ul class="cfp-list">
+              <li>
+                Full papers will undergo a double-blind peer review process.
+              </li>
+              <li>
+                Authors will be asked to follow the arthistoricum.net formatting
+                guidelines (details will be provided with the invitation).
+              </li>
+            </ul>
+
+            <p>
+              For the double-blind process, author names and affiliations must
+              be removed from the submitted manuscript.
+            </p>
+          </div>
+        </div>
+
+        <!-- FOOTER (part of Proceedings) -->
+        <footer class="site-footer site-footer--in-organizers">
+          <h2 class="visually-hidden">Footer</h2>
+          <div class="footer">
+            <p class="footnote">© FAIR 3D Heritage</p>
+          </div>
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>
