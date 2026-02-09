@@ -10,21 +10,21 @@
     font-family: "Source Sans 3";
     font-style: normal;
     font-weight: 400;
-    src: url("/fonts/source-sans-3-v19-latin-regular.woff2") format("woff2");
+    src: url("fonts/source-sans-3-v19-latin-regular.woff2") format("woff2");
   }
   @font-face {
     font-display: swap;
     font-family: "Source Sans 3";
     font-style: italic;
     font-weight: 400;
-    src: url("/fonts/source-sans-3-v19-latin-italic.woff2") format("woff2");
+    src: url("fonts/source-sans-3-v19-latin-italic.woff2") format("woff2");
   }
   @font-face {
     font-display: swap;
     font-family: "Source Sans 3";
     font-style: normal;
     font-weight: 700;
-    src: url("/fonts/source-sans-3-v19-latin-700.woff2") format("woff2");
+    src: url("fonts/source-sans-3-v19-latin-700.woff2") format("woff2");
   }
 
   @font-face {
@@ -32,7 +32,7 @@
     font-family: "Didact Gothic";
     font-style: normal;
     font-weight: 400;
-    src: url("/fonts/didact-gothic-v21-latin-regular.woff2") format("woff2");
+    src: url("fonts/didact-gothic-v21-latin-regular.woff2") format("woff2");
   }
 
   @font-face {
@@ -40,21 +40,21 @@
     font-family: "Century Gothic";
     font-style: normal;
     font-weight: 400;
-    src: url("/fonts/CenturyGothic.woff2") format("woff2");
+    src: url("fonts/CenturyGothic.woff2") format("woff2");
   }
   @font-face {
     font-display: swap;
     font-family: "Century Gothic";
     font-style: italic;
     font-weight: 400;
-    src: url("/fonts/Century%20Gothic%20Italic.woff2") format("woff2");
+    src: url("fonts/Century%20Gothic%20Italic.woff2") format("woff2");
   }
   @font-face {
     font-display: swap;
     font-family: "Century Gothic";
     font-style: normal;
     font-weight: 700;
-    src: url("/fonts/Century%20Gothic%20W05%20Bold.woff2") format("woff2");
+    src: url("fonts/Century%20Gothic%20W05%20Bold.woff2") format("woff2");
   }
 
   :root {
