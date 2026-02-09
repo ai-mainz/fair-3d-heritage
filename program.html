@@ -1,1 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicons -->
+    <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any" />
+    <link rel="icon" href="/assets/favicon/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+
+    <!-- Optional: fallback PNG sizes -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/assets/favicon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/assets/favicon/web-app-manifest-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="/assets/favicon/web-app-manifest-512x512.png"
+    />
+
+    <title>Program | FAIR 3D Heritage</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="page">
+    <!-- TOPNAV -->
+    <header class="topnav" id="topnav">
+      <h2 class="visually-hidden">Header</h2>
+      <div class="wrapper">
+        <a href="index.html" class="topnav__homelink">
+          <img
+            src="assets/Logo.svg"
+            alt="FAIR 3D Heritage"
+            class="topnav__logo"
+          />
+        </a>
+
+        <button
+          class="topnav__toggle"
+          id="navToggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mainMenu"
+          type="button"
+        >
+          <img
+            src="assets/Burger.svg"
+            alt=""
+            class="topnav__toggle-icon"
+            width="24"
+            height="24"
+          />
+        </button>
+
+        <nav class="menu" id="mainMenu" aria-label="Main navigation">
+          <ul class="topnav_links">
+            <li class="topnav__item">
+              <a href="index.html" class="topnav__link">HOME</a>
+            </li>
+            <li class="topnav__item">
+              <a href="index.html#about" class="topnav__link">ABOUT</a>
+            </li>
+            <li class="topnav__item">
+              <a href="call-for-papers.html" class="topnav__link"
+                >CALL FOR PAPERS</a
+              >
+            </li>
+            <li class="topnav__item is-active">
+              <a href="program.html" class="topnav__link">PROGRAM</a>
+            </li>
+            <li class="topnav__item">
+              <a href="registration.html" class="topnav__link">REGISTRATION</a>
+            </li>
+            <li class="topnav__item">
+              <a href="contact.html" class="topnav__link">CONTACT</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- HERO PROGRAM -->
+      <section class="page-hero page-hero--program" aria-label="Program hero">
+        <img
+          class="page-hero__bg"
+          src="/assets/program-hero-bg-1440.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <div class="page-hero__overlay">
+          <div class="container">
+            <h1 class="page-hero__title reveal on-load delay-2">PROGRAM</h1>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTENT -->
+      <section class="section program-content">
+        <div class="container">
+          <div class="prose reveal">
+            <p>
+              The conference program will be announced in April 2026, following
+              the paper selection process. In addition to paper and poster
+              sessions, we plan to host workshops on 3D infrastructures and FAIR
+              3D data. The Organizing Committee also plans excursions to local
+              heritage sites in Mainz.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <h2 class="visually-hidden">Footer</h2>
+      <div class="container footer">
+        <p class="footnote">© FAIR 3D Heritage</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
 
