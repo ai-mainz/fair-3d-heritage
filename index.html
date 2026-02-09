@@ -1,22 +1,325 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>FAIR 3D Heritage — Under construction</title>
-  <style>
-    body { font-family: system-ui, Arial, sans-serif; margin: 0; min-height: 100vh; display: grid; place-items: center; }
-    main { max-width: 720px; padding: 32px; text-align: center; }
-    h1 { margin: 0 0 12px; font-size: 2rem; }
-    p { margin: 0; font-size: 1.1rem; opacity: 0.85; }
-    .badge { display:inline-block; margin-top:16px; padding:6px 10px; border:1px solid #ccc; border-radius:999px; font-size:0.9rem; }
-  </style>
-</head>
-<body>
-  <main>
-    <h1>FAIR 3D Heritage</h1>
-    <p>Website under construction. Please check back soon.</p>
-    <div class="badge">🚧 Under construction</div>
-  </main>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Favicons -->
+    <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any" />
+    <link rel="icon" href="/assets/favicon/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+
+    <!-- Optional: fallback PNG sizes -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/assets/favicon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/assets/favicon/web-app-manifest-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="/assets/favicon/web-app-manifest-512x512.png"
+    />
+
+    <title>FAIR 3D Heritage</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- MapLibre GL JS (for Venue map) -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css"
+    />
+    <script
+      defer
+      src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"
+    ></script>
+    <script defer src="script.js"></script>
+  </head>
+
+  <body>
+    <header class="topnav" id="topnav">
+      <h2 class="visually-hidden">Header</h2>
+      <div class="wrapper">
+        <a href="index.html" class="topnav__homelink">
+          <img
+            src="assets/Logo.svg"
+            alt="FAIR 3D Heritage"
+            class="topnav__logo"
+          />
+        </a>
+
+        <button
+          class="topnav__toggle"
+          id="navToggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mainMenu"
+          type="button"
+        >
+          <img
+            src="assets/Burger.svg"
+            alt=""
+            class="topnav__toggle-icon"
+            width="24"
+            height="24"
+          />
+        </button>
+
+        <nav class="menu" id="mainMenu" aria-label="Main navigation">
+          <ul class="topnav_links">
+            <li class="topnav__item is-active">
+              <a href="index.html" class="topnav__link">HOME</a>
+            </li>
+            <li class="topnav__item">
+              <a href="#about" class="topnav__link">ABOUT</a>
+            </li>
+            <li class="topnav__item">
+              <a href="call-for-papers.html" class="topnav__link"
+                >CALL FOR PAPERS</a
+              >
+            </li>
+            <li class="topnav__item">
+              <a href="program.html" class="topnav__link">PROGRAM</a>
+            </li>
+            <li class="topnav__item">
+              <a href="registration.html" class="topnav__link">REGISTRATION</a>
+            </li>
+            <li class="topnav__item">
+              <a href="contact.html" class="topnav__link">CONTACT</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <img
+          class="hero__bg"
+          src="assets/hero-bg-1440.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <div class="hero__tint"></div>
+
+        <div class="hero__content">
+          <div class="container container--wide">
+            <h1 class="title reveal on-load delay-2">FAIR 3D HERITAGE</h1>
+
+            <p class="subtitle reveal on-load delay-1">
+              Documentation, Publication and Preservation<br />
+              of the Digital 3D Heritage on the Web
+            </p>
+
+            <p class="lead reveal on-load delay-3">
+              14–16 September 2026 in Mainz, Germany<br />
+              Conference of the second funding phase<br />
+              of the DFG 3D-Viewer project
+            </p>
+
+            <div class="hero__actions reveal on-load delay-4">
+              <a
+                class="btn"
+                href="https://docs.google.com/forms/d/e/1FAIpQLScVl1TOcIvWDB_9jx-GIKDGhQjJZTcdNSqiaRhjgbTlbXG0RA/viewform"
+              >
+                SUBMIT PAPER
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a
+          href="#about"
+          class="hero__chevron"
+          aria-label="Scroll to About section"
+        >
+          <img
+            src="assets/white-arrow-png-41944.png"
+            alt=""
+            aria-hidden="true"
+          />
+        </a>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container">
+          <h2 class="h2 reveal">About FAIR 3D Heritage</h2>
+
+          <div class="prose reveal">
+            <p>
+              FAIR 3D Heritage is a conference focused on improving how digital
+              3D cultural heritage can be documented, published, and preserved
+              on the Web. It responds to the rapid growth of 3D reconstructions,
+              scans, and models across libraries, archives, museums, and
+              research projects by promoting interoperable workflows, robust
+              metadata and paradata, and sustainable infrastructures that
+              support FAIR and TRUST-aligned practices.
+            </p>
+            <p>
+              By bringing together researchers, heritage professionals,
+              infrastructure providers, and software developers, FAIR 3D
+              Heritage fosters a collaborative environment to exchange methods,
+              tools, and best practices—from web/XR viewer ecosystems and
+              linked-data integration to repository strategies and long-term
+              preservation. The conference provides a platform to share results,
+              discuss challenges, and strengthen a shared foundation for
+              reusable, future-proof 3D heritage data.
+            </p>
+            <p>
+              The conference will be held in Mainz (Germany) on 14–16 September
+              2026 at the
+              <a
+                href="https://www.hs-mainz.de/en/about-us/current-information/lux-pavilion/"
+                >LUX Pavilion (Hochschule Mainz – University of Applied
+                Sciences)</a
+              >, the event also serves as a final presentation and critical
+              reflection of the second funding phase of the DFG 3D-Viewer
+              project, positioning its results within the broader landscape of
+              digital 3D heritage infrastructures.
+            </p>
+          </div>
+
+          <div class="about__actions reveal">
+            <a class="btn btn--about" href="call-for-papers.html"
+              >CALL FOR PAPERS</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--dark" id="dates">
+        <div class="container">
+          <h2 class="h2 reveal">Key dates</h2>
+
+          <dl class="keydates reveal">
+            <div class="keydates__row">
+              <dt>Call Announcement</dt>
+              <dd>Jan 2026</dd>
+            </div>
+            <div class="keydates__row">
+              <dt>Abstract Submission</dt>
+              <dd>15 Mar 2026</dd>
+            </div>
+            <div class="keydates__row">
+              <dt>Notification of Acceptance</dt>
+              <dd>31 Mar 2026</dd>
+            </div>
+            <div class="keydates__row">
+              <dt>Registration Opens</dt>
+              <dd>Apr 2026</dd>
+            </div>
+            <div class="keydates__row">
+              <dt>Conference</dt>
+              <dd>14–16 Sep 2026</dd>
+            </div>
+            <div class="keydates__row">
+              <dt>Full paper submission</dt>
+              <dd>31 Oct 2026</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+      <section class="section" id="funding">
+        <div class="container">
+          <h2 class="h2 reveal">Funding &amp; costs</h2>
+
+          <div class="prose reveal">
+            <p>
+              Thanks to the support of the German Research Foundation (Deutsche
+              Forschungsgemeinschaft DFG), we can offer:
+            </p>
+
+            <ul class="funding-list">
+              <li>
+                Travel cost reimbursement for selected speakers up to 250,00€
+                (according to DFG regulations).
+              </li>
+              <li>
+                Lunch, dinner and coffee breaks for the duration of the
+                conference.
+              </li>
+            </ul>
+
+            <p>
+              There will be no conference fee, but registration is mandatory so
+              that we can plan catering and event space.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="section section--dark" id="venue">
+        <div class="container">
+          <h2 class="h2 reveal">Venue</h2>
+
+          <div class="venue__mapwrap reveal">
+            <div
+              id="venueMap"
+              class="venue__map"
+              aria-label="Map showing the venue location"
+            ></div>
+          </div>
+
+          <div class="prose reveal">
+            <p>
+              The conference will be hosted at the LUX Pavilion of the
+              Hochschule Mainz – University of Applied Sciences, Ludwigsstraße
+              2, 55116 Mainz, Germany. An excursion to local cultural heritage
+              sites is planned as part of the programme. The event is planned
+              on-site only.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="organizers">
+        <div class="container">
+          <h2 class="h2 reveal">Organizers</h2>
+
+          <div class="logos reveal">
+            <img
+              src="assets/Logo_Hochschule_Mainz.svg"
+              alt="Hochschule Mainz"
+              onerror="this.style.display = 'none'"
+            />
+            <img
+              src="assets/Logo_UniJena.svg"
+              alt="Friedrich-Schiller-Universität Jena"
+              onerror="this.style.display = 'none'"
+            />
+            <img
+              src="assets/Logo_SLUB_2012.svg"
+              alt="SLUB Dresden"
+              onerror="this.style.display = 'none'"
+            />
+          </div>
+
+          <div class="funded reveal">
+            <p class="funded__label">Funded by:</p>
+            <img
+              class="funded__logo"
+              src="assets/Logo_German_Research_Foundation.png"
+              alt="German Research Foundation (DFG)"
+              onerror="this.style.display = 'none'"
+            />
+          </div>
+        </div>
+
+        <!-- footer full-width, ale nadal część sekcji organizers -->
+        <footer class="site-footer site-footer--in-organizers">
+          <h2 class="visually-hidden">Footer</h2>
+          <div class="footer">
+            <p class="footnote">© FAIR 3D Heritage</p>
+          </div>
+        </footer>
+      </section>
+    </main>
+  </body>
 </html>
