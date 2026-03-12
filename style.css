@@ -398,7 +398,10 @@
     margin: 0 0 10px;
     text-align: left;
   }
-
+.keydates dd s {
+  opacity: 0.7;
+  margin-right: 0.5rem;
+}
   .cfp-download-wrap {
     margin-top: 26px;
     display: flex;
