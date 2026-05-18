@@ -4,33 +4,469 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Favicons -->
-    <link rel="icon" href="assets/favicon/favicon.ico" sizes="any" />
-    <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="assets/favicon/site.webmanifest" />
+    <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any" />
+    <link rel="icon" href="/assets/favicon/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
 
     <!-- Optional: fallback PNG sizes -->
     <link
       rel="icon"
       type="image/png"
       sizes="96x96"
-      href="assets/favicon/favicon-96x96.png"
+      href="/assets/favicon/favicon-96x96.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="192x192"
-      href="assets/favicon/web-app-manifest-192x192.png"
+      href="/assets/favicon/web-app-manifest-192x192.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="512x512"
-      href="assets/favicon/web-app-manifest-512x512.png"
+      href="/assets/favicon/web-app-manifest-512x512.png"
     />
 
     <title>Program | FAIR 3D Heritage</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+
+/* =========================
+   PROGRAM PAGE
+   ========================= */
+.program-content {
+  background:
+    radial-gradient(circle at top left, rgba(0, 136, 255, 0.12), transparent 34rem),
+    linear-gradient(180deg, #ffffff 0%, #f6f8fb 100%);
+}
+
+body.page .program-content {
+  display: block;
+  align-items: initial;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.program-shell {
+  padding: clamp(42px, 6vw, 76px) 0 clamp(64px, 8vw, 110px);
+}
+
+.program-intro {
+  width: min(1020px, 100%);
+  margin: 0 auto clamp(30px, 5vw, 54px);
+  padding: clamp(24px, 4vw, 40px);
+  border-radius: 30px;
+  background: var(--blue-primary);
+  color: #fff;
+  box-shadow: 0 22px 60px rgba(11, 25, 54, 0.22);
+  position: relative;
+  overflow: hidden;
+}
+
+.program-intro::after {
+  content: "";
+  position: absolute;
+  inset: auto -90px -140px auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 999px;
+  background: rgba(0, 136, 255, 0.24);
+  filter: blur(4px);
+}
+
+.program-intro > * {
+  position: relative;
+  z-index: 1;
+}
+
+.program-intro__eyebrow {
+  display: inline-flex;
+  margin: 0 0 16px;
+  padding: 7px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  border-radius: 999px;
+  font-family: var(--font-title);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.program-intro h2 {
+  margin: 0;
+  max-width: 860px;
+  font-family: var(--font-title);
+  font-size: clamp(34px, 4vw, 56px);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+
+.program-intro p {
+  max-width: 760px;
+  margin: 18px 0 0;
+  font-size: clamp(19px, 2vw, 24px);
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.program-daynav {
+  position: sticky;
+  top: var(--topnav-h);
+  z-index: 40;
+  margin: 0 calc(50% - 50vw) clamp(36px, 5vw, 58px);
+  padding: 12px 0;
+  background: rgba(255, 255, 255, 0.9);
+  border-block: 1px solid rgba(11, 25, 54, 0.12);
+  backdrop-filter: blur(16px);
+}
+
+.program-daynav__list {
+  width: min(var(--container), calc(100% - (var(--pad) * 2)));
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  list-style: none;
+}
+
+.program-daynav a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 52px;
+  padding: 10px 16px;
+  border: 1px solid rgba(11, 25, 54, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  font-family: var(--font-title);
+  font-weight: 700;
+  color: var(--blue-primary);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.program-daynav a:hover,
+.program-daynav a:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(0, 136, 255, 0.55);
+  box-shadow: 0 14px 34px rgba(11, 25, 54, 0.12);
+  outline: none;
+}
+
+.program-daynav__day {
+  font-size: 15px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.program-daynav__date {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  opacity: 0.72;
+}
+
+.program-day {
+  scroll-margin-top: calc(var(--topnav-h) + 92px);
+}
+
+.program-day + .program-day {
+  margin-top: clamp(54px, 8vw, 96px);
+}
+
+.program-day__heading {
+  width: min(1020px, 100%);
+  margin: 0 auto 24px;
+  padding-bottom: 18px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: end;
+  border-bottom: 1px solid rgba(11, 25, 54, 0.22);
+}
+
+.program-day__label {
+  margin: 0 0 8px;
+  font-family: var(--font-title);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--link-accent);
+}
+
+.program-day__heading h2 {
+  margin: 0;
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: clamp(34px, 4vw, 58px);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: var(--blue-primary);
+}
+
+.program-day__focus {
+  max-width: 320px;
+  margin: 0;
+  text-align: right;
+  font-size: 18px;
+  line-height: 1.12;
+  color: rgba(11, 25, 54, 0.72);
+}
+
+.program-timeline {
+  width: min(1020px, 100%);
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.program-item {
+  display: grid;
+  grid-template-columns: 138px 1fr;
+  gap: 22px;
+  padding: 14px 0;
+}
+
+.program-time {
+  padding-top: 20px;
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  color: rgba(11, 25, 54, 0.68);
+}
+
+.program-card {
+  border-radius: 24px;
+  background: #fff;
+  border: 1px solid rgba(11, 25, 54, 0.12);
+  box-shadow: 0 12px 34px rgba(11, 25, 54, 0.08);
+  overflow: hidden;
+}
+
+.program-card__body {
+  padding: clamp(18px, 3vw, 28px);
+}
+
+.program-card h3,
+.program-card h4 {
+  margin: 0;
+  font-family: var(--font-title);
+  color: var(--blue-primary);
+  line-height: 1.08;
+}
+
+.program-card h3 {
+  font-size: clamp(24px, 2.5vw, 34px);
+  letter-spacing: -0.03em;
+}
+
+.program-card h4 {
+  font-size: clamp(19px, 2vw, 25px);
+  letter-spacing: -0.02em;
+}
+
+.program-kicker {
+  margin: 0 0 9px;
+  font-family: var(--font-title);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--link-accent);
+}
+
+.program-meta {
+  margin: 10px 0 0;
+  font-size: 18px;
+  line-height: 1.18;
+  color: rgba(11, 25, 54, 0.72);
+}
+
+.program-card--dark {
+  background: var(--blue-primary);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 20px 48px rgba(11, 25, 54, 0.22);
+}
+
+.program-card--dark h3,
+.program-card--dark h4,
+.program-card--dark .program-meta {
+  color: #fff;
+}
+
+.program-card--dark .program-meta {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.program-card--service {
+  background: rgba(255, 255, 255, 0.64);
+  box-shadow: none;
+}
+
+.program-card--break {
+  background: rgba(11, 25, 54, 0.055);
+  box-shadow: none;
+}
+
+.program-card--session .program-card__body {
+  padding: 0;
+}
+
+.program-session__head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(16px, 3vw, 26px);
+  padding: clamp(18px, 3vw, 28px);
+  background:
+    linear-gradient(90deg, rgba(0, 136, 255, 0.12), rgba(0, 136, 255, 0)),
+    #fff;
+}
+
+.program-topic-number {
+  min-width: 82px;
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: clamp(48px, 5vw, 74px);
+  line-height: 0.88;
+  color: var(--blue-primary);
+  opacity: 0.24;
+}
+
+.program-session__subtitle {
+  margin: 8px 0 0;
+  font-size: 18px;
+  line-height: 1.18;
+  color: rgba(11, 25, 54, 0.7);
+}
+
+.program-talks {
+  margin: 0;
+  padding: 0 clamp(18px, 3vw, 28px) clamp(14px, 2.5vw, 24px);
+  list-style: none;
+}
+
+.program-talk {
+  display: grid;
+  grid-template-columns: 104px 1fr;
+  gap: 16px;
+  padding: 15px 0;
+  border-top: 1px solid rgba(11, 25, 54, 0.12);
+}
+
+.program-talk__time {
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: rgba(11, 25, 54, 0.58);
+}
+
+.program-talk__title {
+  margin: 0;
+  font-family: var(--font-title);
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.12;
+  color: var(--blue-primary);
+}
+
+.program-talk__authors {
+  margin: 6px 0 0;
+  font-size: 17px;
+  line-height: 1.2;
+  color: rgba(11, 25, 54, 0.74);
+}
+
+.program-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 8px 4px 0;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: rgba(0, 136, 255, 0.12);
+  color: var(--link-accent);
+  font-family: var(--font-title);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  vertical-align: baseline;
+}
+
+.program-note-row {
+  margin-top: 12px;
+  padding: 13px 15px;
+  border-radius: 16px;
+  background: rgba(0, 136, 255, 0.1);
+  font-size: 17px;
+  color: rgba(11, 25, 54, 0.78);
+}
+
+@media (max-width: 900px) {
+  .program-daynav {
+    position: static;
+  }
+
+  .program-daynav__list {
+    grid-template-columns: 1fr;
+  }
+
+  .program-day__heading {
+    grid-template-columns: 1fr;
+  }
+
+  .program-day__focus {
+    max-width: none;
+    text-align: left;
+  }
+
+  .program-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 12px 0;
+  }
+
+  .program-time {
+    padding-top: 0;
+    padding-left: 4px;
+  }
+
+  .program-talk {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 560px) {
+  .program-intro,
+  .program-card {
+    border-radius: 20px;
+  }
+
+  .program-session__head {
+    grid-template-columns: 1fr;
+  }
+
+  .program-topic-number {
+    min-width: 0;
+    font-size: 48px;
+  }
+}
+
+    </style>
   </head>
   <body class="page">
     <!-- TOPNAV -->
@@ -94,7 +530,7 @@
       <section class="page-hero page-hero--program" aria-label="Program hero">
         <img
           class="page-hero__bg"
-          src="assets/program-hero-bg-1440.png"
+          src="/assets/program-hero-bg-1440.png"
           alt=""
           aria-hidden="true"
         />
@@ -105,18 +541,795 @@
         </div>
       </section>
 
+
       <!-- CONTENT -->
       <section class="section program-content">
-        <div class="container">
-          <div class="prose reveal">
+        <div class="container program-shell">
+          <header class="program-intro reveal on-load delay-3">
+            <p class="program-intro__eyebrow">Preliminary programme · 14–16 September 2026 · Mainz</p>
+            <h2>FAIR 3D Heritage conference programme</h2>
             <p>
-              The conference program will be announced in April 2026, following
-              the paper selection process. In addition to paper and poster
-              sessions, we plan to host workshops on 3D infrastructures and FAIR
-              3D data. The Organizing Committee also plans excursions to local
-              heritage sites in Mainz.
+              This is a preliminary programme draft. Session moderation, room details and selected social events may still be updated before publication.
             </p>
-          </div>
+          </header>
+
+          
+          <nav class="program-daynav reveal" aria-label="Programme days">
+            <ul class="program-daynav__list">
+              <li><a href="#day-1"><span class="program-daynav__day">Monday</span><span class="program-daynav__date">14 Sep</span></a></li>
+              <li><a href="#day-2"><span class="program-daynav__day">Tuesday</span><span class="program-daynav__date">15 Sep</span></a></li>
+              <li><a href="#day-3"><span class="program-daynav__day">Wednesday</span><span class="program-daynav__date">16 Sep</span></a></li>
+            </ul>
+          </nav>
+
+          
+          <section class="program-day" id="day-1">
+            <header class="program-day__heading reveal">
+              <div>
+                <p class="program-day__label">Monday · 14 September 2026</p>
+                <h2>Monday</h2>
+              </div>
+              <p class="program-day__focus">Opening, keynote, documentation practices and web visualisation</p>
+            </header>
+            <ol class="program-timeline">
+              
+        <li class="program-item reveal">
+          <div class="program-time">08:00–09:00</div>
+          <article class="program-card program-card--service">
+            <div class="program-card__body">
+              
+              <h4>Registration</h4>
+              
+            </div>
+          </article>
+        </li>
+
+        <li class="program-item reveal">
+          <div class="program-time">09:00–09:15</div>
+          <article class="program-card program-card--service">
+            <div class="program-card__body">
+              
+              <h4>Welcome</h4>
+              <p class="program-meta">Opening welcome by the organising team.</p>
+            </div>
+          </article>
+        </li>
+
+        <li class="program-item reveal">
+          <div class="program-time">09:15–10:00</div>
+          <article class="program-card program-card--dark">
+            <div class="program-card__body">
+              <p class="program-kicker">Keynote 1</p>
+              <h4>The Dream of ‘Critical Computer Visualisation’</h4>
+              <p class="program-meta">Hubertus Günther</p>
+            </div>
+          </article>
+        </li>
+
+        <li class="program-item reveal">
+          <div class="program-time">10:00–10:20</div>
+          <article class="program-card program-card--break">
+            <div class="program-card__body">
+              
+              <h4>Coffee break</h4>
+              
+            </div>
+          </article>
+        </li>
+
+        <li class="program-item reveal">
+          <div class="program-time">10:20–11:35</div>
+          <article class="program-card program-card--session">
+            <div class="program-card__body">
+              <header class="program-session__head">
+                <div class="program-topic-number">02</div>
+                <div>
+                  <p class="program-kicker">Topic area 02</p>
+                  <h3>Best Documentation Practices</h3>
+                  <p class="program-session__subtitle">Session 1 · Part I · Moderator TBA</p>
+                </div>
+              </header>
+              <ul class="program-talks">
+
+            <li class="program-talk">
+              <div class="program-talk__time">10:20–10:25</div>
+              <div>
+                <p class="program-talk__title">Intro</p>
+                
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">10:25–10:40</div>
+              <div>
+                <p class="program-talk__title">Invisible Transformations: Documenting Technical Metadata and Paradata in Web-Based 3D Workflows of Cultural Heritage Objects</p>
+                <p class="program-talk__authors">Susanne Bosche</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">10:40–10:55</div>
+              <div>
+                <p class="program-talk__title">Lightweight metadata for 3D representation of immovable cultural assets and their damages: bridging the gap between data quality standards and participative documentation methods</p>
+                <p class="program-talk__authors">Irena Schmitt, Fabian Rolke, Jyrki Oraskari</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">10:55–11:20</div>
+              <div>
+                <p class="program-talk__title">WissKI Barrels 3D Data Model – Quickstart</p>
+                <p class="program-talk__authors">Robert Nasarek, Igor Bajena</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">11:20–11:35</div>
+              <div>
+                <p class="program-talk__title">From Smartphone 3D to Federated Knowledge Graphs: Best Documentation Practices for Making Citizen-Generated 3D Heritage FAIR</p>
+                <p class="program-talk__authors">Florian Thiery</p>
+              </div>
+            </li>
+</ul>
+              
+            </div>
+          </article>
+        </li>
+
+        <li class="program-item reveal">
+          <div class="program-time">11:35–11:55</div>
+          <article class="program-card program-card--break">
+            <div class="program-card__body">
+              
+              <h4>Coffee break</h4>
+              
+            </div>
+          </article>
+        </li>
+
+        <li class="program-item reveal">
+          <div class="program-time">11:55–12:55</div>
+          <article class="program-card program-card--session">
+            <div class="program-card__body">
+              <header class="program-session__head">
+                <div class="program-topic-number">02</div>
+                <div>
+                  <p class="program-kicker">Topic area 02</p>
+                  <h3>Best Documentation Practices</h3>
+                  <p class="program-session__subtitle">Session 1 · Part II · Moderator TBA</p>
+                </div>
+              </header>
+              <ul class="program-talks">
+
+            <li class="program-talk">
+              <div class="program-talk__time">11:55–12:10</div>
+              <div>
+                <p class="program-talk__title">On the Scientific Validity of Virtual Reconstructions</p>
+                <p class="program-talk__authors">Markus Wacker, Marc Grellert, Jonas Bruschke, Daniel Beck, Wolfgang Stille, Christina Clausen, Petra Steiner</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">12:10–12:25</div>
+              <div>
+                <p class="program-talk__title">Formalising documentary provenance for unbuilt heritage: implementing source paradata in bSDD for an HBIM reconstruction framework</p>
+                <p class="program-talk__authors">Anna Sanseverino, Elisabetta Caterina Giovannini, Jacopo Bono</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">12:25–12:40</div>
+              <div>
+                <p class="program-talk__title">Hypothetical Architectural Reconstructions: A Methodological Framework for Transparent and Reproducible 3D Modelling in Cultural Heritage</p>
+                <p class="program-talk__authors">Federico Fallavollita, Fabrizio Ivan Apollonio, Riccardo Foschi</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">12:40–12:55</div>
+              <div>
+                <p class="program-talk__title">Explore 3D: Developing Good Practice Guideline for 3D Digitisation and Open Research Data</p>
+                <p class="program-talk__authors">Christian Felsner, Alexandre Bovey</p>
+              </div>
+            </li>
+</ul>
+              
+            </div>
+          </article>
+        </li>
+
+        <li class="program-item reveal">
+          <div class="program-time">13:00–14:00</div>
+          <article class="program-card program-card--break">
+            <div class="program-card__body">
+              
+              <h4>Lunch break</h4>
+              <p class="program-meta">Focaccia</p>
+            </div>
+          </article>
+        </li>
+
+        <li class="program-item reveal">
+          <div class="program-time">14:00–15:05</div>
+          <article class="program-card program-card--session">
+            <div class="program-card__body">
+              <header class="program-session__head">
+                <div class="program-topic-number">01</div>
+                <div>
+                  <p class="program-kicker">Topic area 01</p>
+                  <h3>3D World Wide Web Exploration and Visualisation</h3>
+                  <p class="program-session__subtitle">Session 2 · Moderator TBA</p>
+                </div>
+              </header>
+              <ul class="program-talks">
+
+            <li class="program-talk">
+              <div class="program-talk__time">14:00–14:05</div>
+              <div>
+                <p class="program-talk__title">Intro</p>
+                
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">14:05–14:20</div>
+              <div>
+                <p class="program-talk__title">Mapping Interaction Spaces: A Matrix for Transitional Interfaces in Virtual Reconstruction Research</p>
+                <p class="program-talk__authors">Deborah Ehlers, Jan-Henrik Schröder, Philipp Uesbeck</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">14:20–14:35</div>
+              <div>
+                <p class="program-talk__title">Towards (H)BIM Integration in Semantic Kompakkt: Evaluation of Web Libraries for a Modular Import Pipeline</p>
+                <p class="program-talk__authors">Kai Niebes, Zoe Schubert, Lozana Rossenova, Ina Blümel</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">14:35–14:50</div>
+              <div>
+                <p class="program-talk__title">From archive to experience: Reimagining digital archives as immersive knowledge spaces</p>
+                <p class="program-talk__authors">Max Frühwirt, Gerald Kozicz</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">14:50–15:05</div>
+              <div>
+                <p class="program-talk__title">Bridging 3D Visualisation and IIIF: The DLF AIM 3D Viewer for Interoperable and FAIR 3D Workflows</p>
+                <p class="program-talk__authors">Daniel Dworak</p>
+              </div>
+            </li>
+</ul>
+              
+            </div>
+          </article>
+        </li>
+
+        <li class="program-item reveal">
+          <div class="program-time">16:00–18:00</div>
+          <article class="program-card program-card--service">
+            <div class="program-card__body">
+              
+              <h4>Guided city walk / excursion</h4>
+              <p class="program-meta">Mainz</p>
+            </div>
+          </article>
+        </li>
+
+        <li class="program-item reveal">
+          <div class="program-time">18:00–21:00</div>
+          <article class="program-card program-card--service">
+            <div class="program-card__body">
+              
+              <h4>Wine and networking</h4>
+              <p class="program-meta">Lehmanns Vinothek</p>
+            </div>
+          </article>
+        </li>
+            </ol>
+          </section>
+          <section class="program-day" id="day-2">
+            <header class="program-day__heading reveal">
+              <div>
+                <p class="program-day__label">Tuesday · 15 September 2026</p>
+                <h2>Tuesday</h2>
+              </div>
+              <p class="program-day__focus">Sustainable 3D infrastructures, repositories and poster session</p>
+            </header>
+            <ol class="program-timeline">
+              
+        <li class="program-item reveal">
+          <div class="program-time">09:00–09:15</div>
+          <article class="program-card program-card--service">
+            <div class="program-card__body">
+              
+              <h4>Welcome</h4>
+              
+            </div>
+          </article>
+        </li>
+
+        <li class="program-item reveal">
+          <div class="program-time">09:15–10:00</div>
+          <article class="program-card program-card--dark">
+            <div class="program-card__body">
+              <p class="program-kicker">Keynote 2</p>
+              <h4>From Sketchfab to Scholarship: The Case for Sustainable 3D Infrastructures</h4>
+              <p class="program-meta">Costas Papadopoulos</p>
+            </div>
+          </article>
+        </li>
+
+        <li class="program-item reveal">
+          <div class="program-time">10:00–10:20</div>
+          <article class="program-card program-card--break">
+            <div class="program-card__body">
+              
+              <h4>Coffee break</h4>
+              
+            </div>
+          </article>
+        </li>
+
+        <li class="program-item reveal">
+          <div class="program-time">10:20–11:20</div>
+          <article class="program-card program-card--session">
+            <div class="program-card__body">
+              <header class="program-session__head">
+                <div class="program-topic-number">03</div>
+                <div>
+                  <p class="program-kicker">Topic area 03</p>
+                  <h3>Web-based Publication Infrastructures and Preservation Strategies</h3>
+                  <p class="program-session__subtitle">Session 3 · Part I · Moderator TBA</p>
+                </div>
+              </header>
+              <ul class="program-talks">
+
+            <li class="program-talk">
+              <div class="program-talk__time">10:20–10:25</div>
+              <div>
+                <p class="program-talk__title">Intro</p>
+                
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">10:25–10:40</div>
+              <div>
+                <p class="program-talk__title">Identifying Interdisciplinary Challenges Across 3D Data Creation/Curation Workflows</p>
+                <p class="program-talk__authors">M McCall Borozan, Zack Lischer-Katz, Matt Cook</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">10:40–10:55</div>
+              <div>
+                <p class="program-talk__title">Beyond the Viewer: Documentation Standards as Governance Infrastructure in 3D Heritage</p>
+                <p class="program-talk__authors">Shuyi Yin</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">10:55–11:20</div>
+              <div>
+                <p class="program-talk__title">Towards FAIR Architectural Data Collections</p>
+                <p class="program-talk__authors">Roger Winkler, Hana Svatoš-Ražnjević, Andreas Noback, Marc Fuhrmans, Tobias Schwinn, Achim Menges</p>
+              </div>
+            </li>
+</ul>
+              
+            </div>
+          </article>
+        </li>
+
+        <li class="program-item reveal">
+          <div class="program-time">11:20–11:35</div>
+          <article class="program-card program-card--break">
+            <div class="program-card__body">
+              
+              <h4>Coffee break</h4>
+              
+            </div>
+          </article>
+        </li>
+
+        <li class="program-item reveal">
+          <div class="program-time">11:35–12:55</div>
+          <article class="program-card program-card--session">
+            <div class="program-card__body">
+              <header class="program-session__head">
+                <div class="program-topic-number">03</div>
+                <div>
+                  <p class="program-kicker">Topic area 03</p>
+                  <h3>Web-based Publication Infrastructures and Preservation Strategies</h3>
+                  <p class="program-session__subtitle">Session 3 · Part II · Moderator TBA</p>
+                </div>
+              </header>
+              <ul class="program-talks">
+
+            <li class="program-talk">
+              <div class="program-talk__time">11:35–11:55</div>
+              <div>
+                <p class="program-talk__title">Implementing a distributed infrastructural workflow for 3D Models in Germany. Achievements of the DFG 3D-Viewer Project’s Second Funding Phase</p>
+                <p class="program-talk__authors">S. Münster, P. Kuroczyński, M. Mosch, I. Bajena, C. Beck, M. Weigelt, D. Dworak</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">11:55–12:10</div>
+              <div>
+                <p class="program-talk__title">WebHDP: An Institutional Web Architecture for the Automated Processing, LOD Generation, and Publication of 3D Heritage Data</p>
+                <p class="program-talk__authors">Dominik Ukolov</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">12:10–12:25</div>
+              <div>
+                <p class="program-talk__title">When More Data Is Not Enough: Preserving Robotically Fabricated Architecture</p>
+                <p class="program-talk__authors">Wen-Shan Cui, Adrian Leander Pöllinger, Laurence Crouzet, Silke Langenberg</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">12:25–12:40</div>
+              <div>
+                <p class="program-talk__title">From Documentation to Infrastructure: The Development of 3D Cultural Heritage Digitization in Ukraine</p>
+                <p class="program-talk__authors">Yuliia Frolova, Iana Boitsova</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">12:40–12:55</div>
+              <div>
+                <p class="program-talk__title">SummitShare: Digital Environments in Practice</p>
+                <p class="program-talk__authors">Daniel Tembo, Mario Maguya Jere, Thomas M. Gondwe, Mulenga Mpundu Kapwepwe, Taonga Makashinyi, Nhyira Amofa-Sekyi, Samba Yonga</p>
+              </div>
+            </li>
+</ul>
+              
+            </div>
+          </article>
+        </li>
+
+        <li class="program-item reveal">
+          <div class="program-time">13:00–14:00</div>
+          <article class="program-card program-card--break">
+            <div class="program-card__body">
+              
+              <h4>Lunch break</h4>
+              <p class="program-meta">Focaccia</p>
+            </div>
+          </article>
+        </li>
+
+        <li class="program-item reveal">
+          <div class="program-time">14:00–15:50</div>
+          <article class="program-card program-card--session">
+            <div class="program-card__body">
+              <header class="program-session__head">
+                <div class="program-topic-number">∞</div>
+                <div>
+                  <p class="program-kicker">Poster spotlights</p>
+                  <h3>Poster Session 1</h3>
+                  <p class="program-session__subtitle">Documentation and infrastructures · Moderator TBA</p>
+                </div>
+              </header>
+              <ul class="program-talks">
+
+            <li class="program-talk">
+              <div class="program-talk__time">14:00–14:10</div>
+              <div>
+                <p class="program-talk__title">Intro: Documentation and Infrastructures</p>
+                
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">14:10–14:16</div>
+              <div>
+                <p class="program-talk__title"><span class="program-pill">Doc</span>Multimodal Digitization of Medieval Armenian Ecclesiastical Architecture: A Case Study</p>
+                <p class="program-talk__authors">Narine Sarvazyan, Ethan Bourdeau, Aleksei Andrianov</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">14:16–14:22</div>
+              <div>
+                <p class="program-talk__title"><span class="program-pill">Doc</span>Enhancing Transparency in 3D Reconstruction: An Integrated Metadata and Paradata Framework for Multimodal UAV Documentation</p>
+                <p class="program-talk__authors">Ting-Jia Guo, Norbert Köster, Carolin Hemsing, Maximilian Berkel, Benjamin Risse</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">14:22–14:28</div>
+              <div>
+                <p class="program-talk__title"><span class="program-pill">Doc</span>Towards Automating FAIR Compliance in 3D Heritage Models: An AI-Enhanced Epistemological-Operational Framework in the Historic Center of Najaf</p>
+                <p class="program-talk__authors">Sabeeh Lafta Farhan</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">14:28–14:34</div>
+              <div>
+                <p class="program-talk__title"><span class="program-pill">Doc</span>3D-Based Design Environments and Common Data Environments for Sustainable Heritage Interventions: A Case Study in Castle Ruins</p>
+                <p class="program-talk__authors">Joanna Tokarska, Piotr Kuroczyński</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">14:34–14:40</div>
+              <div>
+                <p class="program-talk__title"><span class="program-pill">Inf</span>Preservation Infrastructure and the Problem of Digital Heritage Loss</p>
+                <p class="program-talk__authors">Somya Goel</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">14:40–14:46</div>
+              <div>
+                <p class="program-talk__title"><span class="program-pill">Inf</span>Completing the 3D Infrastructure: A One-Set Creation-to-Ingestion Model</p>
+                <p class="program-talk__authors">Winnie Lam</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">14:46–14:52</div>
+              <div>
+                <p class="program-talk__title"><span class="program-pill">Inf</span>3D4Vases – Dreidimensionale Digitalisierung der Karlsruher Vasensammlung und Entwicklung deskriptiver Standardverfahren</p>
+                <p class="program-talk__authors">Alexander Wolny, Susanne Erbelding, Christina Trikidou</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">14:52–14:58</div>
+              <div>
+                <p class="program-talk__title"><span class="program-pill">Inf</span>Preserving context in fragmented museum archives: a methodological approach to digital preservation</p>
+                <p class="program-talk__authors">Carolina Teixeira Sousa</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">14:58–15:04</div>
+              <div>
+                <p class="program-talk__title"><span class="program-pill">Inf</span>From music rooms in the illustrated press to FAIR heritage data: web-based infrastructures, provenance, and preservation in Digital Art History</p>
+                <p class="program-talk__authors">Ana Ester Tavares, Vera Moitinho de Almeida, Luís Trigo, Hugo Barreira</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">15:05–15:50</div>
+              <div>
+                <p class="program-talk__title">Discussion</p>
+                <p class="program-talk__authors">Moderator TBA</p>
+              </div>
+            </li>
+</ul>
+              <div class="program-note-row">Poster viewing and informal discussions may continue until approximately 17:00–17:30.</div>
+            </div>
+          </article>
+        </li>
+
+        <li class="program-item reveal">
+          <div class="program-time">18:00</div>
+          <article class="program-card program-card--service">
+            <div class="program-card__body">
+              
+              <h4>Invitation-only dinner</h4>
+              <p class="program-meta">Keynotes, project members, conference boards and selected participants</p>
+            </div>
+          </article>
+        </li>
+            </ol>
+          </section>
+          <section class="program-day" id="day-3">
+            <header class="program-day__heading reveal">
+              <div>
+                <p class="program-day__label">Wednesday · 16 September 2026</p>
+                <h2>Wednesday</h2>
+              </div>
+              <p class="program-day__focus">Practical guidelines, education, public engagement and closing</p>
+            </header>
+            <ol class="program-timeline">
+              
+        <li class="program-item reveal">
+          <div class="program-time">09:00–10:00</div>
+          <article class="program-card program-card--dark">
+            <div class="program-card__body">
+              <p class="program-kicker">Workshop</p>
+              <h4>DFG 3D-Viewer Practical Guidelines on metadata for 3D</h4>
+              
+            </div>
+          </article>
+        </li>
+
+        <li class="program-item reveal">
+          <div class="program-time">10:00–10:20</div>
+          <article class="program-card program-card--break">
+            <div class="program-card__body">
+              
+              <h4>Coffee break</h4>
+              
+            </div>
+          </article>
+        </li>
+
+        <li class="program-item reveal">
+          <div class="program-time">10:20–11:50</div>
+          <article class="program-card program-card--session">
+            <div class="program-card__body">
+              <header class="program-session__head">
+                <div class="program-topic-number">04</div>
+                <div>
+                  <p class="program-kicker">Topic area 04</p>
+                  <h3>Education, Outreach and Public Engagement with 3D</h3>
+                  <p class="program-session__subtitle">Session 4 · Moderator TBA</p>
+                </div>
+              </header>
+              <ul class="program-talks">
+
+            <li class="program-talk">
+              <div class="program-talk__time">10:20–10:25</div>
+              <div>
+                <p class="program-talk__title">Intro</p>
+                
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">10:25–10:40</div>
+              <div>
+                <p class="program-talk__title">How can MorphoSource, a community 3D repository, support educators and museum partners managing student-created data?</p>
+                <p class="program-talk__authors">Jocelyn Triplett, Douglas Boyer, Julie Winchester</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">10:40–10:55</div>
+              <div>
+                <p class="program-talk__title">Reconstructing Architectural Heritage through 3D and Immersive Technologies: Integrating Intangible Practices for Authentic Representation — A Transferable Framework from the Gedi Ruins Case Study</p>
+                <p class="program-talk__authors">Francisca Ayoo Omondi, Nwola Uduku</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">10:55–11:20</div>
+              <div>
+                <p class="program-talk__title">Experiencing the Past in 3D: Archaeological Research &amp; Museum Educational Programming Using Photogrammetry 3D Modeling of Bone Harpoons</p>
+                <p class="program-talk__authors">Lauren Malone, Harper Tooch, Elijah Mueni Mutiso, Hary Dass Olambla</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">11:20–11:35</div>
+              <div>
+                <p class="program-talk__title">Tactile Time: Interactive 3D Heritage and Art Experiences with TouchDesigner</p>
+                <p class="program-talk__authors">Eslam El Shamy</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">11:35–11:50</div>
+              <div>
+                <p class="program-talk__title">Learning in Immersive Museum Environments</p>
+                <p class="program-talk__authors">Emma June Huebner</p>
+              </div>
+            </li>
+</ul>
+              
+            </div>
+          </article>
+        </li>
+
+        <li class="program-item reveal">
+          <div class="program-time">11:50–12:10</div>
+          <article class="program-card program-card--break">
+            <div class="program-card__body">
+              
+              <h4>Coffee break</h4>
+              
+            </div>
+          </article>
+        </li>
+
+        <li class="program-item reveal">
+          <div class="program-time">12:10–13:45</div>
+          <article class="program-card program-card--session">
+            <div class="program-card__body">
+              <header class="program-session__head">
+                <div class="program-topic-number">∞</div>
+                <div>
+                  <p class="program-kicker">Poster spotlights</p>
+                  <h3>Poster Session 2</h3>
+                  <p class="program-session__subtitle">Web visualisation, education and public outreach · Moderator TBA</p>
+                </div>
+              </header>
+              <ul class="program-talks">
+
+            <li class="program-talk">
+              <div class="program-talk__time">12:10–12:20</div>
+              <div>
+                <p class="program-talk__title">Intro: Web visualisation, education and public outreach</p>
+                
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">12:20–12:26</div>
+              <div>
+                <p class="program-talk__title"><span class="program-pill">Vis</span>Integration of the fourth dimension in heritage visualization: A GIS-Based environment as a tool for multi-source data integration</p>
+                <p class="program-talk__authors">Maria Monica Cabarcas Granados, Filiberto Chiabrando, Daniel Luengas Carreño</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">12:26–12:32</div>
+              <div>
+                <p class="program-talk__title"><span class="program-pill">Vis</span>From Geometric Documentation to Knowledge Integration: A Web-Based Approach to Lightweight Point Cloud Management and Interaction for Historic Buildings</p>
+                <p class="program-talk__authors">Zhang Zhimin, Gao Panyu, Qin Zhiyun</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">12:32–12:38</div>
+              <div>
+                <p class="program-talk__title"><span class="program-pill">Edu</span>Innovative digital documentation framework for heritage education and outreach: Case study from India</p>
+                <p class="program-talk__authors">Khushi Shah, Rishabh Sharma</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">12:38–12:44</div>
+              <div>
+                <p class="program-talk__title"><span class="program-pill">Edu</span>A Roadmap for Education-Driven Heritage Sustainability: The Case of Harput Castle</p>
+                <p class="program-talk__authors">Fatih Ozkaynak</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">12:44–12:50</div>
+              <div>
+                <p class="program-talk__title"><span class="program-pill">Edu</span>From Points to Structured Knowledge: Teaching HBIM Workflows in Architectural Heritage Documentation</p>
+                <p class="program-talk__authors">Julian Gajdos</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">12:50–12:56</div>
+              <div>
+                <p class="program-talk__title"><span class="program-pill">Edu</span>Found in Archives, Translated in Extended Reality (XR): The Case of Access and Experience of the Ironside Memoirs</p>
+                <p class="program-talk__authors">Gabriele Salciute Civiliene, Marcel Karnapke</p>
+              </div>
+            </li>
+
+            <li class="program-talk">
+              <div class="program-talk__time">13:00–13:45</div>
+              <div>
+                <p class="program-talk__title">Discussion</p>
+                <p class="program-talk__authors">Moderator TBA</p>
+              </div>
+            </li>
+</ul>
+              
+            </div>
+          </article>
+        </li>
+
+        <li class="program-item reveal">
+          <div class="program-time">13:45–14:00</div>
+          <article class="program-card program-card--service">
+            <div class="program-card__body">
+              
+              <h4>Closing remarks</h4>
+              
+            </div>
+          </article>
+        </li>
+            </ol>
+          </section>
         </div>
       </section>
     </main>
@@ -132,4 +1345,3 @@
     <script src="script.js"></script>
   </body>
 </html>
-
