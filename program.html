@@ -31,444 +31,6 @@
 
     <title>Program | FAIR 3D Heritage</title>
     <link rel="stylesheet" href="style.css" />
-    <style>
-      /* =========================
-   PROGRAM PAGE
-   ========================= */
-      .program-content {
-        background:
-          radial-gradient(
-            circle at top left,
-            rgba(0, 136, 255, 0.12),
-            transparent 34rem
-          ),
-          linear-gradient(180deg, #ffffff 0%, #f6f8fb 100%);
-      }
-
-      body.page .program-content {
-        display: block;
-        align-items: initial;
-        padding-top: 0;
-        padding-bottom: 0;
-      }
-
-      .program-shell {
-        padding: clamp(42px, 6vw, 76px) 0 clamp(64px, 8vw, 110px);
-      }
-
-      .program-intro {
-        width: min(1020px, 100%);
-        margin: 0 auto clamp(30px, 5vw, 54px);
-        padding: clamp(24px, 4vw, 40px);
-        border-radius: 30px;
-        background: var(--blue-primary);
-        color: #fff;
-        box-shadow: 0 22px 60px rgba(11, 25, 54, 0.22);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .program-intro::after {
-        content: "";
-        position: absolute;
-        inset: auto -90px -140px auto;
-        width: 300px;
-        height: 300px;
-        border-radius: 999px;
-        background: rgba(0, 136, 255, 0.24);
-        filter: blur(4px);
-      }
-
-      .program-intro > * {
-        position: relative;
-        z-index: 1;
-      }
-
-      .program-intro__eyebrow {
-        display: inline-flex;
-        margin: 0 0 16px;
-        padding: 7px 13px;
-        border: 1px solid rgba(255, 255, 255, 0.36);
-        border-radius: 999px;
-        font-family: var(--font-title);
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: 0.09em;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.86);
-      }
-
-      .program-intro h2 {
-        margin: 0;
-        max-width: 860px;
-        font-family: var(--font-title);
-        font-size: clamp(34px, 4vw, 56px);
-        line-height: 1.04;
-        letter-spacing: -0.04em;
-        color: #fff;
-      }
-
-      .program-intro p {
-        max-width: 760px;
-        margin: 18px 0 0;
-        font-size: clamp(19px, 2vw, 24px);
-        line-height: 1.2;
-        color: rgba(255, 255, 255, 0.9);
-      }
-
-      .program-daynav {
-        position: sticky;
-        top: var(--topnav-h);
-        z-index: 40;
-        margin: 0 calc(50% - 50vw) clamp(36px, 5vw, 58px);
-        padding: 12px 0;
-        background: rgba(255, 255, 255, 0.9);
-        border-block: 1px solid rgba(11, 25, 54, 0.12);
-        backdrop-filter: blur(16px);
-      }
-
-      .program-daynav__list {
-        width: min(var(--container), calc(100% - (var(--pad) * 2)));
-        margin: 0 auto;
-        padding: 0;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-        list-style: none;
-      }
-
-      .program-daynav a {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        min-height: 52px;
-        padding: 10px 16px;
-        border: 1px solid rgba(11, 25, 54, 0.18);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.72);
-        font-family: var(--font-title);
-        font-weight: 700;
-        color: var(--blue-primary);
-        transition:
-          transform 0.2s ease,
-          box-shadow 0.2s ease,
-          border-color 0.2s ease;
-      }
-
-      .program-daynav a:hover,
-      .program-daynav a:focus-visible {
-        transform: translateY(-1px);
-        border-color: rgba(0, 136, 255, 0.55);
-        box-shadow: 0 14px 34px rgba(11, 25, 54, 0.12);
-        outline: none;
-      }
-
-      .program-daynav__day {
-        font-size: 15px;
-        letter-spacing: 0.03em;
-        text-transform: uppercase;
-      }
-
-      .program-daynav__date {
-        font-family: var(--font-body);
-        font-size: 15px;
-        font-weight: 700;
-        opacity: 0.72;
-      }
-
-      .program-day {
-        scroll-margin-top: calc(var(--topnav-h) + 92px);
-      }
-
-      .program-day + .program-day {
-        margin-top: clamp(54px, 8vw, 96px);
-      }
-
-      .program-day__heading {
-        width: min(1020px, 100%);
-        margin: 0 auto 24px;
-        padding-bottom: 18px;
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 24px;
-        align-items: end;
-        border-bottom: 1px solid rgba(11, 25, 54, 0.22);
-      }
-
-      .program-day__label {
-        margin: 0 0 8px;
-        font-family: var(--font-title);
-        font-size: 15px;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--link-accent);
-      }
-
-      .program-day__heading h2 {
-        margin: 0;
-        font-family: var(--font-title);
-        font-weight: 800;
-        font-size: clamp(34px, 4vw, 58px);
-        line-height: 1;
-        letter-spacing: -0.05em;
-        color: var(--blue-primary);
-      }
-
-      .program-day__focus {
-        max-width: 320px;
-        margin: 0;
-        text-align: right;
-        font-size: 18px;
-        line-height: 1.12;
-        color: rgba(11, 25, 54, 0.72);
-      }
-
-      .program-timeline {
-        width: min(1020px, 100%);
-        margin: 0 auto;
-        padding: 0;
-        list-style: none;
-      }
-
-      .program-item {
-        display: grid;
-        grid-template-columns: 138px 1fr;
-        gap: 22px;
-        padding: 14px 0;
-      }
-
-      .program-time {
-        padding-top: 20px;
-        font-family: var(--font-title);
-        font-weight: 800;
-        font-size: 15px;
-        line-height: 1.15;
-        letter-spacing: 0.04em;
-        color: rgba(11, 25, 54, 0.68);
-      }
-
-      .program-card {
-        border-radius: 24px;
-        background: #fff;
-        border: 1px solid rgba(11, 25, 54, 0.12);
-        box-shadow: 0 12px 34px rgba(11, 25, 54, 0.08);
-        overflow: hidden;
-      }
-
-      .program-card__body {
-        padding: clamp(18px, 3vw, 28px);
-      }
-
-      .program-card h3,
-      .program-card h4 {
-        margin: 0;
-        font-family: var(--font-title);
-        color: var(--blue-primary);
-        line-height: 1.08;
-      }
-
-      .program-card h3 {
-        font-size: clamp(24px, 2.5vw, 34px);
-        letter-spacing: -0.03em;
-      }
-
-      .program-card h4 {
-        font-size: clamp(19px, 2vw, 25px);
-        letter-spacing: -0.02em;
-      }
-
-      .program-kicker {
-        margin: 0 0 9px;
-        font-family: var(--font-title);
-        font-size: 13px;
-        font-weight: 800;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--link-accent);
-      }
-
-      .program-meta {
-        margin: 10px 0 0;
-        font-size: 18px;
-        line-height: 1.18;
-        color: rgba(11, 25, 54, 0.72);
-      }
-
-      .program-card--dark {
-        background: var(--blue-primary);
-        color: #fff;
-        border-color: rgba(255, 255, 255, 0.14);
-        box-shadow: 0 20px 48px rgba(11, 25, 54, 0.22);
-      }
-
-      .program-card--dark h3,
-      .program-card--dark h4,
-      .program-card--dark .program-meta {
-        color: #fff;
-      }
-
-      .program-card--dark .program-meta {
-        color: rgba(255, 255, 255, 0.78);
-      }
-
-      .program-card--service {
-        background: rgba(255, 255, 255, 0.64);
-        box-shadow: none;
-      }
-
-      .program-card--break {
-        background: rgba(11, 25, 54, 0.055);
-        box-shadow: none;
-      }
-
-      .program-card--session .program-card__body {
-        padding: 0;
-      }
-
-      .program-session__head {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: clamp(16px, 3vw, 26px);
-        padding: clamp(18px, 3vw, 28px);
-        background:
-          linear-gradient(90deg, rgba(0, 136, 255, 0.12), rgba(0, 136, 255, 0)),
-          #fff;
-      }
-
-      .program-topic-number {
-        min-width: 82px;
-        font-family: var(--font-title);
-        font-weight: 800;
-        font-size: clamp(48px, 5vw, 74px);
-        line-height: 0.88;
-        color: var(--blue-primary);
-        opacity: 0.24;
-      }
-
-      .program-session__subtitle {
-        margin: 8px 0 0;
-        font-size: 18px;
-        line-height: 1.18;
-        color: rgba(11, 25, 54, 0.7);
-      }
-
-      .program-talks {
-        margin: 0;
-        padding: 0 clamp(18px, 3vw, 28px) clamp(14px, 2.5vw, 24px);
-        list-style: none;
-      }
-
-      .program-talk {
-        display: grid;
-        grid-template-columns: 104px 1fr;
-        gap: 16px;
-        padding: 15px 0;
-        border-top: 1px solid rgba(11, 25, 54, 0.12);
-      }
-
-      .program-talk__time {
-        font-family: var(--font-title);
-        font-weight: 800;
-        font-size: 13px;
-        letter-spacing: 0.04em;
-        color: rgba(11, 25, 54, 0.58);
-      }
-
-      .program-talk__title {
-        margin: 0;
-        font-family: var(--font-title);
-        font-size: 18px;
-        font-weight: 800;
-        line-height: 1.12;
-        color: var(--blue-primary);
-      }
-
-      .program-talk__authors {
-        margin: 6px 0 0;
-        font-size: 17px;
-        line-height: 1.2;
-        color: rgba(11, 25, 54, 0.74);
-      }
-
-      .program-pill {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 8px 4px 0;
-        padding: 4px 9px;
-        border-radius: 999px;
-        background: rgba(0, 136, 255, 0.12);
-        color: var(--link-accent);
-        font-family: var(--font-title);
-        font-size: 12px;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        vertical-align: baseline;
-      }
-
-      .program-note-row {
-        margin-top: 12px;
-        padding: 13px 15px;
-        border-radius: 16px;
-        background: rgba(0, 136, 255, 0.1);
-        font-size: 17px;
-        color: rgba(11, 25, 54, 0.78);
-      }
-
-      @media (max-width: 900px) {
-        .program-daynav {
-          position: static;
-        }
-
-        .program-daynav__list {
-          grid-template-columns: 1fr;
-        }
-
-        .program-day__heading {
-          grid-template-columns: 1fr;
-        }
-
-        .program-day__focus {
-          max-width: none;
-          text-align: left;
-        }
-
-        .program-item {
-          grid-template-columns: 1fr;
-          gap: 8px;
-          padding: 12px 0;
-        }
-
-        .program-time {
-          padding-top: 0;
-          padding-left: 4px;
-        }
-
-        .program-talk {
-          grid-template-columns: 1fr;
-          gap: 5px;
-        }
-      }
-
-      @media (max-width: 560px) {
-        .program-intro,
-        .program-card {
-          border-radius: 20px;
-        }
-
-        .program-session__head {
-          grid-template-columns: 1fr;
-        }
-
-        .program-topic-number {
-          min-width: 0;
-          font-size: 48px;
-        }
-      }
-    </style>
   </head>
   <body class="page">
     <!-- TOPNAV -->
@@ -547,14 +109,9 @@
       <section class="section program-content">
         <div class="container program-shell">
           <header class="program-intro reveal on-load delay-3">
-            <p class="program-intro__eyebrow">
-              Preliminary programme · 14–16 September 2026 · Mainz
-            </p>
-            <h2>FAIR 3D Heritage conference programme</h2>
             <p>
-              This is a preliminary programme draft. Session moderation, room
-              details and selected social events may still be updated before
-              publication.
+              This is a preliminary programme draft. Session moderation and
+              selected social events may still be updated before publication.
             </p>
           </header>
 
@@ -607,7 +164,8 @@
                   <div class="program-card__body">
                     <h4>Welcome</h4>
                     <p class="program-meta">
-                      Opening welcome by the organising team.
+                      Opening welcome by the organising team and the President
+                      of the Hochschule Mainz.
                     </p>
                   </div>
                 </article>
@@ -615,9 +173,9 @@
 
               <li class="program-item reveal">
                 <div class="program-time">09:15–10:00</div>
-                <article class="program-card program-card--dark">
+                <article class="program-card program-card--service">
                   <div class="program-card__body">
-                    <p class="program-kicker">Keynote 1</p>
+                    <p class="program-kicker">Keynote</p>
                     <h4>The Dream of ‘Critical Computer Visualisation’</h4>
                     <p class="program-meta">Hubertus Günther</p>
                   </div>
@@ -638,7 +196,7 @@
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
                     <header class="program-session__head">
-                      <div class="program-topic-number">02</div>
+                      <div class="program-topic-number">01</div>
                       <div>
                         <p class="program-kicker">Topic area 02</p>
                         <h3>Best Documentation Practices</h3>
@@ -724,7 +282,7 @@
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
                     <header class="program-session__head">
-                      <div class="program-topic-number">02</div>
+                      <div class="program-topic-number">01</div>
                       <div>
                         <p class="program-kicker">Topic area 02</p>
                         <h3>Best Documentation Practices</h3>
@@ -801,7 +359,6 @@
                 <article class="program-card program-card--break">
                   <div class="program-card__body">
                     <h4>Lunch break</h4>
-                    <p class="program-meta">Focaccia</p>
                   </div>
                 </article>
               </li>
@@ -811,7 +368,7 @@
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
                     <header class="program-session__head">
-                      <div class="program-topic-number">01</div>
+                      <div class="program-topic-number">02</div>
                       <div>
                         <p class="program-kicker">Topic area 01</p>
                         <h3>3D World Wide Web Exploration and Visualisation</h3>
@@ -890,7 +447,7 @@
                 <article class="program-card program-card--service">
                   <div class="program-card__body">
                     <h4>Guided city walk / excursion</h4>
-                    <p class="program-meta">Mainz</p>
+                    <p class="program-meta">City Center of Mainz</p>
                   </div>
                 </article>
               </li>
@@ -900,7 +457,7 @@
                 <article class="program-card program-card--service">
                   <div class="program-card__body">
                     <h4>Wine and networking</h4>
-                    <p class="program-meta">Lehmanns Vinothek</p>
+                    <p class="program-meta">Lux Pavillion</p>
                   </div>
                 </article>
               </li>
@@ -928,9 +485,9 @@
 
               <li class="program-item reveal">
                 <div class="program-time">09:15–10:00</div>
-                <article class="program-card program-card--dark">
+                <article class="program-card program-card--service">
                   <div class="program-card__body">
-                    <p class="program-kicker">Keynote 2</p>
+                    <p class="program-kicker">Keynote</p>
                     <h4>
                       From Sketchfab to Scholarship: The Case for Sustainable 3D
                       Infrastructures
@@ -950,7 +507,7 @@
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">10:20–11:20</div>
+                <div class="program-time">10:20–11:35</div>
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
                     <header class="program-session__head">
@@ -1010,13 +567,28 @@
                           </p>
                         </div>
                       </li>
+
+                      <li class="program-talk">
+                        <div class="program-talk__time">11:20–11:35</div>
+                        <div>
+                          <p class="program-talk__title">
+                            Implementing a distributed infrastructural workflow
+                            for 3D Models in Germany. Achievements of the DFG
+                            3D-Viewer Project’s Second Funding Phase
+                          </p>
+                          <p class="program-talk__authors">
+                            S. Münster, P. Kuroczyński, M. Mosch, I. Bajena, C.
+                            Beck, M. Weigelt, D. Dworak
+                          </p>
+                        </div>
+                      </li>
                     </ul>
                   </div>
                 </article>
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">11:20–11:35</div>
+                <div class="program-time">11:35–11:55</div>
                 <article class="program-card program-card--break">
                   <div class="program-card__body">
                     <h4>Coffee break</h4>
@@ -1025,7 +597,7 @@
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">11:35–12:55</div>
+                <div class="program-time">11:55–12:55</div>
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
                     <header class="program-session__head">
@@ -1042,21 +614,6 @@
                       </div>
                     </header>
                     <ul class="program-talks">
-                      <li class="program-talk">
-                        <div class="program-talk__time">11:35–11:55</div>
-                        <div>
-                          <p class="program-talk__title">
-                            Implementing a distributed infrastructural workflow
-                            for 3D Models in Germany. Achievements of the DFG
-                            3D-Viewer Project’s Second Funding Phase
-                          </p>
-                          <p class="program-talk__authors">
-                            S. Münster, P. Kuroczyński, M. Mosch, I. Bajena, C.
-                            Beck, M. Weigelt, D. Dworak
-                          </p>
-                        </div>
-                      </li>
-
                       <li class="program-talk">
                         <div class="program-talk__time">11:55–12:10</div>
                         <div>
@@ -1120,7 +677,6 @@
                 <article class="program-card program-card--break">
                   <div class="program-card__body">
                     <h4>Lunch break</h4>
-                    <p class="program-meta">Focaccia</p>
                   </div>
                 </article>
               </li>
@@ -1130,10 +686,10 @@
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
                     <header class="program-session__head">
-                      <div class="program-topic-number">∞</div>
+                      <div class="program-topic-number">04</div>
                       <div>
                         <p class="program-kicker">Poster spotlights</p>
-                        <h3>Poster Session 1</h3>
+                        <h3>Poster Session A</h3>
                         <p class="program-session__subtitle">
                           Documentation and infrastructures · Moderator TBA
                         </p>
@@ -1294,19 +850,6 @@
                   </div>
                 </article>
               </li>
-
-              <li class="program-item reveal">
-                <div class="program-time">18:00</div>
-                <article class="program-card program-card--service">
-                  <div class="program-card__body">
-                    <h4>Invitation-only dinner</h4>
-                    <p class="program-meta">
-                      Keynotes, project members, conference boards and selected
-                      participants
-                    </p>
-                  </div>
-                </article>
-              </li>
             </ol>
           </section>
           <section class="program-day" id="day-3">
@@ -1321,8 +864,8 @@
             </header>
             <ol class="program-timeline">
               <li class="program-item reveal">
-                <div class="program-time">09:00–10:00</div>
-                <article class="program-card program-card--dark">
+                <div class="program-time">09:00–11:00</div>
+                <article class="program-card program-card--service">
                   <div class="program-card__body">
                     <p class="program-kicker">Workshop</p>
                     <h4>
@@ -1333,7 +876,7 @@
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">10:00–10:20</div>
+                <div class="program-time">11:00–11:20</div>
                 <article class="program-card program-card--break">
                   <div class="program-card__body">
                     <h4>Coffee break</h4>
@@ -1342,31 +885,31 @@
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">10:20–11:50</div>
+                <div class="program-time">11:20–12:50</div>
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
                     <header class="program-session__head">
-                      <div class="program-topic-number">04</div>
+                      <div class="program-topic-number">05</div>
                       <div>
                         <p class="program-kicker">Topic area 04</p>
                         <h3>
                           Education, Outreach and Public Engagement with 3D
                         </h3>
                         <p class="program-session__subtitle">
-                          Session 4 · Moderator TBA
+                          Session 6 · Moderator TBA
                         </p>
                       </div>
                     </header>
                     <ul class="program-talks">
                       <li class="program-talk">
-                        <div class="program-talk__time">10:20–10:25</div>
+                        <div class="program-talk__time">11:20–11:25</div>
                         <div>
                           <p class="program-talk__title">Intro</p>
                         </div>
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">10:25–10:40</div>
+                        <div class="program-talk__time">11:25–11:40</div>
                         <div>
                           <p class="program-talk__title">
                             How can MorphoSource, a community 3D repository,
@@ -1380,7 +923,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">10:40–10:55</div>
+                        <div class="program-talk__time">11:40–11:55</div>
                         <div>
                           <p class="program-talk__title">
                             Reconstructing Architectural Heritage through 3D and
@@ -1396,7 +939,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">10:55–11:20</div>
+                        <div class="program-talk__time">11:55–12:20</div>
                         <div>
                           <p class="program-talk__title">
                             Experiencing the Past in 3D: Archaeological Research
@@ -1411,7 +954,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">11:20–11:35</div>
+                        <div class="program-talk__time">12:20–12:35</div>
                         <div>
                           <p class="program-talk__title">
                             Tactile Time: Interactive 3D Heritage and Art
@@ -1422,7 +965,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">11:35–11:50</div>
+                        <div class="program-talk__time">12:35–12:50</div>
                         <div>
                           <p class="program-talk__title">
                             Learning in Immersive Museum Environments
@@ -1436,7 +979,7 @@
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">11:50–12:10</div>
+                <div class="program-time">12:50–13:10</div>
                 <article class="program-card program-card--break">
                   <div class="program-card__body">
                     <h4>Coffee break</h4>
@@ -1445,14 +988,14 @@
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">12:10–13:45</div>
+                <div class="program-time">13:10–14:45</div>
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
                     <header class="program-session__head">
-                      <div class="program-topic-number">∞</div>
+                      <div class="program-topic-number">06</div>
                       <div>
                         <p class="program-kicker">Poster spotlights</p>
-                        <h3>Poster Session 2</h3>
+                        <h3>Poster Session B</h3>
                         <p class="program-session__subtitle">
                           Web visualisation, education and public outreach ·
                           Moderator TBA
@@ -1461,7 +1004,7 @@
                     </header>
                     <ul class="program-talks">
                       <li class="program-talk">
-                        <div class="program-talk__time">12:10–12:20</div>
+                        <div class="program-talk__time">13:10–13:20</div>
                         <div>
                           <p class="program-talk__title">
                             Intro: Web visualisation, education and public
@@ -1471,7 +1014,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">12:20–12:26</div>
+                        <div class="program-talk__time">13:20–13:26</div>
                         <div>
                           <p class="program-talk__title">
                             <span class="program-pill">Vis</span>Integration of
@@ -1487,7 +1030,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">12:26–12:32</div>
+                        <div class="program-talk__time">13:26–13:32</div>
                         <div>
                           <p class="program-talk__title">
                             <span class="program-pill">Vis</span>From Geometric
@@ -1502,7 +1045,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">12:32–12:38</div>
+                        <div class="program-talk__time">13:32–13:38</div>
                         <div>
                           <p class="program-talk__title">
                             <span class="program-pill">Edu</span>Innovative
@@ -1516,7 +1059,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">12:38–12:44</div>
+                        <div class="program-talk__time">13:38–13:44</div>
                         <div>
                           <p class="program-talk__title">
                             <span class="program-pill">Edu</span>A Roadmap for
@@ -1528,7 +1071,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">12:44–12:50</div>
+                        <div class="program-talk__time">13:44–13:50</div>
                         <div>
                           <p class="program-talk__title">
                             <span class="program-pill">Edu</span>From Points to
@@ -1540,7 +1083,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">12:50–12:56</div>
+                        <div class="program-talk__time">13:50–13:56</div>
                         <div>
                           <p class="program-talk__title">
                             <span class="program-pill">Edu</span>Found in
@@ -1555,7 +1098,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">13:00–13:45</div>
+                        <div class="program-talk__time">14:00–14:45</div>
                         <div>
                           <p class="program-talk__title">Discussion</p>
                           <p class="program-talk__authors">Moderator TBA</p>
@@ -1567,7 +1110,7 @@
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">13:45–14:00</div>
+                <div class="program-time">14:45–15:00</div>
                 <article class="program-card program-card--service">
                   <div class="program-card__body">
                     <h4>Closing remarks</h4>
