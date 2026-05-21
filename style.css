@@ -10,7 +10,7 @@
     font-family: "Source Sans 3";
     font-style: normal;
     font-weight: 400;
-    src: url("/fonts/source-sans-3-v19-latin-regular.woff2") format("woff2");
+    src: url("fonts/source-sans-3-v19-latin-regular.woff2") format("woff2");
   }
   @font-face {
     font-display: swap;
@@ -744,19 +744,8 @@
     position: relative;
     height: 350px;
     overflow: hidden;
-  }
-
-  .page-hero__overlay {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: var(--topnav-h);
-    height: calc(100% - var(--topnav-h));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    flex: 0 0 auto;
+    z-index: 1;
   }
 
   .page-hero__bg {
@@ -766,6 +755,17 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+    z-index: 0;
+  }
+
+  .page-hero__overlay {
+    position: absolute;
+    inset: var(--topnav-h) 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 1;
   }
 
   @media (max-width: 720px) {
@@ -1190,6 +1190,8 @@
    PROGRAM PAGE
    ========================= */
 .program-content {
+  position: relative;
+  z-index: 2;
   background: #fff;
 }
 
