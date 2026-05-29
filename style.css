@@ -2247,41 +2247,27 @@ body.page .authors-content {
 }
 
 /* =========================================================
-   FOR AUTHORS — SECTION LAYOUT
+   CONFERENCE COMMITTEE SECTION
    Keep this block at the very end of style.css.
    ========================================================= */
 
-html:has(body.authors-page) {
-  scroll-snap-type: y proximity;
-}
-
-body.authors-page main > section {
-  scroll-snap-align: start;
-  scroll-snap-stop: normal;
-}
-
-body.authors-page .page-hero {
-  scroll-snap-align: start;
-}
-
-.authors-page .authors-section {
-  min-height: calc(100dvh - var(--nav-offset));
-  padding-top: 0;
-  padding-bottom: 0;
-  display: flex;
-  align-items: center;
-  scroll-margin-top: var(--nav-offset);
+#committee.section {
+  min-height: auto;
+  display: block;
+  padding-top: clamp(64px, 8vw, 108px);
+  padding-bottom: clamp(64px, 8vw, 108px);
+  background: #fff;
   overflow: visible;
 }
 
-.authors-page .authors-section > .container {
+#committee.section > .committee-shell {
   width: min(var(--container), calc(100% - (var(--pad) * 2)));
   margin-inline: auto;
-  padding-top: clamp(38px, 6vh, 72px);
-  padding-bottom: clamp(38px, 6vh, 72px);
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
-.authors-page .authors-section__kicker {
+.committee-kicker {
   margin: 0 0 8px;
   font-family: var(--font-title);
   font-size: 15px;
@@ -2292,137 +2278,573 @@ body.authors-page .page-hero {
   color: var(--link-accent);
 }
 
-.authors-page .authors-section .h2 {
-  margin-bottom: clamp(18px, 3vw, 30px);
+.committee-block {
+  margin-top: clamp(34px, 5vw, 58px);
 }
 
-.authors-page .authors-prose {
-  width: min(860px, 100%);
+.committee-subheading {
+  margin: 0 0 clamp(26px, 4vw, 42px);
+  font-family: var(--font-title);
+  font-size: clamp(26px, 3.4vw, 42px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  text-align: center;
+  color: var(--blue-primary);
+}
+
+.committee-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(34px, 4.5vw, 58px) clamp(24px, 4vw, 48px);
+  align-items: start;
+}
+
+.committee-card {
+  text-align: center;
+  min-width: 0;
+}
+
+.committee-card__photo {
+  position: relative;
+  width: clamp(132px, 12vw, 178px);
+  height: clamp(132px, 12vw, 178px);
+  margin: 0 auto 22px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(11, 25, 54, 0.06);
+  box-shadow: 0 12px 26px rgba(11, 25, 54, 0.12);
+  isolation: isolate;
+}
+
+.committee-card__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--committee-photo-x, 50%) var(--committee-photo-y, 50%);
+  filter: grayscale(1) contrast(0.5) brightness(0.75);
+  transform: scale(1.01);
+  transition:
+    filter 420ms ease,
+    transform 420ms ease;
+}
+
+.committee-card__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: rgb(86, 133, 159);
+  mix-blend-mode: color;
+  opacity: 0.95;
+  transform: translateY(0);
+  transition:
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 420ms ease;
+  pointer-events: none;
+}
+
+.committee-card:hover .committee-card__photo img,
+.committee-card:focus-within .committee-card__photo img {
+  filter: grayscale(0) contrast(1) brightness(1);
+  transform: scale(1.04);
+}
+
+.committee-card:hover .committee-card__photo::after,
+.committee-card:focus-within .committee-card__photo::after {
+  transform: translateY(-105%);
+}
+
+.committee-card__name {
+  margin: 0;
+  font-family: var(--font-title);
+  font-size: clamp(20px, 2vw, 27px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: var(--blue-primary);
+}
+
+.committee-card__affiliation {
+  margin: 10px 0 0;
+  font-size: clamp(17px, 1.45vw, 20px);
+  line-height: 1.18;
+  color: rgba(11, 25, 54, 0.72);
+}
+
+.committee-card__bio-btn {
+  appearance: none;
+  margin-top: 16px;
+  padding: 8px 16px;
+  border: 1px solid rgba(11, 25, 54, 0.16);
+  border-radius: 999px;
+  background: rgba(11, 25, 54, 0.055);
+  color: var(--blue-primary);
+  font-family: var(--font-foot);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.committee-card__bio-btn:hover,
+.committee-card__bio-btn:focus-visible {
+  background: rgba(0, 136, 255, 0.1);
+  border-color: rgba(0, 136, 255, 0.45);
+  box-shadow: 0 12px 28px rgba(11, 25, 54, 0.12);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.committee-bios {
+  display: none;
+}
+
+.committee-modal[hidden] {
+  display: none;
+}
+
+.committee-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(18px, 4vw, 48px);
+}
+
+.committee-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 25, 54, 0.45);
+  backdrop-filter: blur(5px);
+}
+
+.committee-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(760px, 100%);
+  max-height: min(78dvh, 720px);
+  overflow: auto;
+  padding: clamp(28px, 4vw, 46px);
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 28px 72px rgba(11, 25, 54, 0.34);
+  color: var(--blue-primary);
+}
+
+.committee-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--blue-primary);
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.72;
+}
+
+.committee-modal__close:hover,
+.committee-modal__close:focus-visible {
+  opacity: 1;
+  outline: none;
+}
+
+.committee-modal__content h3 {
+  margin: 0 44px 20px 0;
+  font-family: var(--font-title);
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--blue-primary);
+}
+
+.committee-modal__content p {
+  margin: 0 0 16px;
+  font-size: clamp(18px, 1.7vw, 22px);
+  line-height: 1.28;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  color: var(--blue-primary);
+}
+
+body.committee-modal-open {
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+}
+
+@media (max-width: 1080px) {
+  .committee-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .committee-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .committee-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .committee-card__photo {
+    width: 168px;
+    height: 168px;
+  }
+}
+/* Committee affiliation spacing for multiple affiliations */
+.committee-card__affiliation--stacked {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+/* Committee role + bio button row */
+.committee-card__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.committee-card__role {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 7px 14px;
+  border: 1px solid rgba(0, 136, 255, 0.55);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--link-accent);
+  font-family: var(--font-foot);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.committee-card__bio-btn {
+  margin-top: 0;
+  min-height: 34px;
+  padding: 7px 14px;
+}
+
+/* =========================================================
+   COMMITTEE ROLE BADGES + BUTTON SPACING
+   Keep this block at the very end of style.css.
+   ========================================================= */
+
+.committee-card__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+
+.committee-card__role {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 7px 14px;
+  border: 1px solid rgba(0, 136, 255, 0.55);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--link-accent);
+  font-family: var(--font-foot);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.committee-card__bio-btn {
+  margin-top: 0;
+  min-height: 34px;
+  padding: 7px 14px;
+}
+
+@media (max-width: 520px) {
+  .committee-card__actions {
+    margin-top: 22px;
+  }
+}
+/* =========================================================
+   COMMITTEE SMALL FIXES — spacing + hover state
+   Keep this block at the very end of style.css.
+   ========================================================= */
+
+.committee-card__affiliation {
+  font-size: clamp(15px, 1.2vw, 18px);
+  line-height: 1.16;
+}
+
+.committee-card__actions {
+  margin-top: 12px;
+  gap: 12px;
+  row-gap: 10px;
+}
+
+.committee-card__role,
+.committee-card__bio-btn {
+  min-height: 34px;
+  padding: 7px 14px;
+}
+
+.committee-card__bio-btn {
+  margin-top: 0;
+}
+
+/* Do not keep the photo opened only because the bio button remains focused */
+.committee-card:focus-within .committee-card__photo img {
+  filter: grayscale(1) contrast(0.5) brightness(0.75);
+  transform: scale(1.01);
+}
+
+.committee-card:focus-within .committee-card__photo::after {
+  transform: translateY(0);
+}
+
+/* Hover remains the only state that opens the photo filter */
+.committee-card:hover .committee-card__photo img {
+  filter: grayscale(0) contrast(1) brightness(1);
+  transform: scale(1.04);
+}
+
+.committee-card:hover .committee-card__photo::after {
+  transform: translateY(-105%);
+}
+/* Committee grid: centre incomplete last row on desktop */
+@media (min-width: 1081px) {
+  .committee-grid > .committee-card:nth-last-child(2) {
+    grid-column: 2;
+  }
+
+  .committee-grid > .committee-card:last-child {
+    grid-column: 3;
+  }
+}
+
+/* =========================================================
+   COMMITTEE MODAL — no background change, no scroll jump
+   ========================================================= */
+
+.committee-modal__backdrop {
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
+body.committee-modal-open {
+  position: static !important;
+  width: auto !important;
+  overflow: visible !important;
+}
+
+/* =========================================================
+   COMMITTEE DARK BACKGROUND FINAL OVERRIDE
+   ========================================================= */
+
+#committee.section.section--dark {
+  background: var(--blue-primary) !important;
+  color: #fff;
+}
+
+#committee.section.section--dark .h2,
+#committee.section.section--dark .committee-card__name {
+  color: #fff;
+}
+
+#committee.section.section--dark .committee-card__affiliation {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+#committee.section.section--dark .committee-card__role {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #fff;
+}
+
+#committee.section.section--dark .committee-card__bio-btn {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(255, 255, 255, 0.92);
+  color: var(--blue-primary);
+}
+
+#committee.section.section--dark .committee-card__bio-btn:hover,
+#committee.section.section--dark .committee-card__bio-btn:focus-visible {
+  background: #fff;
+  border-color: #fff;
+}
+
+/* modal ma dalej zostać biały i czytelny */
+#committee.section.section--dark .committee-modal__dialog {
+  background: #fff;
+  color: var(--blue-primary);
+}
+
+#committee.section.section--dark .committee-modal__content h3,
+#committee.section.section--dark .committee-modal__content p {
+  color: var(--blue-primary);
+}
+
+/* =========================================================
+   FOR AUTHORS PAGE — FINAL SECTION LAYOUT
+   ========================================================= */
+
+body.authors-page .authors-section {
+  min-height: calc(100dvh - var(--topnav-h));
+  display: flex;
+  align-items: center;
+  padding-top: clamp(64px, 8vw, 108px);
+  padding-bottom: clamp(64px, 8vw, 108px);
+}
+
+body.authors-page .authors-section > .container {
+  width: min(900px, calc(100% - (var(--pad) * 2)));
   margin-inline: auto;
 }
 
-.authors-page .authors-prose h3 {
-  margin: 34px 0 12px;
-  font-family: var(--font-title);
-  font-size: clamp(22px, 2vw, 30px);
-  font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-  color: var(--blue-primary);
-  text-align: center;
+body.authors-page .authors-section .h2 {
+  margin-bottom: 34px;
+  padding-bottom: 0;
 }
 
-.authors-page .authors-prose p {
-  margin: 0 0 18px;
-  font-size: clamp(20px, 1.9vw, 24px);
-  line-height: 1.16;
+body.authors-page .authors-section__kicker {
+  margin: 0 0 10px;
+  font-family: var(--font-title);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--link-accent);
+}
+
+body.authors-page .authors-prose {
+  width: 100%;
+  max-width: 760px;
+  margin-inline: auto;
+  font-size: clamp(18px, 1.45vw, 22px);
+  line-height: 1.22;
+}
+
+body.authors-page .authors-prose p {
+  margin: 0 0 22px;
   text-align: justify;
   text-justify: inter-word;
   hyphens: auto;
 }
 
-.authors-page .authors-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 14px;
-  margin: 28px 0 8px;
-}
-
-.authors-page .authors-section--dark,
-.authors-page .authors-section--dark .h2,
-.authors-page .authors-section--dark .authors-prose,
-.authors-page .authors-section--dark .authors-prose p,
-.authors-page .authors-section--dark .authors-prose h3 {
-  color: #fff;
-}
-
-.authors-page .authors-section--dark .fx-link {
-  color: #fff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.52);
-}
-
-.authors-page .authors-btn--light {
-  background: #fff;
+body.authors-page .authors-prose h3 {
+  margin: 38px 0 18px;
+  font-family: var(--font-title);
+  font-size: clamp(24px, 2.2vw, 32px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  text-align: center;
   color: var(--blue-primary);
-  border: 2px solid #fff;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
 }
 
-.authors-page .authors-btn--light:hover,
-.authors-page .authors-btn--light:focus-visible {
-  opacity: 0.7;
-  outline: none;
+body.authors-page .authors-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 24px 0 34px;
+}
+
+body.authors-page .authors-actions:last-child {
+  margin-bottom: 0;
+}
+
+body.authors-page .authors-section--dark,
+body.authors-page .section--dark.authors-section {
+  background: var(--blue-primary);
+  color: #fff;
+}
+
+body.authors-page .authors-section--dark .h2,
+body.authors-page .authors-section--dark .authors-prose,
+body.authors-page .authors-section--dark .authors-prose p {
+  color: #fff;
+}
+
+body.authors-page .authors-section--dark .authors-prose h3 {
+  color: #fff;
+}
+
+body.authors-page .authors-btn--light {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  box-shadow: none;
+}
+
+body.authors-page .authors-btn--light:hover,
+body.authors-page .authors-btn--light:focus-visible {
+  background: rgba(255, 255, 255, 0.12);
+  opacity: 1;
+}
+
+@media (max-width: 860px) {
+  body.authors-page .authors-section {
+    min-height: auto;
+    display: block;
+    padding-top: 54px;
+    padding-bottom: 54px;
+  }
+
+  body.authors-page .authors-actions {
+    flex-direction: column;
+  }
+
+  body.authors-page .authors-actions .btn {
+    width: 100%;
+    max-width: 340px;
+  }
+}
+/* =========================================================
+   FOR AUTHORS PAGE — RESTORE SECTION SNAPPING
+   ========================================================= */
+
+html:has(body.authors-page) {
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+}
+
+body.authors-page main > section {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+body.authors-page main > section[id] {
+  scroll-margin-top: var(--topnav-h);
 }
 
 @media (max-width: 860px) {
   html:has(body.authors-page) {
     scroll-snap-type: none;
   }
-
-  .authors-page .authors-section {
-    min-height: auto;
-    display: block;
-    padding-top: 35px;
-    padding-bottom: 35px;
-  }
-
-  .authors-page .authors-prose {
-    width: 100%;
-  }
-
-  .authors-page .authors-actions {
-    align-items: stretch;
-    flex-direction: column;
-  }
-
-  .authors-page .authors-actions .btn {
-    width: 100%;
-  }
-}
-
-/* =========================================================
-   TOPNAV ALIGNMENT FINAL FIX
-   Keep this block at the very end of style.css.
-   ========================================================= */
-
-@media (min-width: 861px) {
-  .topnav_links {
-    display: flex;
-    align-items: center;
-  }
-
-  .topnav__item {
-    display: inline-flex;
-    align-items: center;
-  }
-
-  .topnav__link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 38px;
-    padding-top: 0;
-    padding-bottom: 0;
-    line-height: 1;
-  }
-
-  .topnav__link--dropdown {
-    gap: 0.45em;
-  }
-
-  .topnav__link--dropdown::after {
-    margin-left: 0;
-    position: relative;
-    top: 0;
-    flex: 0 0 auto;
-    transform: rotate(45deg);
-  }
-}
-/* Disable persistent active highlight only in Programme dropdown */
-.topnav__dropdown[aria-label="PROGRAMME submenu"]
-  .topnav__dropdown-item.is-active
-  .topnav__dropdown-link {
-  background: transparent;
-  color: var(--blue-primary);
 }

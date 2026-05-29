@@ -44,14 +44,14 @@
           },
           { key: "venue", label: "Venue", href: "index.html#venue" },
           {
-            key: "committee",
-            label: "Programme Committee",
-            href: "index.html#committee",
-          },
-          {
             key: "organizers",
             label: "Organizers",
             href: "index.html#organizers",
+          },
+          {
+            key: "committee",
+            label: "Conference Committee",
+            href: "index.html#committee",
           },
         ],
       },
@@ -549,4 +549,73 @@
   }
 
   window.addEventListener("DOMContentLoaded", initVenueMap);
+})();
+
+/* Conference Committee bio modal */
+(() => {
+  function initCommitteeBioModal() {
+    const modal = document.getElementById("committeeBioModal");
+    const content = document.getElementById("committeeBioContent");
+    if (!modal || !content) return;
+
+    function openModal(targetId) {
+      const source = document.getElementById(targetId);
+      if (!source) return;
+
+      content.innerHTML = source.innerHTML;
+
+      const title = content.querySelector("h3");
+      if (title) {
+        title.id = "committeeBioTitle";
+      }
+
+      modal.hidden = false;
+      modal.setAttribute("aria-hidden", "false");
+    }
+
+    function closeModal() {
+      modal.hidden = true;
+      modal.setAttribute("aria-hidden", "true");
+      content.innerHTML = "";
+
+      if (
+        document.activeElement &&
+        typeof document.activeElement.blur === "function"
+      ) {
+        document.activeElement.blur();
+      }
+
+      document
+        .querySelectorAll(".committee-card__bio-btn")
+        .forEach((button) => {
+          button.blur();
+        });
+    }
+
+    document.addEventListener("click", (event) => {
+      const bioButton = event.target.closest("[data-bio-target]");
+
+      if (bioButton) {
+        event.preventDefault();
+        openModal(bioButton.dataset.bioTarget);
+        return;
+      }
+
+      if (event.target.closest("[data-committee-modal-close]")) {
+        closeModal();
+      }
+    });
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !modal.hidden) {
+        closeModal();
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCommitteeBioModal);
+  } else {
+    initCommitteeBioModal();
+  }
 })();
