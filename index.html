@@ -45,60 +45,7 @@
   </head>
 
   <body>
-    <header class="topnav" id="topnav">
-      <h2 class="visually-hidden">Header</h2>
-      <div class="wrapper">
-        <a href="index.html" class="topnav__homelink">
-          <img
-            src="assets/Logo.svg"
-            alt="FAIR 3D Heritage"
-            class="topnav__logo"
-          />
-        </a>
-
-        <button
-          class="topnav__toggle"
-          id="navToggle"
-          aria-label="Open menu"
-          aria-expanded="false"
-          aria-controls="mainMenu"
-          type="button"
-        >
-          <img
-            src="assets/Burger.svg"
-            alt=""
-            class="topnav__toggle-icon"
-            width="24"
-            height="24"
-          />
-        </button>
-
-        <nav class="menu" id="mainMenu" aria-label="Main navigation">
-          <ul class="topnav_links">
-            <li class="topnav__item is-active">
-              <a href="index.html" class="topnav__link">HOME</a>
-            </li>
-            <li class="topnav__item">
-              <a href="#about" class="topnav__link">ABOUT</a>
-            </li>
-            <li class="topnav__item">
-              <a href="call-for-papers.html" class="topnav__link"
-                >CALL FOR PAPERS</a
-              >
-            </li>
-            <li class="topnav__item">
-              <a href="program.html" class="topnav__link">PROGRAM</a>
-            </li>
-            <li class="topnav__item">
-              <a href="registration.html" class="topnav__link">REGISTRATION</a>
-            </li>
-            <li class="topnav__item">
-              <a href="contact.html" class="topnav__link">CONTACT</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <div id="site-header" data-active="home"></div>
 
     <main id="main">
       <section class="hero">
@@ -126,11 +73,7 @@
             </p>
 
             <div class="hero__actions reveal on-load delay-4">
-              <a
-                class="btn"
-              >
-                CALL IS CLOSED
-              </a>
+              <a class="btn"> CALL IS CLOSED </a>
             </div>
           </div>
         </div>
@@ -204,16 +147,16 @@
               <dd>Jan 2026</dd>
             </div>
             <div class="keydates__row">
-  <dt>Abstract Submission</dt>
-  <dd><s>15 Mar 2026    </s> 31 Mar 2026</dd>
-</div>
-<div class="keydates__row">
-  <dt>Notification of Acceptance</dt>
-  <dd><s>31 Mar 2026    </s> 15 Apr 2026</dd>
-</div>
+              <dt>Abstract Submission</dt>
+              <dd><s>15 Mar 2026 </s> 31 Mar 2026</dd>
+            </div>
+            <div class="keydates__row">
+              <dt>Notification of Acceptance</dt>
+              <dd><s>31 Mar 2026 </s> 30 Apr 2026</dd>
+            </div>
             <div class="keydates__row">
               <dt>Registration Opens</dt>
-              <dd>Apr 2026</dd>
+              <dd>May 2026</dd>
             </div>
             <div class="keydates__row">
               <dt>Conference</dt>
@@ -274,6 +217,16 @@
               sites is planned as part of the programme. The event is planned
               on-site only.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="committee">
+        <div class="container">
+          <h2 class="h2 reveal">Programme Committee</h2>
+
+          <div class="prose reveal">
+            <p>The programme committee will be announced soon.</p>
           </div>
         </div>
       </section>

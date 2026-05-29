@@ -18,6 +18,176 @@
 
   document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
+  function renderTopnav() {
+    const mount = document.getElementById("site-header");
+    if (!mount) return;
+
+    const active = mount.dataset.active || "";
+
+    const navItems = [
+      { key: "home", label: "HOME", href: "index.html" },
+      {
+        key: "conference",
+        label: "CONFERENCE",
+        href: "index.html#about",
+        children: [
+          {
+            key: "about",
+            label: "About the conference",
+            href: "index.html#about",
+          },
+          { key: "dates", label: "Key dates", href: "index.html#dates" },
+          {
+            key: "funding",
+            label: "Funding & costs",
+            href: "index.html#funding",
+          },
+          { key: "venue", label: "Venue", href: "index.html#venue" },
+          {
+            key: "committee",
+            label: "Programme Committee",
+            href: "index.html#committee",
+          },
+          {
+            key: "organizers",
+            label: "Organizers",
+            href: "index.html#organizers",
+          },
+        ],
+      },
+      { key: "cfp", label: "CALL FOR PAPERS", href: "call-for-papers.html" },
+      {
+        key: "programme",
+        label: "PROGRAMME",
+        href: "program.html",
+        children: [
+          {
+            key: "program",
+            label: "Conference programme",
+            href: "program.html",
+          },
+          { key: "keynotes", label: "Keynote speakers", href: "keynotes.html" },
+          {
+            key: "programme-pdf",
+            label: "Download programme PDF",
+            href: "assets/Confernece_program_2026-05-23_draft.pdf",
+            target: "_blank",
+          },
+        ],
+      },
+      {
+        key: "authors",
+        label: "FOR AUTHORS",
+        href: "for-authors.html",
+        children: [
+          {
+            key: "presentation-guidelines",
+            label: "Presentation guidelines",
+            href: "for-authors.html#presentation-guidelines",
+          },
+          {
+            key: "abstract-template",
+            label: "Abstract template",
+            href: "for-authors.html#abstract-template",
+          },
+          {
+            key: "proceedings",
+            label: "Proceedings",
+            href: "for-authors.html#proceedings",
+          },
+        ],
+      },
+      { key: "registration", label: "REGISTRATION", href: "registration.html" },
+      { key: "contact", label: "CONTACT", href: "contact.html" },
+    ];
+
+    const isItemActive = (item) =>
+      active === item.key ||
+      Boolean(
+        item.children && item.children.some((child) => child.key === active),
+      );
+
+    const renderLink = (item, className) => {
+      const target = item.target
+        ? ` target="${item.target}" rel="noopener noreferrer"`
+        : "";
+      return `<a href="${item.href}" class="${className}"${target}>${item.label}</a>`;
+    };
+
+    const links = navItems
+      .map((item) => {
+        const hasDropdown =
+          Array.isArray(item.children) && item.children.length > 0;
+        const activeClass = isItemActive(item) ? " is-active" : "";
+
+        if (!hasDropdown) {
+          return `
+        <li class="topnav__item${activeClass}">
+          ${renderLink(item, "topnav__link")}
+        </li>`;
+        }
+
+        const childLinks = item.children
+          .map((child) => {
+            const childActiveClass = active === child.key ? " is-active" : "";
+            return `
+              <li class="topnav__dropdown-item${childActiveClass}">
+                ${renderLink(child, "topnav__dropdown-link")}
+              </li>`;
+          })
+          .join("");
+
+        return `
+        <li class="topnav__item topnav__item--has-dropdown${activeClass}">
+          ${renderLink(item, "topnav__link topnav__link--dropdown")}
+          <ul class="topnav__dropdown" aria-label="${item.label} submenu">
+            ${childLinks}
+          </ul>
+        </li>`;
+      })
+      .join("");
+
+    mount.outerHTML = `
+    <!-- TOPNAV -->
+    <header class="topnav" id="topnav">
+      <h2 class="visually-hidden">Header</h2>
+      <div class="wrapper">
+        <a href="index.html" class="topnav__homelink">
+          <img
+            src="assets/Logo.svg"
+            alt="FAIR 3D Heritage"
+            class="topnav__logo"
+          />
+        </a>
+
+        <button
+          class="topnav__toggle"
+          id="navToggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mainMenu"
+          type="button"
+        >
+          <img
+            src="assets/Burger.svg"
+            alt=""
+            class="topnav__toggle-icon"
+            width="24"
+            height="24"
+          />
+        </button>
+
+        <nav class="menu" id="mainMenu" aria-label="Main navigation">
+          <ul class="topnav_links">
+            ${links}
+          </ul>
+        </nav>
+      </div>
+    </header>`;
+  }
+
+  renderTopnav();
+
   // 3) Navbar transparent -> color on scroll
   const nav = document.getElementById("topnav");
   const threshold = 20;
@@ -67,6 +237,115 @@
       if (window.innerWidth > 860) setMenuState(false);
     });
   }
+
+  // 5) Programme day navigation: highlight active day while scrolling
+  function initProgramDayNavigation() {
+    const dayNav = document.querySelector(".program-daynav");
+    if (!dayNav) return;
+
+    const links = Array.from(dayNav.querySelectorAll('a[href^="#day-"]'));
+    const days = links
+      .map((link) => {
+        const id = link.getAttribute("href").slice(1);
+        return { id, link, section: document.getElementById(id) };
+      })
+      .filter((item) => item.section);
+
+    if (!days.length) return;
+
+    function setActiveDay(activeId) {
+      days.forEach(({ id, link }) => {
+        const isActive = id === activeId;
+        link.classList.toggle("is-active", isActive);
+        if (isActive) {
+          link.setAttribute("aria-current", "true");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+    }
+
+    let ticking = false;
+
+    function getOffset() {
+      const navEl = document.getElementById("topnav");
+      const navHeight = navEl ? navEl.getBoundingClientRect().height : 0;
+      const dayNavHeight = dayNav.getBoundingClientRect().height || 0;
+      return navHeight + dayNavHeight + 28;
+    }
+
+    function updateActiveDay() {
+      const offset = getOffset();
+      let activeId = days[0].id;
+
+      days.forEach(({ id, section }) => {
+        if (section.getBoundingClientRect().top <= offset) {
+          activeId = id;
+        }
+      });
+
+      setActiveDay(activeId);
+      ticking = false;
+    }
+
+    function requestUpdate() {
+      if (!ticking) {
+        window.requestAnimationFrame(updateActiveDay);
+        ticking = true;
+      }
+    }
+
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        const id = link.getAttribute("href").slice(1);
+        setActiveDay(id);
+      });
+    });
+
+    updateActiveDay();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    window.addEventListener("hashchange", requestUpdate);
+  }
+
+  initProgramDayNavigation();
+
+  // 5b) Keynotes: language toggle for Hubertus Günther
+  function initKeynoteLanguageToggle() {
+    const toggleButtons = document.querySelectorAll(
+      "[data-keynote-target][data-keynote-lang]",
+    );
+    if (!toggleButtons.length) return;
+
+    function setLanguage(targetId, lang) {
+      const buttons = document.querySelectorAll(
+        `[data-keynote-target="${targetId}"]`,
+      );
+      const panels = document.querySelectorAll(
+        `[data-keynote-panel="${targetId}"]`,
+      );
+
+      buttons.forEach((button) => {
+        const isActive = button.dataset.keynoteLang === lang;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+
+      panels.forEach((panel) => {
+        const isActive = panel.dataset.lang === lang;
+        panel.classList.toggle("is-active", isActive);
+        panel.hidden = !isActive;
+      });
+    }
+
+    toggleButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        setLanguage(button.dataset.keynoteTarget, button.dataset.keynoteLang);
+      });
+    });
+  }
+
+  initKeynoteLanguageToggle();
 
   // 5) Hero arrow: pozycja + smooth scroll do #about
   const hero = document.querySelector(".hero");

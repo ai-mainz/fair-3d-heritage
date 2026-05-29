@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="assets/favicon/favicon.ico" sizes="any" />
+    <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="assets/favicon/site.webmanifest" />
+
+    <title>Keynotes | FAIR 3D Heritage</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+
+  <body class="page">
+    <div id="site-header" data-active="keynotes"></div>
+
+    <main id="main">
+      <section class="page-hero page-hero--keynotes" aria-label="Keynotes hero">
+        <img
+          class="page-hero__bg"
+          src="assets/keynotes-hero-bg-1440.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <div class="page-hero__overlay">
+          <div class="container">
+            <h1 class="page-hero__title reveal on-load delay-2">KEYNOTES</h1>
+          </div>
+        </div>
+      </section>
+
+      <section class="section keynotes-content">
+        <div class="container keynotes-shell">
+          <div class="keynote-list">
+            <section class="keynote-card reveal" id="hubertus-guenther">
+              <aside class="keynote-card__person">
+                <div class="keynote-card__photo">
+                  <!-- Adjust crop here with --photo-pos-x and --photo-pos-y if needed -->
+                  <img
+                    src="assets/Hubertus_Guenther.jpg"
+                    alt="Hubertus Günther"
+                    style="--photo-pos-x: 50%; --photo-pos-y: 28%"
+                  />
+                </div>
+
+                <h2 class="keynote-card__name">Hubertus Günther</h2>
+                <p class="keynote-card__affiliation">Universität Zürich</p>
+
+                <div
+                  class="keynote-card__sidebio keynote-lang-panel is-active"
+                  data-keynote-panel="hubertus-guenther"
+                  data-lang="en"
+                >
+                  <h4 class="keynote-card__sidebio-title">Bionote</h4>
+                  <p>
+                    After his studies of art history in Bonn, Munic, Rome and
+                    his habilitation in Bonn, H. G. headed the Kunsthistorisches
+                    Institut of the University of Düsseldorf, had the chair of
+                    Art History and Film Studies at the University of Frankfurt
+                    Professor (he had previously also made art films), and
+                    finally took up the chair of Modern Art History at the
+                    University of Zurich. Since his retirement, he held seminars
+                    at the University of Munich. Main focuses among his studies
+                    form architecture, urban planning and the study of antiquity
+                    during the Renaissance. H. G. was also a long-standing
+                    advocate of heritage conservation. At the University of
+                    Zurich he started in 1997 a degree programme for the
+                    digitization of Architecture in cooperation with the
+                    Department of applied computer science.
+                  </p>
+                </div>
+
+                <div
+                  class="keynote-card__sidebio keynote-lang-panel"
+                  data-keynote-panel="hubertus-guenther"
+                  data-lang="de"
+                  hidden
+                >
+                  <h4 class="keynote-card__sidebio-title">
+                    Biografische Notizen
+                  </h4>
+                  <p>
+                    Nach seinem Studium der Kunstgeschichte in Bonn, München und
+                    Rom sowie seiner Habilitation in Bonn leitete H. G. das
+                    Kunsthistorische Institut der Universität Düsseldorf, hatte
+                    den Lehrstuhl für Kunstgeschichte und Filmwissenschaft an
+                    der Universität Frankfurt inne (zuvor hatte er auch
+                    Kunstfilme gedreht) und übernahm schließlich den Lehrstuhl
+                    für Neuere Kunstgeschichte an der Universität Zürich. Seit
+                    seiner Emeritierung hielt er Seminare an der Universität
+                    München. Zu den Schwerpunkten seiner Studien zählten
+                    Architektur, Stadtplanung und die Erforschung der Antike in
+                    der Renaissance. H. G. setzte sich zudem intensiv für
+                    Denkmalpflege ein. An der Universität Zürich gründete er
+                    1997 in Zusammenarbeit mit dem Institut für Angewandte
+                    Informatik einen Studiengang zur Digitalisierung von
+                    Architektur.
+                  </p>
+                </div>
+              </aside>
+
+              <div class="keynote-card__content">
+                <div class="keynote-card__topline">
+                  <p class="keynote-card__label">Keynote speaker</p>
+                  <div
+                    class="keynote-lang-switch"
+                    role="group"
+                    aria-label="Language switch for Hubertus Günther"
+                  >
+                    <button
+                      class="keynote-lang-btn is-active"
+                      type="button"
+                      data-keynote-target="hubertus-guenther"
+                      data-keynote-lang="en"
+                      aria-pressed="true"
+                    >
+                      EN
+                    </button>
+                    <button
+                      class="keynote-lang-btn"
+                      type="button"
+                      data-keynote-target="hubertus-guenther"
+                      data-keynote-lang="de"
+                      aria-pressed="false"
+                    >
+                      DE
+                    </button>
+                  </div>
+                </div>
+
+                <div
+                  class="keynote-lang-panel is-active"
+                  data-keynote-panel="hubertus-guenther"
+                  data-lang="en"
+                >
+                  <h3 class="keynote-card__lecture-title">
+                    The Dream of ‘Critical Computer Visualisation’
+                  </h3>
+
+                  <h4 class="keynote-card__section-title">Abstract</h4>
+                  <p class="keynote-card__text">
+                    This lecture aims to recall the experiment launched in 1997
+                    at the University of Zurich to establish a degree programme
+                    combining art history with applied computer science, with a
+                    view to creating a new professional field for the computer
+                    visualisation of architectural objects. Initially, the idea
+                    met with a positive response at the University of Lyon, the
+                    Politecnico di Milano and the University of Stuttgart. The
+                    starting point was the observation, already widespread at
+                    the dawn of the modern era, that a picture is often worth a
+                    thousand words. Several objectives were pursued. On the one
+                    hand, the aim was to convey vivid impressions of planned but
+                    unbuilt or only partially completed buildings, of the
+                    original appearance of altered buildings, and of the
+                    appearance of completed buildings from their originally
+                    intended vantage point, with urban planning being
+                    incorporated into this. On the other hand, the aim was to
+                    illustrate historical contexts or processes, such as the
+                    planning process and the conditions of planning of a
+                    structural, functional or typological nature. A central aim
+                    of the experiment was not merely to present results, but to
+                    demonstrate specifically the reasons behind them. That is
+                    why it was called ‘Critical Computer Visualisation’. This
+                    type of visualisation is not only suitable for providing new
+                    scientific insights; it can also be used as a teaching and
+                    learning programme. This reflection on the vision focuses
+                    primarily on its aims and method. The practical examples
+                    examinated in the past, now technically outdated, are
+                    replaced by specific references to new, more suitable
+                    buildings or plans.
+                  </p>
+                </div>
+
+                <div
+                  class="keynote-lang-panel"
+                  data-keynote-panel="hubertus-guenther"
+                  data-lang="de"
+                  hidden
+                >
+                  <h3 class="keynote-card__lecture-title">
+                    Der Traum von der "Kritischen Computer-Visualisierung"
+                  </h3>
+
+                  <h4 class="keynote-card__section-title">Abstract</h4>
+                  <p class="keynote-card__text">
+                    Der Vortrag soll das 1997 an der Universität Zürich
+                    gestartete Experiment in Erinnerung rufen, einen Studiengang
+                    Kunstgeschichte in Verbindung mit angewandter Informatik
+                    einzurichten, um ein neues Berufsfeld für die
+                    Computer-Visualisierung architektonischer Objekte zu
+                    schaffen. Es fand anfangs Resonanz an der Universität Lyon,
+                    dem Politecnico von Mailand und der Universität Stuttgart.
+                    Ausgangspunkt war die schon zu Beginn der Neuzeit
+                    verbreitete Beobachtung, dass ein Bild oft mehr als tausend
+                    Worte sagt. Mehrere Ziele wurden angestrebt. Einerseits
+                    sollten lebendige Vorstellungen vermittelt werden von
+                    geplanten, aber nicht oder nur teilweise ausgeführten
+                    Bauten, vom ursprünglichen Aussehen veränderter Bauten und
+                    von der Erscheinung ausgeführter Bauten aus ihrer
+                    ursprünglich vorgesehenen Warte, dabei war Stadtplanung
+                    einbezogen. Andererseits sollten historische Zusammenhänge
+                    oder Abläufe vor Augen geführt werden wie Vorgang der
+                    Planung und Bedingungen der Planung baulicher, funktionaler
+                    oder typologischer Art. Ein zentraler Anspruch des
+                    Experiments bestand darin, nicht nur Ergebnisse zu
+                    präsentieren, sondern konkret die Gründe vorzuführen, aus
+                    denen sie zustande gekommen waren. Deshalb wurde es
+                    "Kritische Computer-Visualisierung" genannt. Diese Art von
+                    Visualisierung ist nicht nur geeignet, um neue
+                    wissenschaftliche Erkenntnisse zu liefern, sie kann auch als
+                    Lehr- und Lernprogramm eingesetzt werden. Die Reflexion
+                    dieser Vision bezieht sich hauptsächlich auf Anspruch und
+                    Methode. Die damals bearbeiteten praktischen Beispiele, die
+                    inzwischen technisch überholt sind, werden durch konkrete
+                    Hinweise auf neue geeignete Bauten oder Planungen ersetzt.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section class="keynote-card reveal" id="costas-papadopoulos">
+              <aside class="keynote-card__person">
+                <div class="keynote-card__photo">
+                  <!-- Adjust crop here with --photo-pos-x and --photo-pos-y if needed -->
+                  <img
+                    src="assets/Costas_Papadopoulos.jpg"
+                    alt="Costas Papadopoulos"
+                    style="--photo-pos-x: 50%; --photo-pos-y: 24%"
+                  />
+                </div>
+
+                <h2 class="keynote-card__name">Costas Papadopoulos</h2>
+                <p class="keynote-card__affiliation">Maastricht University</p>
+
+                <div class="keynote-card__sidebio">
+                  <h4 class="keynote-card__sidebio-title">Bionote</h4>
+                  <p>
+                    Costas Papadopoulos is Associate Professor in Digital
+                    Humanities and Culture Studies at the Faculty of Arts and
+                    Social Sciences, Maastricht University. His research spans
+                    the theory and practice of 3D visualisation and
+                    reconstruction, computational approaches to material
+                    culture, and the development of systems, workflows, and
+                    infrastructures for 3D scholarship. He holds a PhD in
+                    Digital Archaeology and an MSc in Archaeological Computing
+                    (Virtual Pasts), both from the University of Southampton.
+                    Papadopoulos is the Principal Investigator of PURE3D, the
+                    first open, non-commercial infrastructure for the
+                    publication and preservation of 3D Scholarly Editions, and
+                    of sister projects OPER3D, Dynamic3D, and Paradata in 3D
+                    Scholarship which altogether develop a theoretical and
+                    methodological framework for dynamic, peer-reviewed and open
+                    3D-based research. In 2026, he was awarded a €1.5 million
+                    grant by Open Science NL to lead PURE3D 2.0, a
+                    next-generation infrastructure for web-based 3D scholarship
+                    built in partnership with major research and societal
+                    stakeholders, including DARIAH-EU, the Smithsonian,
+                    Rijksmuseum, and Europeana. He is also the co-founder and
+                    coordinator of The Plant, the laboratory for
+                    digitally-enhanced research and education at the Faculty of
+                    Arts & Social Sciences at Maastricht University, and an
+                    elected member of the Maastricht Young Academy.
+                  </p>
+                </div>
+              </aside>
+
+              <div class="keynote-card__content">
+                <p class="keynote-card__label">Keynote speaker</p>
+                <h3 class="keynote-card__lecture-title">
+                  From Sketchfab to Scholarship: The Case for Sustainable 3D
+                  Infrastructures
+                </h3>
+
+                <h4 class="keynote-card__section-title">Abstract</h4>
+                <p class="keynote-card__text">
+                  Three-dimensional models and reconstructions have been
+                  integral to humanities and social sciences research for about
+                  four decades, yet the infrastructure to sustain, publish, and
+                  formally recognise this form of scholarship has remained
+                  critically underdeveloped. The abrupt commercialisation of
+                  Sketchfab has vividly demonstrated the dangers of relying on
+                  commercial platforms for cultural preservation, reigniting
+                  urgent questions about what a robust infrastructure for 3D
+                  scholarship should look like. This keynote takes these
+                  ruptures as a starting point to reflect on ten years of
+                  infrastructural thinking in the field, drawing from the
+                  development of the PURE3D infrastructure, the first open,
+                  non-commercial infrastructure for publishing and preserving 3D
+                  Scholarly Editions, as well as its siblings and successors.
+                  Together, these projects illuminate what it means to build
+                  sustainable 3D infrastructure: not simply platforms that
+                  persist, but open systems that are technically robust,
+                  methodologically, and institutionally recognised. The keynote
+                  argues that sustainability in 3D scholarship is inseparable
+                  from recognition; until 3D outputs are treated as first-class
+                  scholarly products, comparable to articles and monographs,
+                  infrastructure investments alone will not catalyse the
+                  transformation the field demands. It calls for a
+                  collaborative, stakeholder-driven approach to infrastructure
+                  development that places FAIR principles, community ownership,
+                  citation mechanisms, and academic credit at its foundation.
+                </p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <h2 class="visually-hidden">Footer</h2>
+      <div class="container footer">
+        <p class="footnote">© FAIR 3D Heritage</p>
+      </div>
+    </footer>
+  </body>
+</html>

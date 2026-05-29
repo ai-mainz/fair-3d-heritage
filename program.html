@@ -34,60 +34,7 @@
   </head>
   <body class="page">
     <!-- TOPNAV -->
-    <header class="topnav" id="topnav">
-      <h2 class="visually-hidden">Header</h2>
-      <div class="wrapper">
-        <a href="index.html" class="topnav__homelink">
-          <img
-            src="assets/Logo.svg"
-            alt="FAIR 3D Heritage"
-            class="topnav__logo"
-          />
-        </a>
-
-        <button
-          class="topnav__toggle"
-          id="navToggle"
-          aria-label="Open menu"
-          aria-expanded="false"
-          aria-controls="mainMenu"
-          type="button"
-        >
-          <img
-            src="assets/Burger.svg"
-            alt=""
-            class="topnav__toggle-icon"
-            width="24"
-            height="24"
-          />
-        </button>
-
-        <nav class="menu" id="mainMenu" aria-label="Main navigation">
-          <ul class="topnav_links">
-            <li class="topnav__item">
-              <a href="index.html" class="topnav__link">HOME</a>
-            </li>
-            <li class="topnav__item">
-              <a href="index.html#about" class="topnav__link">ABOUT</a>
-            </li>
-            <li class="topnav__item">
-              <a href="call-for-papers.html" class="topnav__link"
-                >CALL FOR PAPERS</a
-              >
-            </li>
-            <li class="topnav__item is-active">
-              <a href="program.html" class="topnav__link">PROGRAM</a>
-            </li>
-            <li class="topnav__item">
-              <a href="registration.html" class="topnav__link">REGISTRATION</a>
-            </li>
-            <li class="topnav__item">
-              <a href="contact.html" class="topnav__link">CONTACT</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <div id="site-header" data-active="program"></div>
 
     <main id="main">
       <!-- HERO PROGRAM -->
@@ -109,6 +56,16 @@
       <section class="section program-content">
         <div class="container program-shell">
           <header class="program-intro reveal on-load delay-3">
+            <div class="program-download">
+              <a
+                class="btn btn--about program-download__btn"
+                href="assets/Confernece_program_2026-05-23_draft.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Download programme PDF
+              </a>
+            </div>
             <p>
               This is a preliminary programme draft. Session moderation and
               selected social events may still be updated before publication.
@@ -141,7 +98,7 @@
           <section class="program-day" id="day-1">
             <header class="program-day__heading reveal">
               <div>
-                <p class="program-day__label">Monday · 14 September 2026</p>
+                <p class="program-day__label">14 September 2026</p>
                 <h2>Monday</h2>
               </div>
               <p class="program-day__focus">
@@ -173,13 +130,19 @@
 
               <li class="program-item reveal">
                 <div class="program-time">09:15–10:00</div>
-                <article class="program-card program-card--service">
-                  <div class="program-card__body">
-                    <p class="program-kicker">Keynote</p>
-                    <h4>The Dream of ‘Critical Computer Visualisation’</h4>
-                    <p class="program-meta">Hubertus Günther</p>
-                  </div>
-                </article>
+                <a
+                  class="program-card-link"
+                  href="keynotes.html#hubertus-guenther"
+                  aria-label="Read more about keynote speaker Hubertus Günther"
+                >
+                  <article class="program-card program-card--service">
+                    <div class="program-card__body">
+                      <p class="program-kicker">Keynote</p>
+                      <h4>The Dream of ‘Critical Computer Visualisation’</h4>
+                      <p class="program-meta">Hubertus Günther</p>
+                    </div>
+                  </article>
+                </a>
               </li>
 
               <li class="program-item reveal">
@@ -192,7 +155,7 @@
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">10:20–11:35</div>
+                <div class="program-time">10:20–11:25</div>
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
                     <header class="program-session__head">
@@ -241,7 +204,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">10:55–11:20</div>
+                        <div class="program-talk__time">10:55–11:10</div>
                         <div>
                           <p class="program-talk__title">
                             WissKI Barrels 3D Data Model – Quickstart
@@ -253,7 +216,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">11:20–11:35</div>
+                        <div class="program-talk__time">11:10–11:25</div>
                         <div>
                           <p class="program-talk__title">
                             From Smartphone 3D to Federated Knowledge Graphs:
@@ -269,7 +232,7 @@
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">11:35–11:55</div>
+                <div class="program-time">11:25–11:45</div>
                 <article class="program-card program-card--break">
                   <div class="program-card__body">
                     <h4>Coffee break</h4>
@@ -278,7 +241,7 @@
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">11:55–12:55</div>
+                <div class="program-time">11:45–12:45</div>
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
                     <header class="program-session__head">
@@ -293,7 +256,7 @@
                     </header>
                     <ul class="program-talks">
                       <li class="program-talk">
-                        <div class="program-talk__time">11:55–12:10</div>
+                        <div class="program-talk__time">11:45–12:00</div>
                         <div>
                           <p class="program-talk__title">
                             On the Scientific Validity of Virtual
@@ -308,7 +271,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">12:10–12:25</div>
+                        <div class="program-talk__time">12:00–12:15</div>
                         <div>
                           <p class="program-talk__title">
                             Formalising documentary provenance for unbuilt
@@ -323,7 +286,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">12:25–12:40</div>
+                        <div class="program-talk__time">12:15–12:30</div>
                         <div>
                           <p class="program-talk__title">
                             Hypothetical Architectural Reconstructions: A
@@ -338,7 +301,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">12:40–12:55</div>
+                        <div class="program-talk__time">12:30–12:45</div>
                         <div>
                           <p class="program-talk__title">
                             Explore 3D: Developing Good Practice Guideline for
@@ -355,7 +318,7 @@
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">13:00–14:00</div>
+                <div class="program-time">12:45–14:00</div>
                 <article class="program-card program-card--break">
                   <div class="program-card__body">
                     <h4>Lunch break</h4>
@@ -466,7 +429,7 @@
           <section class="program-day" id="day-2">
             <header class="program-day__heading reveal">
               <div>
-                <p class="program-day__label">Tuesday · 15 September 2026</p>
+                <p class="program-day__label">15 September 2026</p>
                 <h2>Tuesday</h2>
               </div>
               <p class="program-day__focus">
@@ -475,30 +438,36 @@
             </header>
             <ol class="program-timeline">
               <li class="program-item reveal">
-                <div class="program-time">09:00–09:15</div>
+                <div class="program-time">09:00–09:10</div>
                 <article class="program-card program-card--service">
                   <div class="program-card__body">
-                    <h4>Welcome</h4>
+                    <h4>Welcome to Day 2</h4>
                   </div>
                 </article>
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">09:15–10:00</div>
-                <article class="program-card program-card--service">
-                  <div class="program-card__body">
-                    <p class="program-kicker">Keynote</p>
-                    <h4>
-                      From Sketchfab to Scholarship: The Case for Sustainable 3D
-                      Infrastructures
-                    </h4>
-                    <p class="program-meta">Costas Papadopoulos</p>
-                  </div>
-                </article>
+                <div class="program-time">09:10–09:55</div>
+                <a
+                  class="program-card-link"
+                  href="keynotes.html#costas-papadopoulos"
+                  aria-label="Read more about keynote speaker Costas Papadopoulos"
+                >
+                  <article class="program-card program-card--service">
+                    <div class="program-card__body">
+                      <p class="program-kicker">Keynote</p>
+                      <h4>
+                        From Sketchfab to Scholarship: The Case for Sustainable
+                        3D Infrastructures
+                      </h4>
+                      <p class="program-meta">Costas Papadopoulos</p>
+                    </div>
+                  </article>
+                </a>
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">10:00–10:20</div>
+                <div class="program-time">09:55–10:15</div>
                 <article class="program-card program-card--break">
                   <div class="program-card__body">
                     <h4>Coffee break</h4>
@@ -507,7 +476,7 @@
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">10:20–11:35</div>
+                <div class="program-time">10:15–11:20</div>
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
                     <header class="program-session__head">
@@ -525,14 +494,14 @@
                     </header>
                     <ul class="program-talks">
                       <li class="program-talk">
-                        <div class="program-talk__time">10:20–10:25</div>
+                        <div class="program-talk__time">10:15–10:20</div>
                         <div>
                           <p class="program-talk__title">Intro</p>
                         </div>
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">10:25–10:40</div>
+                        <div class="program-talk__time">10:20–10:35</div>
                         <div>
                           <p class="program-talk__title">
                             Identifying Interdisciplinary Challenges Across 3D
@@ -545,7 +514,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">10:40–10:55</div>
+                        <div class="program-talk__time">10:35–10:50</div>
                         <div>
                           <p class="program-talk__title">
                             Beyond the Viewer: Documentation Standards as
@@ -556,7 +525,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">10:55–11:20</div>
+                        <div class="program-talk__time">10:50–11:05</div>
                         <div>
                           <p class="program-talk__title">
                             Towards FAIR Architectural Data Collections
@@ -569,7 +538,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">11:20–11:35</div>
+                        <div class="program-talk__time">11:05–11:20</div>
                         <div>
                           <p class="program-talk__title">
                             Implementing a distributed infrastructural workflow
@@ -588,7 +557,7 @@
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">11:35–11:55</div>
+                <div class="program-time">11:20–11:40</div>
                 <article class="program-card program-card--break">
                   <div class="program-card__body">
                     <h4>Coffee break</h4>
@@ -597,7 +566,7 @@
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">11:55–12:55</div>
+                <div class="program-time">11:40–12:40</div>
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
                     <header class="program-session__head">
@@ -615,7 +584,7 @@
                     </header>
                     <ul class="program-talks">
                       <li class="program-talk">
-                        <div class="program-talk__time">11:55–12:10</div>
+                        <div class="program-talk__time">11:40–11:55</div>
                         <div>
                           <p class="program-talk__title">
                             WebHDP: An Institutional Web Architecture for the
@@ -627,7 +596,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">12:10–12:25</div>
+                        <div class="program-talk__time">11:55–12:10</div>
                         <div>
                           <p class="program-talk__title">
                             When More Data Is Not Enough: Preserving Robotically
@@ -641,7 +610,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">12:25–12:40</div>
+                        <div class="program-talk__time">12:10–12:25</div>
                         <div>
                           <p class="program-talk__title">
                             From Documentation to Infrastructure: The
@@ -655,7 +624,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">12:40–12:55</div>
+                        <div class="program-talk__time">12:25–12:40</div>
                         <div>
                           <p class="program-talk__title">
                             SummitShare: Digital Environments in Practice
@@ -673,7 +642,7 @@
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">13:00–14:00</div>
+                <div class="program-time">12:40–14:00</div>
                 <article class="program-card program-card--break">
                   <div class="program-card__body">
                     <h4>Lunch break</h4>
@@ -682,7 +651,7 @@
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">14:00–15:50</div>
+                <div class="program-time">14:00–15:40</div>
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
                     <header class="program-session__head">
@@ -697,7 +666,7 @@
                     </header>
                     <ul class="program-talks">
                       <li class="program-talk">
-                        <div class="program-talk__time">14:00–14:10</div>
+                        <div class="program-talk__time">14:00–14:05</div>
                         <div>
                           <p class="program-talk__title">
                             Intro: Documentation and Infrastructures
@@ -706,7 +675,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">14:10–14:16</div>
+                        <div class="program-talk__time">14:06–14:12</div>
                         <div>
                           <p class="program-talk__title">
                             <span class="program-pill">Doc</span>Multimodal
@@ -720,7 +689,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">14:16–14:22</div>
+                        <div class="program-talk__time">14:13–14:19</div>
                         <div>
                           <p class="program-talk__title">
                             <span class="program-pill">Doc</span>Enhancing
@@ -736,7 +705,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">14:22–14:28</div>
+                        <div class="program-talk__time">14:20–14:26</div>
                         <div>
                           <p class="program-talk__title">
                             <span class="program-pill">Doc</span>Towards
@@ -751,7 +720,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">14:28–14:34</div>
+                        <div class="program-talk__time">14:27–14:33</div>
                         <div>
                           <p class="program-talk__title">
                             <span class="program-pill">Doc</span>3D-Based Design
@@ -778,7 +747,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">14:40–14:46</div>
+                        <div class="program-talk__time">14:41–14:47</div>
                         <div>
                           <p class="program-talk__title">
                             <span class="program-pill">Inf</span>Completing the
@@ -790,7 +759,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">14:46–14:52</div>
+                        <div class="program-talk__time">14:48–14:54</div>
                         <div>
                           <p class="program-talk__title">
                             <span class="program-pill">Inf</span>3D4Vases –
@@ -806,7 +775,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">14:52–14:58</div>
+                        <div class="program-talk__time">14:55–15:01</div>
                         <div>
                           <p class="program-talk__title">
                             <span class="program-pill">Inf</span>Preserving
@@ -820,7 +789,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">14:58–15:04</div>
+                        <div class="program-talk__time">15:02–15:08</div>
                         <div>
                           <p class="program-talk__title">
                             <span class="program-pill">Inf</span>From music
@@ -836,7 +805,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">15:05–15:50</div>
+                        <div class="program-talk__time">15:08–15:40</div>
                         <div>
                           <p class="program-talk__title">Discussion</p>
                           <p class="program-talk__authors">Moderator TBA</p>
@@ -855,7 +824,7 @@
           <section class="program-day" id="day-3">
             <header class="program-day__heading reveal">
               <div>
-                <p class="program-day__label">Wednesday · 16 September 2026</p>
+                <p class="program-day__label">16 September 2026</p>
                 <h2>Wednesday</h2>
               </div>
               <p class="program-day__focus">
@@ -885,7 +854,7 @@
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">11:20–12:50</div>
+                <div class="program-time">11:20–12:40</div>
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
                     <header class="program-session__head">
@@ -939,7 +908,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">11:55–12:20</div>
+                        <div class="program-talk__time">11:55–12:10</div>
                         <div>
                           <p class="program-talk__title">
                             Experiencing the Past in 3D: Archaeological Research
@@ -954,7 +923,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">12:20–12:35</div>
+                        <div class="program-talk__time">12:10–12:25</div>
                         <div>
                           <p class="program-talk__title">
                             Tactile Time: Interactive 3D Heritage and Art
@@ -965,7 +934,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">12:35–12:50</div>
+                        <div class="program-talk__time">12:25–12:40</div>
                         <div>
                           <p class="program-talk__title">
                             Learning in Immersive Museum Environments
@@ -979,16 +948,16 @@
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">12:50–13:10</div>
+                <div class="program-time">12:40–14:00</div>
                 <article class="program-card program-card--break">
                   <div class="program-card__body">
-                    <h4>Coffee break</h4>
+                    <h4>Lunch break</h4>
                   </div>
                 </article>
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">13:10–14:45</div>
+                <div class="program-time">14:00–15:40</div>
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
                     <header class="program-session__head">
@@ -1004,7 +973,7 @@
                     </header>
                     <ul class="program-talks">
                       <li class="program-talk">
-                        <div class="program-talk__time">13:10–13:20</div>
+                        <div class="program-talk__time">14:00–14:05</div>
                         <div>
                           <p class="program-talk__title">
                             Intro: Web visualisation, education and public
@@ -1014,7 +983,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">13:20–13:26</div>
+                        <div class="program-talk__time">14:06–14:12</div>
                         <div>
                           <p class="program-talk__title">
                             <span class="program-pill">Vis</span>Integration of
@@ -1030,7 +999,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">13:26–13:32</div>
+                        <div class="program-talk__time">14:13–14:19</div>
                         <div>
                           <p class="program-talk__title">
                             <span class="program-pill">Vis</span>From Geometric
@@ -1045,7 +1014,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">13:32–13:38</div>
+                        <div class="program-talk__time">14:20–14:26</div>
                         <div>
                           <p class="program-talk__title">
                             <span class="program-pill">Edu</span>Innovative
@@ -1059,7 +1028,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">13:38–13:44</div>
+                        <div class="program-talk__time">14:27–14:33</div>
                         <div>
                           <p class="program-talk__title">
                             <span class="program-pill">Edu</span>A Roadmap for
@@ -1071,7 +1040,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">13:44–13:50</div>
+                        <div class="program-talk__time">14:34–14:40</div>
                         <div>
                           <p class="program-talk__title">
                             <span class="program-pill">Edu</span>From Points to
@@ -1083,7 +1052,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">13:50–13:56</div>
+                        <div class="program-talk__time">14:41–14:47</div>
                         <div>
                           <p class="program-talk__title">
                             <span class="program-pill">Edu</span>Found in
@@ -1098,7 +1067,7 @@
                       </li>
 
                       <li class="program-talk">
-                        <div class="program-talk__time">14:00–14:45</div>
+                        <div class="program-talk__time">14:48–15:20</div>
                         <div>
                           <p class="program-talk__title">Discussion</p>
                           <p class="program-talk__authors">Moderator TBA</p>
@@ -1110,7 +1079,7 @@
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">14:45–15:00</div>
+                <div class="program-time">15:40–16:00</div>
                 <article class="program-card program-card--service">
                   <div class="program-card__body">
                     <h4>Closing remarks</h4>

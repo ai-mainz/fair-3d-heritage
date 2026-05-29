@@ -1628,3 +1628,801 @@ body.page .program-content {
   }
 }
 
+/* =========================
+   KEYNOTE SPEAKERS PAGE
+   ========================= */
+
+.keynotes-content {
+  background: #fff;
+}
+
+body.page .keynotes-content {
+  display: block;
+  align-items: initial;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.keynotes-shell {
+  padding: clamp(42px, 6vw, 76px) 0 clamp(64px, 8vw, 110px);
+}
+
+.keynote-list {
+  width: min(1020px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: clamp(34px, 5vw, 58px);
+}
+
+.keynote-card {
+  scroll-margin-top: calc(var(--topnav-h) + 32px);
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: clamp(28px, 5vw, 58px);
+  padding: clamp(24px, 4vw, 42px);
+  border: 1px solid rgba(11, 25, 54, 0.12);
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 12px 34px rgba(11, 25, 54, 0.08);
+}
+
+.keynote-card__person {
+  text-align: center;
+}
+
+.keynote-card__photo {
+  width: 190px;
+  height: 190px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid rgba(11, 25, 54, 0.14);
+  background: rgba(11, 25, 54, 0.055);
+}
+
+.keynote-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.keynote-card__photo--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-title);
+  font-size: 54px;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  color: rgba(11, 25, 54, 0.42);
+}
+
+.keynote-card__name {
+  margin: 0;
+  font-family: var(--font-title);
+  font-size: clamp(24px, 2.5vw, 34px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--blue-primary);
+}
+
+.keynote-card__affiliation {
+  margin: 10px 0 0;
+  font-size: 18px;
+  line-height: 1.18;
+  color: rgba(11, 25, 54, 0.72);
+}
+
+.keynote-card__label {
+  margin: 0 0 10px;
+  font-family: var(--font-title);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--link-accent);
+}
+
+.keynote-card__lecture-title {
+  margin: 0 0 22px;
+  font-family: var(--font-title);
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: var(--blue-primary);
+}
+
+.keynote-card__section-title {
+  margin: 24px 0 8px;
+  font-family: var(--font-title);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--blue-primary);
+}
+
+.keynote-card__text {
+  margin: 0 0 16px;
+  font-size: 20px;
+  line-height: 1.25;
+  color: var(--blue-primary);
+}
+
+@media (max-width: 860px) {
+  .keynote-card {
+    grid-template-columns: 1fr;
+  }
+
+  .keynote-card__person {
+    text-align: left;
+  }
+
+  .keynote-card__photo {
+    margin-left: 0;
+  }
+}
+
+.program-card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.program-card-link .program-card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.program-card-link:hover .program-card,
+.program-card-link:focus-visible .program-card {
+  transform: translateY(-2px);
+  border-color: rgba(0, 136, 255, 0.45);
+  box-shadow: 0 16px 38px rgba(11, 25, 54, 0.12);
+}
+
+.program-card-link:focus-visible {
+  outline: none;
+}
+
+/* =========================
+   TOPNAV DROPDOWNS — FINAL
+   ========================= */
+
+.topnav__item {
+  position: relative;
+}
+
+.topnav__item--has-dropdown {
+  display: inline-flex;
+  align-items: center;
+}
+
+.topnav__item--has-dropdown::after {
+  content: "";
+  position: absolute;
+  left: -14px;
+  right: -14px;
+  top: 100%;
+  height: 18px;
+}
+
+.topnav__link {
+  font-family: var(--font-foot);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  line-height: 1;
+}
+
+.topnav__link--dropdown::after {
+  content: "";
+  display: inline-block;
+  width: 0.45em;
+  height: 0.45em;
+  margin-left: 0.45em;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-0.18em) rotate(45deg);
+  opacity: 0.72;
+}
+
+.topnav__dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  z-index: 1200;
+  min-width: 268px;
+  margin: 0;
+  padding: 10px;
+  list-style: none;
+  border: 1px solid rgba(11, 25, 54, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 22px 48px rgba(11, 25, 54, 0.22);
+  backdrop-filter: blur(18px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(-50%, 4px);
+  transition:
+    opacity 160ms ease,
+    visibility 160ms ease,
+    transform 160ms ease;
+}
+
+.topnav__dropdown::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -14px;
+  height: 14px;
+}
+
+.topnav__item--has-dropdown:hover .topnav__dropdown,
+.topnav__item--has-dropdown:focus-within .topnav__dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.topnav__dropdown-link {
+  display: block;
+  padding: 11px 13px;
+  border-radius: 12px;
+  color: var(--blue-primary);
+  font-family: var(--font-foot);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.15;
+  text-transform: none;
+  white-space: nowrap;
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.topnav__dropdown-link:hover,
+.topnav__dropdown-link:focus-visible,
+.topnav__dropdown-item.is-active .topnav__dropdown-link {
+  background: rgba(0, 136, 255, 0.1);
+  color: var(--blue-primary);
+  outline: none;
+}
+
+.topnav__item.is-active > .topnav__link {
+  border-bottom-color: rgba(243, 243, 243, 0.72);
+}
+
+@media (max-width: 860px) {
+  .topnav__item--has-dropdown {
+    display: block;
+  }
+
+  .topnav__item--has-dropdown::after,
+  .topnav__link--dropdown::after,
+  .topnav__dropdown::before {
+    display: none;
+  }
+
+  .topnav__dropdown {
+    position: static;
+    min-width: 0;
+    padding: 0 0 12px 14px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .topnav__item--has-dropdown:hover .topnav__dropdown,
+  .topnav__item--has-dropdown:focus-within .topnav__dropdown {
+    transform: none;
+  }
+
+  .topnav__dropdown-link {
+    padding: 7px 0 7px 14px;
+    border-radius: 0;
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.82);
+    white-space: normal;
+  }
+
+  .topnav__dropdown-link:hover,
+  .topnav__dropdown-link:focus-visible,
+  .topnav__dropdown-item.is-active .topnav__dropdown-link {
+    background: transparent;
+    color: #fff;
+  }
+}
+
+/* =========================
+   PROGRAMME COMMITTEE SECTION
+   ========================= */
+
+@media (min-width: 861px) {
+  #committee.section {
+    min-height: calc(100dvh - var(--nav-offset));
+    padding-top: 0;
+    padding-bottom: 0;
+    display: flex;
+    align-items: center;
+    overflow: visible;
+  }
+
+  #committee.section > .container {
+    width: min(var(--container), calc(100% - (var(--pad) * 2)));
+    margin-inline: auto;
+    padding-top: clamp(20px, 2.5vh, 36px);
+    padding-bottom: clamp(20px, 2.5vh, 36px);
+  }
+}
+
+@media (max-width: 860px) {
+  #committee.section {
+    min-height: auto;
+    display: block;
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
+}
+
+/* =========================
+   FOR AUTHORS PAGE
+   ========================= */
+
+.authors-content {
+  background: #fff;
+}
+
+body.page .authors-content {
+  display: block;
+  align-items: initial;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.authors-shell {
+  padding: clamp(42px, 6vw, 76px) 0 clamp(64px, 8vw, 110px);
+}
+
+.authors-intro {
+  width: min(1020px, 100%);
+  margin: 0 auto clamp(28px, 4vw, 44px);
+}
+
+.authors-intro p {
+  margin: 0;
+  font-size: clamp(20px, 1.9vw, 24px);
+  line-height: 1.22;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  color: var(--blue-primary);
+}
+
+.authors-grid {
+  width: min(1020px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 22px;
+}
+
+.authors-card {
+  padding: clamp(22px, 3vw, 34px);
+  border: 1px solid rgba(11, 25, 54, 0.12);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 12px 34px rgba(11, 25, 54, 0.08);
+}
+
+.authors-card--dark {
+  background: var(--blue-primary);
+  color: #fff;
+}
+
+.authors-card__kicker {
+  margin: 0 0 9px;
+  font-family: var(--font-title);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--link-accent);
+}
+
+.authors-card h2 {
+  margin: 0 0 14px;
+  font-family: var(--font-title);
+  font-size: clamp(26px, 3vw, 38px);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: var(--blue-primary);
+}
+
+.authors-card--dark h2,
+.authors-card--dark p {
+  color: #fff;
+}
+
+.authors-card p {
+  margin: 0 0 14px;
+  font-size: 20px;
+  line-height: 1.25;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  color: var(--blue-primary);
+}
+
+.authors-card p:last-child {
+  margin-bottom: 0;
+}
+
+.authors-card__btn {
+  margin-top: 14px;
+}
+
+/* =========================================================
+   RESTORE FINAL PROGRAM + KEYNOTES DETAILS
+   Keep this block at the very end of style.css.
+   ========================================================= */
+
+/* Programme day navigation: active day */
+.program-daynav a.is-active,
+.program-daynav a[aria-current="true"] {
+  background: var(--blue-primary);
+  border-color: var(--blue-primary);
+  color: #fff;
+  box-shadow: 0 14px 34px rgba(11, 25, 54, 0.16);
+}
+
+.program-daynav a.is-active .program-daynav__date,
+.program-daynav a[aria-current="true"] .program-daynav__date {
+  opacity: 0.86;
+}
+
+.program-daynav a.is-active:hover,
+.program-daynav a.is-active:focus-visible,
+.program-daynav a[aria-current="true"]:hover,
+.program-daynav a[aria-current="true"]:focus-visible {
+  transform: translateY(-1px);
+  border-color: var(--blue-primary);
+  box-shadow: 0 16px 38px rgba(11, 25, 54, 0.2);
+}
+
+/* Programme intro: centred PDF button + larger space before text */
+.program-intro .program-download {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0 0 48px;
+}
+
+.program-intro .program-download__btn {
+  margin: 0 auto;
+}
+
+.program-intro p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+/* Keynotes: photo crop controls */
+.keynote-card__photo img {
+  object-position: var(--photo-pos-x, 50%) var(--photo-pos-y, 50%);
+}
+
+/* Keynotes: bionote layout */
+.keynote-card__sidebio {
+  margin-top: 18px;
+  text-align: left;
+}
+
+.keynote-card__sidebio-title {
+  margin: 0 0 8px;
+  font-family: var(--font-title);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue-primary);
+}
+
+.keynote-card__sidebio p,
+.keynote-card__text {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+.keynote-card__sidebio p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.32;
+  color: rgba(11, 25, 54, 0.76);
+}
+
+.keynote-card__sidebio[hidden],
+.keynote-lang-panel[hidden] {
+  display: none;
+}
+
+/* Keynotes: EN/DE buttons styled like programme-day buttons */
+.keynote-card__topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.keynote-lang-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.keynote-lang-btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  min-width: 54px;
+  padding: 6px 14px;
+  border: 1px solid rgba(11, 25, 54, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  font-family: var(--font-title);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--blue-primary);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.keynote-lang-btn:hover,
+.keynote-lang-btn:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(0, 136, 255, 0.55);
+  box-shadow: 0 14px 34px rgba(11, 25, 54, 0.12);
+  outline: none;
+}
+
+.keynote-lang-btn.is-active,
+.keynote-lang-btn[aria-pressed="true"] {
+  background: var(--blue-primary);
+  border-color: var(--blue-primary);
+  color: #fff;
+  box-shadow: 0 14px 34px rgba(11, 25, 54, 0.16);
+}
+
+.keynote-lang-btn.is-active:hover,
+.keynote-lang-btn[aria-pressed="true"]:hover,
+.keynote-lang-btn.is-active:focus-visible,
+.keynote-lang-btn[aria-pressed="true"]:focus-visible {
+  border-color: var(--blue-primary);
+  box-shadow: 0 16px 38px rgba(11, 25, 54, 0.2);
+}
+
+@media (max-width: 900px) {
+  .keynote-card__sidebio {
+    max-width: 68ch;
+  }
+}
+
+@media (max-width: 560px) {
+  .keynote-card__topline {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .keynote-lang-switch {
+    align-self: flex-start;
+  }
+}
+
+/* =========================================================
+   FOR AUTHORS — SECTION LAYOUT
+   Keep this block at the very end of style.css.
+   ========================================================= */
+
+html:has(body.authors-page) {
+  scroll-snap-type: y proximity;
+}
+
+body.authors-page main > section {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+body.authors-page .page-hero {
+  scroll-snap-align: start;
+}
+
+.authors-page .authors-section {
+  min-height: calc(100dvh - var(--nav-offset));
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+  align-items: center;
+  scroll-margin-top: var(--nav-offset);
+  overflow: visible;
+}
+
+.authors-page .authors-section > .container {
+  width: min(var(--container), calc(100% - (var(--pad) * 2)));
+  margin-inline: auto;
+  padding-top: clamp(38px, 6vh, 72px);
+  padding-bottom: clamp(38px, 6vh, 72px);
+}
+
+.authors-page .authors-section__kicker {
+  margin: 0 0 8px;
+  font-family: var(--font-title);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--link-accent);
+}
+
+.authors-page .authors-section .h2 {
+  margin-bottom: clamp(18px, 3vw, 30px);
+}
+
+.authors-page .authors-prose {
+  width: min(860px, 100%);
+  margin-inline: auto;
+}
+
+.authors-page .authors-prose h3 {
+  margin: 34px 0 12px;
+  font-family: var(--font-title);
+  font-size: clamp(22px, 2vw, 30px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--blue-primary);
+  text-align: center;
+}
+
+.authors-page .authors-prose p {
+  margin: 0 0 18px;
+  font-size: clamp(20px, 1.9vw, 24px);
+  line-height: 1.16;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+.authors-page .authors-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin: 28px 0 8px;
+}
+
+.authors-page .authors-section--dark,
+.authors-page .authors-section--dark .h2,
+.authors-page .authors-section--dark .authors-prose,
+.authors-page .authors-section--dark .authors-prose p,
+.authors-page .authors-section--dark .authors-prose h3 {
+  color: #fff;
+}
+
+.authors-page .authors-section--dark .fx-link {
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.52);
+}
+
+.authors-page .authors-btn--light {
+  background: #fff;
+  color: var(--blue-primary);
+  border: 2px solid #fff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+.authors-page .authors-btn--light:hover,
+.authors-page .authors-btn--light:focus-visible {
+  opacity: 0.7;
+  outline: none;
+}
+
+@media (max-width: 860px) {
+  html:has(body.authors-page) {
+    scroll-snap-type: none;
+  }
+
+  .authors-page .authors-section {
+    min-height: auto;
+    display: block;
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
+
+  .authors-page .authors-prose {
+    width: 100%;
+  }
+
+  .authors-page .authors-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .authors-page .authors-actions .btn {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   TOPNAV ALIGNMENT FINAL FIX
+   Keep this block at the very end of style.css.
+   ========================================================= */
+
+@media (min-width: 861px) {
+  .topnav_links {
+    display: flex;
+    align-items: center;
+  }
+
+  .topnav__item {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .topnav__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 1;
+  }
+
+  .topnav__link--dropdown {
+    gap: 0.45em;
+  }
+
+  .topnav__link--dropdown::after {
+    margin-left: 0;
+    position: relative;
+    top: 0;
+    flex: 0 0 auto;
+    transform: rotate(45deg);
+  }
+}
+/* Disable persistent active highlight only in Programme dropdown */
+.topnav__dropdown[aria-label="PROGRAMME submenu"]
+  .topnav__dropdown-item.is-active
+  .topnav__dropdown-link {
+  background: transparent;
+  color: var(--blue-primary);
+}
