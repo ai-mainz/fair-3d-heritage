@@ -619,3 +619,87 @@
     initCommitteeBioModal();
   }
 })();
+
+/* Abstract PDF modal */
+(() => {
+  function initAbstractPdfModal() {
+    const modal = document.getElementById("abstractPdfModal");
+    const frame = document.getElementById("abstractPdfFrame");
+    const title = document.getElementById("abstractPdfTitle");
+    const openLink = document.getElementById("abstractPdfOpenLink");
+
+    if (!modal || !frame || !title || !openLink) return;
+
+    let lastTrigger = null;
+
+    function openModal(trigger) {
+      const pdfUrl = trigger.dataset.abstractPdf;
+      const abstractTitle = trigger.dataset.abstractTitle || "Abstract";
+
+      if (!pdfUrl) return;
+
+      lastTrigger = trigger;
+
+      title.textContent = abstractTitle;
+      frame.src = pdfUrl;
+      openLink.href = pdfUrl;
+
+      modal.hidden = false;
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("abstract-modal-open");
+
+      const closeButton = modal.querySelector("[data-abstract-modal-close]");
+      if (closeButton) closeButton.focus();
+    }
+
+    function closeModal() {
+      modal.hidden = true;
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("abstract-modal-open");
+
+      // Reset src so the PDF stops rendering in the background
+      frame.src = "";
+      openLink.href = "#";
+
+      if (lastTrigger && typeof lastTrigger.focus === "function") {
+        lastTrigger.focus();
+      }
+
+      lastTrigger = null;
+    }
+
+    document.addEventListener("click", (event) => {
+      const trigger = event.target.closest("[data-abstract-pdf]");
+
+      if (trigger) {
+        event.preventDefault();
+        openModal(trigger);
+        return;
+      }
+
+      if (event.target.closest("[data-abstract-modal-close]")) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      const trigger = event.target.closest("[data-abstract-pdf]");
+
+      if (trigger && (event.key === "Enter" || event.key === " ")) {
+        event.preventDefault();
+        openModal(trigger);
+        return;
+      }
+
+      if (event.key === "Escape" && !modal.hidden) {
+        closeModal();
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAbstractPdfModal);
+  } else {
+    initAbstractPdfModal();
+  }
+})();

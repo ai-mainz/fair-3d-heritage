@@ -59,7 +59,7 @@
             <div class="program-download">
               <a
                 class="btn btn--about program-download__btn"
-                href="assets/Confernece_program_2026-05-23_draft.pdf"
+                href="assets/Confernece_program_2026-06-03_draft.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -241,7 +241,7 @@
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">11:45–12:45</div>
+                <div class="program-time">11:45–13:00</div>
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
                     <header class="program-session__head">
@@ -312,13 +312,48 @@
                           </p>
                         </div>
                       </li>
+
+                      <li
+                        class="program-talk program-talk--clickable"
+                        data-abstract-pdf="assets/abstracts/FDH-0047-abstract.pdf"
+                        data-abstract-title="Stratigraphic categorisation as documentation"
+                        role="button"
+                        tabindex="0"
+                        aria-label="Open abstract PDF for Stratigraphic categorisation as documentation"
+                      >
+                        <div class="program-talk__time">12:45–13:00</div>
+                        <div>
+                          <p class="program-talk__title">
+                            Stratigraphic categorisation as documentation: the
+                            Extended Matrix and the data/taxonomy plane of
+                            credible virtual reconstruction.
+                          </p>
+                          <p
+                            class="program-talk__authors"
+                            style="color: var(--blue-primary)"
+                          >
+                            <b
+                              ><i>
+                                A worked example from the EM 1.5 specification,
+                                developed within the Horizon Europe StratiGraph
+                                project as a building block for the European
+                                Collaborative Cloud for Cultural Heritage
+                                (ECCCH).
+                              </i></b
+                            >
+                          </p>
+                          <p class="program-talk__authors">
+                            Emanuel Demetrescu
+                          </p>
+                        </div>
+                      </li>
                     </ul>
                   </div>
                 </article>
               </li>
 
               <li class="program-item reveal">
-                <div class="program-time">12:45–14:00</div>
+                <div class="program-time">13:00–14:00</div>
                 <article class="program-card program-card--break">
                   <div class="program-card__body">
                     <h4>Lunch break</h4>
@@ -1099,7 +1134,48 @@
         <p class="footnote">© FAIR 3D Heritage</p>
       </div>
     </footer>
+    <div
+      class="abstract-modal"
+      id="abstractPdfModal"
+      hidden
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="abstractPdfTitle"
+    >
+      <div class="abstract-modal__backdrop" data-abstract-modal-close></div>
 
+      <div class="abstract-modal__dialog">
+        <button
+          class="abstract-modal__close"
+          type="button"
+          aria-label="Close abstract PDF viewer"
+          data-abstract-modal-close
+        >
+          ×
+        </button>
+
+        <header class="abstract-modal__header">
+          <h3 id="abstractPdfTitle">Abstract</h3>
+          <a
+            class="abstract-modal__open-link"
+            id="abstractPdfOpenLink"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open PDF in new tab
+          </a>
+        </header>
+
+        <iframe
+          class="abstract-modal__iframe"
+          id="abstractPdfFrame"
+          title="Abstract PDF viewer"
+          src=""
+        ></iframe>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
