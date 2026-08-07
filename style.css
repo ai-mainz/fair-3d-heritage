@@ -3733,3 +3733,39 @@ body.abstract-modal-open {
     padding-right: 24px !important;
   }
 }
+/* =========================================================
+   PROGRAM — WORKSHOP DESCRIPTION
+   ========================================================= */
+
+.program-card--workshop .program-card__body {
+  padding: clamp(22px, 3vw, 30px);
+}
+
+.program-workshop-description {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(11, 25, 54, 0.12);
+}
+
+.program-workshop-description p {
+  margin: 0 0 16px;
+  font-size: 17px;
+  line-height: 1.35;
+  color: rgba(11, 25, 54, 0.76);
+}
+
+.program-workshop-description p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 560px) {
+  .program-workshop-description {
+    margin-top: 20px;
+    padding-top: 18px;
+  }
+
+  .program-workshop-description p {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+}
