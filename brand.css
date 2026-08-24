@@ -1,0 +1,219 @@
+/* FAIR 3D Heritage brand layer
+   Loaded after style.css so the visual identity stays isolated from layout CSS. */
+
+@font-face {
+  font-display: swap;
+  font-family: "Futura BT Pro";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/FuturaBTPro-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Futura BT Pro";
+  font-style: italic;
+  font-weight: 400;
+  src: url("fonts/FuturaBTPro-MediumItalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Futura BT Pro";
+  font-style: normal;
+  font-weight: 500;
+  src: url("fonts/FuturaBTPro-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Futura BT Pro";
+  font-style: italic;
+  font-weight: 500;
+  src: url("fonts/FuturaBTPro-MediumItalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Futura BT Pro";
+  font-style: normal;
+  font-weight: 700;
+  src: url("fonts/FuturaBTPro-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Futura BT Pro";
+  font-style: normal;
+  font-weight: 800;
+  src: url("fonts/FuturaBTPro-Bold.woff2") format("woff2");
+}
+
+:root {
+  --brand-yellow: #ffed00;
+  --brand-navy: #0b1936;
+
+  --font-futura: "Futura BT Pro", "Futura", "Futura PT", "Century Gothic",
+    "Trebuchet MS", Arial, sans-serif;
+  --font-title: var(--font-futura);
+  --font-body: var(--font-futura);
+  --font-foot: var(--font-futura);
+}
+
+html,
+body {
+  font-family: var(--font-futura);
+  font-weight: 500;
+  font-synthesis: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+.title {
+  font-family: var(--font-futura);
+  font-weight: 700;
+}
+
+p,
+dd,
+dt,
+h4 {
+  font-family: var(--font-futura);
+}
+
+/* InDesign paragraph style, used as the default body-text rhythm. */
+p {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+/* InDesign title style. The existing mobile rules keep it responsive. */
+.title {
+  font-family: var(--font-futura);
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--brand-yellow);
+}
+
+.hero .subtitle,
+.hero .lead,
+.page-hero__title {
+  color: var(--brand-yellow);
+}
+
+.hero .subtitle,
+.hero .lead,
+.program-session__subtitle {
+  font-weight: 500;
+}
+
+/* University and institutional names shown below people. */
+.keynote-card__affiliation,
+.committee-card__affiliation {
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Light surfaces: dark-blue typography for readable contrast. */
+.section:not(.section--dark),
+.program-content,
+.authors-content,
+.registration-content,
+.committee-modal__dialog,
+.abstract-modal__dialog {
+  color: var(--brand-navy);
+}
+
+.section:not(.section--dark) p,
+.section:not(.section--dark) dd,
+.section:not(.section--dark) dt,
+.section:not(.section--dark) h4 {
+  color: var(--brand-navy);
+}
+
+/* Dark surfaces: yellow typography. */
+.section--dark,
+#dates,
+#venue.section--dark,
+#committee.section.section--dark,
+.program-card--dark,
+.program-session__head,
+.authors-card--dark,
+body.authors-page .authors-section--dark,
+body.authors-page .section--dark.authors-section,
+.site-footer {
+  color: var(--brand-yellow);
+}
+
+.section--dark .h2,
+.section--dark .prose,
+.section--dark p,
+.section--dark li,
+.section--dark dd,
+.section--dark dt,
+.section--dark h4,
+#dates .h2,
+#dates .keydates,
+#dates .keydates dt,
+#dates .keydates dd,
+#venue.section--dark .h2,
+#venue.section--dark .prose,
+#venue.section--dark .prose p,
+#committee.section.section--dark .h2,
+#committee.section.section--dark .committee-card__name,
+#committee.section.section--dark .committee-card__affiliation,
+.program-card--dark h3,
+.program-card--dark h4,
+.program-card--dark .program-meta,
+.program-card--session .program-session__head h3,
+.program-card--session .program-session__head .program-kicker,
+.program-card--session .program-session__head .program-session__subtitle,
+.authors-card--dark h2,
+.authors-card--dark p,
+body.authors-page .authors-section--dark .h2,
+body.authors-page .authors-section--dark .authors-prose,
+body.authors-page .authors-section--dark .authors-prose p,
+body.authors-page .authors-section--dark .authors-prose h3,
+.footnote,
+.section:not(.section--dark) .program-card--dark p,
+.section:not(.section--dark) .program-card--dark h4 {
+  color: var(--brand-yellow);
+}
+
+/* Brand accents and interaction states. */
+.topnav__item.is-active .topnav__link,
+.topnav__link:hover,
+.topnav__link:focus-visible {
+  color: var(--brand-yellow);
+  border-bottom-color: var(--brand-yellow);
+}
+
+#dates .keydates__row,
+.cfp-theme {
+  border-bottom-color: rgba(255, 237, 0, 0.55);
+}
+
+.program-topic-number {
+  color: rgba(255, 237, 0, 0.52);
+}
+
+.topnav__logo {
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(11, 25, 54, 0.45));
+}
+
+@media (max-width: 860px) {
+  .title {
+    color: var(--brand-yellow) !important;
+  }
+
+  .hero .subtitle,
+  .hero .lead {
+    color: var(--brand-yellow) !important;
+  }
+}

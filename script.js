@@ -154,7 +154,7 @@
       <div class="wrapper">
         <a href="index.html" class="topnav__homelink">
           <img
-            src="assets/Logo.svg"
+            src="assets/Logo_F3D.svg"
             alt="FAIR 3D Heritage"
             class="topnav__logo"
           />
