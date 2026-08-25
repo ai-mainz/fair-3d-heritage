@@ -3769,3 +3769,272 @@ body.abstract-modal-open {
     line-height: 1.4;
   }
 }
+
+/* =========================================================
+   PROGRAM — COLLAPSIBLE WORKSHOPS V2
+   Smooth expand/collapse + correct open-state corners
+   ========================================================= */
+
+.program-card--workshop .program-card__body {
+  padding: 0;
+}
+
+.program-workshop-summary {
+  position: relative;
+  padding: clamp(22px, 3vw, 30px);
+  padding-right: clamp(62px, 7vw, 84px);
+  cursor: pointer;
+  user-select: none;
+  border-radius: 24px;
+  transition:
+    background-color 0.22s ease,
+    box-shadow 0.22s ease,
+    border-radius 0.28s ease;
+}
+
+.program-workshop-summary:hover,
+.program-workshop-summary:focus-visible {
+  background: rgba(0, 136, 255, 0.055);
+  outline: none;
+}
+
+.program-workshop-summary:focus-visible {
+  box-shadow: inset 0 0 0 2px rgba(0, 136, 255, 0.42);
+}
+
+/* When open, the summary becomes the top part of one continuous card.
+   Its lower corners therefore must be square. */
+.program-workshop-summary[aria-expanded="true"] {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.program-workshop-chevron {
+  position: absolute;
+  top: 50%;
+  right: clamp(22px, 3vw, 30px);
+  width: 18px;
+  height: 18px;
+  border-right: 2px solid var(--link-accent);
+  border-bottom: 2px solid var(--link-accent);
+  transform: translateY(-65%) rotate(45deg);
+  transform-origin: center;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.program-workshop-summary[aria-expanded="true"] .program-workshop-chevron {
+  transform: translateY(-25%) rotate(225deg);
+}
+
+/* CSS grid 0fr -> 1fr gives a smooth animation to the content's natural height
+   without hard-coding a max-height. */
+.program-workshop-description {
+  display: grid;
+  grid-template-rows: 0fr;
+  margin: 0;
+  padding: 0;
+  border-top: 0;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.28s ease;
+}
+
+.program-workshop-description__inner {
+  min-height: 0;
+  overflow: hidden;
+  padding: 0 clamp(22px, 3vw, 30px);
+  border-top: 1px solid transparent;
+  transition:
+    padding-top 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    padding-bottom 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.24s ease;
+}
+
+.program-workshop-description.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.program-workshop-description.is-open .program-workshop-description__inner {
+  padding-top: 20px;
+  padding-bottom: clamp(22px, 3vw, 30px);
+  border-top-color: rgba(11, 25, 54, 0.12);
+}
+
+.program-workshop-description p {
+  margin: 0 0 16px;
+  font-size: 17px;
+  line-height: 1.35;
+  color: rgba(11, 25, 54, 0.76);
+}
+
+.program-workshop-description p:last-child {
+  margin-bottom: 0;
+}
+
+/* Keep the initial HTML hidden until JS initialises the accordion,
+   preventing a flash of open descriptions during page load. */
+.program-workshop-description[hidden] {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .program-workshop-summary,
+  .program-workshop-chevron,
+  .program-workshop-description,
+  .program-workshop-description__inner {
+    transition: none !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .program-workshop-summary {
+    padding-right: 58px;
+  }
+
+  .program-workshop-chevron {
+    right: 22px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .program-workshop-description {
+    margin-inline: 22px;
+  }
+
+  .program-workshop-description.is-open .program-workshop-description__inner {
+    padding-top: 18px;
+    padding-bottom: 22px;
+  }
+
+  .program-workshop-description p {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+}
+
+/* =========================================================
+   PROGRAM — COLLAPSIBLE SESSIONS / POSTER SESSIONS
+   Default: session title + Moderator + Chair only.
+   Smooth expand/collapse of presentations.
+   ========================================================= */
+
+.program-session-summary {
+  position: relative;
+  padding-right: clamp(62px, 7vw, 84px);
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.program-session-summary:hover,
+.program-session-summary:focus-visible {
+  background: rgb(18, 39, 78);
+  outline: none;
+}
+
+.program-session-summary:focus-visible {
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.42);
+}
+
+.program-session-chevron {
+  position: absolute;
+  top: 50%;
+  right: clamp(22px, 3vw, 30px);
+  width: 18px;
+  height: 18px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: translateY(-65%) rotate(45deg);
+  transform-origin: center;
+  opacity: 0.9;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.program-session-summary[aria-expanded="true"] .program-session-chevron {
+  transform: translateY(-25%) rotate(225deg);
+}
+
+.program-session-details {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.28s ease;
+}
+
+.program-session-details__inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.program-session-details.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.program-session-details[hidden] {
+  display: none !important;
+}
+
+/* Keep the existing spacing of paper lists inside the animated wrapper. */
+.program-session-details .program-talks {
+  margin: 0;
+}
+
+.program-session-details .program-note-row {
+  margin-left: clamp(18px, 3vw, 28px);
+  margin-right: clamp(18px, 3vw, 28px);
+  margin-bottom: clamp(14px, 2.5vw, 24px);
+}
+
+/* Smooth workshop divider fix:
+   one separator only, full width of the card. */
+.program-workshop-description {
+  margin: 0 !important;
+  padding: 0 !important;
+  border-top: 0 !important;
+}
+
+.program-workshop-description__inner {
+  padding-left: clamp(22px, 3vw, 30px);
+  padding-right: clamp(22px, 3vw, 30px);
+}
+
+.program-workshop-description.is-open .program-workshop-description__inner {
+  border-top: 1px solid rgba(11, 25, 54, 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .program-session-summary,
+  .program-session-chevron,
+  .program-session-details {
+    transition: none !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .program-session-summary {
+    padding-right: 58px;
+  }
+
+  .program-session-chevron {
+    right: 22px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .program-session-details .program-note-row {
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+
+  .program-workshop-description__inner {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+}

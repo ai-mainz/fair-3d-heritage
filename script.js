@@ -703,3 +703,118 @@
     initAbstractPdfModal();
   }
 })();
+
+/* Collapsible workshop descriptions — smooth V2 */
+(() => {
+  function initWorkshopDescriptions() {
+    const summaries = document.querySelectorAll(".program-workshop-summary");
+    if (!summaries.length) return;
+
+    function getDescription(summary) {
+      const descriptionId = summary.getAttribute("aria-controls");
+      return descriptionId ? document.getElementById(descriptionId) : null;
+    }
+
+    function setOpen(summary, open) {
+      const description = getDescription(summary);
+      if (!description) return;
+
+      summary.setAttribute("aria-expanded", String(open));
+      description.classList.toggle("is-open", open);
+      description.setAttribute("aria-hidden", String(!open));
+
+      const a11yLabel = summary.querySelector(".program-workshop-toggle-a11y");
+      if (a11yLabel) {
+        a11yLabel.textContent = open
+          ? "Hide workshop description"
+          : "Show workshop description";
+      }
+    }
+
+    summaries.forEach((summary) => {
+      const description = getDescription(summary);
+      if (!description) return;
+
+      // The HTML starts with [hidden] to avoid a flash of open content.
+      // Remove it once the accordion styles/behaviour are ready.
+      description.hidden = false;
+      setOpen(summary, false);
+
+      summary.addEventListener("click", () => {
+        const isOpen = summary.getAttribute("aria-expanded") === "true";
+        setOpen(summary, !isOpen);
+      });
+
+      summary.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+
+        const isOpen = summary.getAttribute("aria-expanded") === "true";
+        setOpen(summary, !isOpen);
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initWorkshopDescriptions);
+  } else {
+    initWorkshopDescriptions();
+  }
+})();
+
+/* Collapsible programme sessions / poster sessions */
+(() => {
+  function initSessionAccordions() {
+    const summaries = document.querySelectorAll(".program-session-summary");
+    if (!summaries.length) return;
+
+    function getDetails(summary) {
+      const detailsId = summary.getAttribute("aria-controls");
+      return detailsId ? document.getElementById(detailsId) : null;
+    }
+
+    function setOpen(summary, open) {
+      const details = getDetails(summary);
+      if (!details) return;
+
+      summary.setAttribute("aria-expanded", String(open));
+      details.classList.toggle("is-open", open);
+      details.setAttribute("aria-hidden", String(!open));
+
+      const a11yLabel = summary.querySelector(".program-session-toggle-a11y");
+      if (a11yLabel) {
+        a11yLabel.textContent = open
+          ? "Hide session presentations"
+          : "Show session presentations";
+      }
+    }
+
+    summaries.forEach((summary) => {
+      const details = getDetails(summary);
+      if (!details) return;
+
+      // Prevent a flash of expanded content during load, then initialise collapsed.
+      details.hidden = false;
+      setOpen(summary, false);
+
+      summary.addEventListener("click", () => {
+        const isOpen = summary.getAttribute("aria-expanded") === "true";
+        setOpen(summary, !isOpen);
+      });
+
+      summary.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+
+        const isOpen = summary.getAttribute("aria-expanded") === "true";
+        setOpen(summary, !isOpen);
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initSessionAccordions);
+  } else {
+    initSessionAccordions();
+  }
+})();

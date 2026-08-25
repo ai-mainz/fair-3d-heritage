@@ -1,49 +1,47 @@
 <!doctype html>
+
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <!-- Favicons -->
-    <link rel="icon" href="assets/favicon/favicon.ico" sizes="any" />
-    <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="assets/favicon/site.webmanifest" />
-
+    <link href="assets/favicon/favicon.ico" rel="icon" sizes="any" />
+    <link href="assets/favicon/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="assets/favicon/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="assets/favicon/site.webmanifest" rel="manifest" />
     <!-- Optional: fallback PNG sizes -->
     <link
-      rel="icon"
-      type="image/png"
-      sizes="96x96"
       href="assets/favicon/favicon-96x96.png"
+      rel="icon"
+      sizes="96x96"
+      type="image/png"
     />
     <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
       href="assets/favicon/web-app-manifest-192x192.png"
+      rel="icon"
+      sizes="192x192"
+      type="image/png"
     />
     <link
-      rel="icon"
-      type="image/png"
-      sizes="512x512"
       href="assets/favicon/web-app-manifest-512x512.png"
+      rel="icon"
+      sizes="512x512"
+      type="image/png"
     />
-
     <title>Program | FAIR 3D Heritage</title>
-    <link rel="stylesheet" href="style.css" />
+    <link href="style.css" rel="stylesheet" />
   </head>
   <body class="page">
     <!-- TOPNAV -->
-    <div id="site-header" data-active="program"></div>
-
+    <div data-active="program" id="site-header"></div>
     <main id="main">
       <!-- HERO PROGRAM -->
-      <section class="page-hero page-hero--program" aria-label="Program hero">
+      <section aria-label="Program hero" class="page-hero page-hero--program">
         <img
-          class="page-hero__bg"
-          src="assets/program-hero-bg-1440.png"
           alt=""
           aria-hidden="true"
+          class="page-hero__bg"
+          src="assets/program-hero-bg-1440.png"
         />
         <div class="page-hero__overlay">
           <div class="container">
@@ -51,7 +49,7 @@
           </div>
         </div>
       </section>
-
+      <!-- CONTENT -->
       <!-- CONTENT -->
       <section class="section program-content">
         <div class="container program-shell">
@@ -60,8 +58,8 @@
               <a
                 class="btn btn--about program-download__btn"
                 href="assets/Confernece_program_2026-08-07_draft.pdf"
-                target="_blank"
                 rel="noopener noreferrer"
+                target="_blank"
               >
                 Download programme PDF
               </a>
@@ -71,8 +69,7 @@
               selected social events may still be updated before publication.
             </p>
           </header>
-
-          <nav class="program-daynav reveal" aria-label="Programme days">
+          <nav aria-label="Programme days" class="program-daynav reveal">
             <ul class="program-daynav__list">
               <li>
                 <a href="#day-1"
@@ -94,7 +91,6 @@
               </li>
             </ul>
           </nav>
-
           <section class="program-day" id="day-1">
             <header class="program-day__heading reveal">
               <div>
@@ -114,7 +110,6 @@
                   </div>
                 </article>
               </li>
-
               <li class="program-item reveal">
                 <div class="program-time">09:00–09:15</div>
                 <article class="program-card program-card--service">
@@ -127,13 +122,12 @@
                   </div>
                 </article>
               </li>
-
               <li class="program-item reveal">
                 <div class="program-time">09:15–10:00</div>
                 <a
+                  aria-label="Read more about keynote speaker Hubertus Günther"
                   class="program-card-link"
                   href="keynotes.html#hubertus-guenther"
-                  aria-label="Read more about keynote speaker Hubertus Günther"
                 >
                   <article class="program-card program-card--service">
                     <div class="program-card__body">
@@ -144,7 +138,6 @@
                   </article>
                 </a>
               </li>
-
               <li class="program-item reveal">
                 <div class="program-time">10:00–10:20</div>
                 <article class="program-card program-card--break">
@@ -153,117 +146,136 @@
                   </div>
                 </article>
               </li>
-
               <li class="program-item reveal">
                 <div class="program-time">10:20–11:25</div>
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
-                    <header class="program-session__head">
+                    <header
+                      aria-controls="session-details-1"
+                      aria-expanded="false"
+                      class="program-session__head program-session-summary"
+                      role="button"
+                      tabindex="0"
+                    >
                       <div class="program-topic-number">01</div>
                       <div>
                         <p class="program-kicker">Topic area 02</p>
                         <h3>Best Documentation Practices</h3>
                         <p class="program-session__subtitle">
-                          Session 1 · Part I · Moderator: TBA · Chair: Irene Cazzaro
+                          Session 1 · Part I · Moderator: TBA · Chair: Irene
+                          Cazzaro
                         </p>
                       </div>
+                      <span
+                        aria-hidden="true"
+                        class="program-session-chevron"
+                      ></span
+                      ><span class="visually-hidden program-session-toggle-a11y"
+                        >Show session presentations</span
+                      >
                     </header>
-                    <ul class="program-talks">
-                      <li class="program-talk">
-                        <div class="program-talk__time">10:20–10:25</div>
-                        <div>
-                          <p class="program-talk__title">Intro</p>
-                        </div>
-                      </li>
 
-<li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0009-abstract.pdf"
-                        data-abstract-title="Invisible Transformations"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for Invisible Transformations"
-                      >
-<div class="program-talk__time">10:25–10:40</div>
-                        <div>
-                          <p class="program-talk__title">
-                            Invisible Transformations: Documenting Technical
-                            Metadata and Paradata in Web-Based 3D Workflows of
-                            Cultural Heritage Objects
-                          </p>
-                          <p class="program-talk__authors">
-                            Susanne Bosche
-                          </p>
-                        </div>
-                      </li>
-
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0037-abstracts.pdf"
-                        data-abstract-title="From Smartphone 3D to Lightweight metadata for 3D representation of
+                    <div
+                      class="program-session-details"
+                      hidden=""
+                      id="session-details-1"
+                    >
+                      <div class="program-session-details__inner">
+                        <ul class="program-talks">
+                          <li class="program-talk">
+                            <div class="program-talk__time">10:20–10:25</div>
+                            <div>
+                              <p class="program-talk__title">Intro</p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for Invisible Transformations"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0009-abstract.pdf"
+                            data-abstract-title="Invisible Transformations"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">10:25–10:40</div>
+                            <div>
+                              <p class="program-talk__title">
+                                Invisible Transformations: Documenting Technical
+                                Metadata and Paradata in Web-Based 3D Workflows
+                                of Cultural Heritage Objects
+                              </p>
+                              <p class="program-talk__authors">
+                                Susanne Bosche
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for Open abstract PDF for Lightweight metadata for 3D representation of
                             immovable cultural assets and their damages"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for Open abstract PDF for Lightweight metadata for 3D representation of
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0037-abstracts.pdf"
+                            data-abstract-title="From Smartphone 3D to Lightweight metadata for 3D representation of
                             immovable cultural assets and their damages"
-                      >
-                        <div class="program-talk__time">10:40–10:55</div>
-                        <div>
-                          <p class="program-talk__title">
-                            Lightweight metadata for 3D representation of
-                            immovable cultural assets and their damages:
-                            bridging the gap between data quality standards and
-                            participative documentation methods
-                          </p>
-                          <p class="program-talk__authors">
-                            Irena Schmitt, Fabian Rolke, Jyrki Oraskari
-                          </p>
-                        </div>
-                      </li>
-
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0042-abstract.pdf"
-                        data-abstract-title="WissKI Barrels 3D Data Model"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for WissKI Barrels 3D Data Model"
-                      >
-                        <div class="program-talk__time">10:55–11:10</div>
-                        <div>
-                          <p class="program-talk__title">
-                            WissKI Barrels 3D Data Model – Quickstart for FAIR 3D Heritage Documentation
-                          </p>
-                          <p class="program-talk__authors">
-                            Robert Nasarek, Igor Bajena
-                          </p>
-                        </div>
-                      </li>
-
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0001-abstract.pdf"
-                        data-abstract-title="From Smartphone 3D to Federated Knowledge Graphs"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for From Smartphone 3D to Federated Knowledge Graphs"
-                      >
-                        <div class="program-talk__time">11:10–11:25</div>
-                        <div>
-                          <p class="program-talk__title">
-                            From Smartphone 3D to Federated Knowledge Graphs:
-                            Best Documentation Practices for Making
-                            Citizen-Generated 3D Heritage FAIR
-                          </p>
-
-                          <p class="program-talk__authors">
-                            Florian Thiery, Anne-Karoline Distel
-                          </p>
-                                              </ul>
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">10:40–10:55</div>
+                            <div>
+                              <p class="program-talk__title">
+                                Lightweight metadata for 3D representation of
+                                immovable cultural assets and their damages:
+                                bridging the gap between data quality standards
+                                and participative documentation methods
+                              </p>
+                              <p class="program-talk__authors">
+                                Irena Schmitt, Fabian Rolke, Jyrki Oraskari
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for WissKI Barrels 3D Data Model"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0042-abstract.pdf"
+                            data-abstract-title="WissKI Barrels 3D Data Model"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">10:55–11:10</div>
+                            <div>
+                              <p class="program-talk__title">
+                                WissKI Barrels 3D Data Model – Quickstart for
+                                FAIR 3D Heritage Documentation
+                              </p>
+                              <p class="program-talk__authors">
+                                Robert Nasarek, Igor Bajena
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for From Smartphone 3D to Federated Knowledge Graphs"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0001-abstract.pdf"
+                            data-abstract-title="From Smartphone 3D to Federated Knowledge Graphs"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">11:10–11:25</div>
+                            <div>
+                              <p class="program-talk__title">
+                                From Smartphone 3D to Federated Knowledge
+                                Graphs: Best Documentation Practices for Making
+                                Citizen-Generated 3D Heritage FAIR
+                              </p>
+                              <p class="program-talk__authors">
+                                Florian Thiery, Anne-Karoline Distel
+                              </p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </article>
               </li>
-
               <li class="program-item reveal">
                 <div class="program-time">11:25–11:45</div>
                 <article class="program-card program-card--break">
@@ -272,286 +284,322 @@
                   </div>
                 </article>
               </li>
-
               <li class="program-item reveal">
                 <div class="program-time">11:45–13:00</div>
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
-                    <header class="program-session__head">
+                    <header
+                      aria-controls="session-details-2"
+                      aria-expanded="false"
+                      class="program-session__head program-session-summary"
+                      role="button"
+                      tabindex="0"
+                    >
                       <div class="program-topic-number">01</div>
                       <div>
                         <p class="program-kicker">Topic area 02</p>
                         <h3>Best Documentation Practices</h3>
                         <p class="program-session__subtitle">
-                          Session 1 · Part II · Moderator TBA
+                          Session 1 · Part II · Moderator: TBA · Chair: Irene
+                          Cazzaro
                         </p>
                       </div>
+                      <span
+                        aria-hidden="true"
+                        class="program-session-chevron"
+                      ></span
+                      ><span class="visually-hidden program-session-toggle-a11y"
+                        >Show session presentations</span
+                      >
                     </header>
-                    <ul class="program-talks">
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0006-abstract.pdf"
-                        data-abstract-title="On the Scientific Validity of Virtual
+
+                    <div
+                      class="program-session-details"
+                      hidden=""
+                      id="session-details-2"
+                    >
+                      <div class="program-session-details__inner">
+                        <ul class="program-talks">
+                          <li
+                            aria-label="Open abstract PDF for On the Scientific Validity of Virtual
                             Reconstructions"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for On the Scientific Validity of Virtual
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0006-abstract.pdf"
+                            data-abstract-title="On the Scientific Validity of Virtual
                             Reconstructions"
-                      >
-                        <div class="program-talk__time">11:45–12:00</div>
-                        <div>
-                          <p class="program-talk__title">
-                            On the Scientific Validity of Virtual
-                            Reconstructions
-                          </p>
-                          <p class="program-talk__authors">
-                            Markus Wacker, Marc Grellert, Jonas Bruschke, Daniel
-                            Beck, Wolfgang Stille, Christina Clausen, Petra
-                            Steiner
-                          </p>
-                        </div>
-                      </li>
-
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0044-abstract.pdf"
-                        data-abstract-title="Formalising documentary provenance for unbuilt
-                            heritage"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for Formalising documentary provenance for unbuilt
-                            heritage"
-                      >
-                        <div class="program-talk__time">12:00–12:15</div>
-                        <div>
-                          <p class="program-talk__title">
-                            Formalising documentary provenance for unbuilt
-                            heritage: implementing source paradata in bSDD for
-                            an HBIM reconstruction framework
-                          </p>
-                          <p class="program-talk__authors">
-                            Elisabetta Caterina Giovannini, Anna Sanseverino,
-                            Jacopo Bono
-                          </p>
-                        </div>
-                      </li>
-
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0013-abstract.pdf"
-                        data-abstract-title="Towards FAIR Documentation of Hypothetical 3D Reconstructions
-                        "
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for Towards FAIR Documentation of Hypothetical 3D Reconstructions"
-                      >
-                        <div class="program-talk__time">12:15–12:30</div>
-                        <div>
-                          <p class="program-talk__title">
-                           Towards FAIR Documentation of Hypothetical 3D Reconstructions: The Case of C.-N. Ledoux’s Unbuilt Projects
-                          </p>
-                          <p class="program-talk__authors">
-                            Federico Fallavollita, Fabrizio Ivan Apollonio,
-                            Riccardo Foschi
-                          </p>
-                        </div>
-                      </li>
-
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0025-abstract.pdf"
-                        data-abstract-title="Explore 3D"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for  Explore 3D"
-                      >
-                        <div class="program-talk__time">12:30–12:45</div>
-                        <div>
-                          <p class="program-talk__title">
-                            Explore 3D: Developing Good Practice Guideline for
-                            3D Digitisation and Open Research Data
-                          </p>
-                          <p class="program-talk__authors">
-                            Christian Felsner, Alexandre Bovey
-                          </p>
-                        </div>
-                      </li>
-
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0047-abstract.pdf"
-                        data-abstract-title="Stratigraphic categorisation as documentation"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for Stratigraphic categorisation as documentation"
-                      >
-                        <div class="program-talk__time">12:45–13:00</div>
-                        <div>
-                          <p class="program-talk__title">
-                            Stratigraphic categorisation as documentation: the
-                            Extended Matrix and the data/taxonomy plane of
-                            credible virtual reconstruction.
-                          </p>
-                          <p
-                            class="program-talk__authors"
-                            style="color: var(--blue-primary)"
+                            role="button"
+                            tabindex="0"
                           >
-                            <b
-                              ><i>
-                                A worked example from the EM 1.5 specification,
-                                developed within the Horizon Europe StratiGraph
-                                project as a building block for the European
-                                Collaborative Cloud for Cultural Heritage
-                                (ECCCH).
-                              </i></b
-                            >
-                          </p>
-                          <p class="program-talk__authors">
-                            Emanuel Demetrescu
-                          </p>
-                        </div>
-                      </li>
-                    </ul>
+                            <div class="program-talk__time">11:45–12:00</div>
+                            <div>
+                              <p class="program-talk__title">
+                                On the Scientific Validity of Virtual
+                                Reconstructions
+                              </p>
+                              <p class="program-talk__authors">
+                                Markus Wacker, Marc Grellert, Jonas Bruschke,
+                                Daniel Beck, Wolfgang Stille, Christina Clausen,
+                                Petra Steiner
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for Formalising documentary provenance for unbuilt
+                            heritage"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0044-abstract.pdf"
+                            data-abstract-title="Formalising documentary provenance for unbuilt
+                            heritage"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">12:00–12:15</div>
+                            <div>
+                              <p class="program-talk__title">
+                                Formalising documentary provenance for unbuilt
+                                heritage: implementing source paradata in bSDD
+                                for an HBIM reconstruction framework
+                              </p>
+                              <p class="program-talk__authors">
+                                Elisabetta Caterina Giovannini, Anna
+                                Sanseverino, Jacopo Bono
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for Towards FAIR Documentation of Hypothetical 3D Reconstructions"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0013-abstract.pdf"
+                            data-abstract-title="Towards FAIR Documentation of Hypothetical 3D Reconstructions
+                        "
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">12:15–12:30</div>
+                            <div>
+                              <p class="program-talk__title">
+                                Towards FAIR Documentation of Hypothetical 3D
+                                Reconstructions: The Case of C.-N. Ledoux’s
+                                Unbuilt Projects
+                              </p>
+                              <p class="program-talk__authors">
+                                Federico Fallavollita, Fabrizio Ivan Apollonio,
+                                Riccardo Foschi
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for  Explore 3D"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0025-abstract.pdf"
+                            data-abstract-title="Explore 3D"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">12:30–12:45</div>
+                            <div>
+                              <p class="program-talk__title">
+                                Explore 3D: Developing Good Practice Guideline
+                                for 3D Digitisation and Open Research Data
+                              </p>
+                              <p class="program-talk__authors">
+                                Christian Felsner, Alexandre Bovey
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for Stratigraphic categorisation as documentation"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0047-abstract.pdf"
+                            data-abstract-title="Stratigraphic categorisation as documentation"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">12:45–13:00</div>
+                            <div>
+                              <p class="program-talk__title">
+                                Stratigraphic categorisation as documentation:
+                                the Extended Matrix and the data/taxonomy plane
+                                of credible virtual reconstruction.
+                              </p>
+                              <p
+                                class="program-talk__authors"
+                                style="color: var(--blue-primary)"
+                              >
+                                <b
+                                  ><i>
+                                    A worked example from the EM 1.5
+                                    specification, developed within the Horizon
+                                    Europe StratiGraph project as a building
+                                    block for the European Collaborative Cloud
+                                    for Cultural Heritage (ECCCH).
+                                  </i></b
+                                >
+                              </p>
+                              <p class="program-talk__authors">
+                                Emanuel Demetrescu
+                              </p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </article>
               </li>
-
               <li class="program-item reveal">
-                <div class="program-time">13:00–14:00</div>
+                <div class="program-time">13:00–14:30</div>
                 <article class="program-card program-card--break">
                   <div class="program-card__body">
                     <h4>Lunch break</h4>
                   </div>
                 </article>
               </li>
-
               <li class="program-item reveal">
-                <div class="program-time">14:00–15:20</div>
+                <div class="program-time">14:30–15:50</div>
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
-                    <header class="program-session__head">
+                    <header
+                      aria-controls="session-details-3"
+                      aria-expanded="false"
+                      class="program-session__head program-session-summary"
+                      role="button"
+                      tabindex="0"
+                    >
                       <div class="program-topic-number">02</div>
                       <div>
                         <p class="program-kicker">Topic area 01</p>
                         <h3>3D World Wide Web Exploration and Visualisation</h3>
                         <p class="program-session__subtitle">
-                          Session 2 · Moderator: Ronald S. Haynes · Chair: Dominik Ukolov
+                          Session 2 · Moderator: Ronald S. Haynes · Chair:
+                          Dominik Ukolov
                         </p>
                       </div>
+                      <span
+                        aria-hidden="true"
+                        class="program-session-chevron"
+                      ></span
+                      ><span class="visually-hidden program-session-toggle-a11y"
+                        >Show session presentations</span
+                      >
                     </header>
-                    <ul class="program-talks">
-                      <li class="program-talk">
-                        <div class="program-talk__time">14:00–14:05</div>
-                        <div>
-                          <p class="program-talk__title">Intro</p>
-                        </div>
-                      </li>
 
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0017-abstract.pdf"
-                        data-abstract-title="Mapping Interaction Spaces"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for Mapping Interaction Spaces"
-                      >
-                        <div class="program-talk__time">14:05–14:20</div>
-                        <div>
-                          <p class="program-talk__title">
-                            Mapping Interaction Spaces: A Matrix for
-                            Transitional Interfaces in Virtual Reconstruction
-                            Research
-                          </p>
-                          <p class="program-talk__authors">
-                            Deborah Ehlers, Jan-Henrik Schröder, Philipp
-                            Uesbeck, Hans-Christian Jetter
-                          </p>
-                        </div>
-                      </li>
-
-                     <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0033-abstract.pdf"
-                        data-abstract-title="Towards (H)BIM Integration in Semantic Kompakkt"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for Towards (H)BIM Integration in Semantic Kompakkt"
-                      >
-                        <div class="program-talk__time">14:20–14:35</div>
-                        <div>
-                          <p class="program-talk__title">
-                            Towards (H)BIM Integration in Semantic Kompakkt:
-                            Evaluation of Web Libraries for a Modular Import
-                            Pipeline
-                          </p>
-                          <p class="program-talk__authors">
-                            Kai Niebes, Zoe Schubert, Lozana Rossenova, Ina
-                            Blümel
-                          </p>
-                        </div>
-                      </li>
-
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0027-abstract.pdf"
-                        data-abstract-title="From archive to experience"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for From archive to experience"
-                      >
-                        <div class="program-talk__time">14:35–14:50</div>
-                        <div>
-                          <p class="program-talk__title">
-                            From archive to experience: Reimagining digital
-                            archives as immersive knowledge spaces
-                          </p>
-                          <p class="program-talk__authors">
-                            Max Frühwirt, Gerald Kozicz, Yuting Chen
-                          </p>
-                        </div>
-                      </li>
-
-                      <li class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0029-abstract.pdf"
-                        data-abstract-title="Bridging 3D Visualisation and IIIF"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for Bridging 3D Visualisation and IIIF"
-                      >
-                        <div class="program-talk__time">14:50–15:05</div>
-                        <div>
-                          <p class="program-talk__title">
-                            Bridging 3D Visualisation and IIIF: The DLF AIM 3D
-                            Viewer for Interoperable and FAIR 3D Workflows
-                          </p>
-                          <p class="program-talk__authors">Daniel Dworak</p>
-                        </div>
-                      </li>
-
-                        <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0048-abstract.pdf"
-                        data-abstract-title="Reconstructing and Analysing a forgotten World"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for Reconstructing and Analysing a forgotten World"
-                      >
-                        <div class="program-talk__time">15:05–15:20</div>
-                        <div>
-                          <p class="program-talk__title">
-                            Reconstructing and Analysing a forgotten World: A 3D-Positioning
-and Annotation System for the Paintings of the Kucha Project
-                          </p>
-                          <p class="program-talk__authors">
-                            Erik Radisch
-                          </p>
-                        </div>
-                      </li> 
-                    </ul>
+                    <div
+                      class="program-session-details"
+                      hidden=""
+                      id="session-details-3"
+                    >
+                      <div class="program-session-details__inner">
+                        <ul class="program-talks">
+                          <li class="program-talk">
+                            <div class="program-talk__time">14:30–14:35</div>
+                            <div>
+                              <p class="program-talk__title">Intro</p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for Mapping Interaction Spaces"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0017-abstract.pdf"
+                            data-abstract-title="Mapping Interaction Spaces"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">14:35–14:50</div>
+                            <div>
+                              <p class="program-talk__title">
+                                Mapping Interaction Spaces: A Matrix for
+                                Transitional Interfaces in Virtual
+                                Reconstruction Research
+                              </p>
+                              <p class="program-talk__authors">
+                                Deborah Ehlers, Jan-Henrik Schröder, Philipp
+                                Uesbeck, Hans-Christian Jetter
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for Towards (H)BIM Integration in Semantic Kompakkt"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0033-abstract.pdf"
+                            data-abstract-title="Towards (H)BIM Integration in Semantic Kompakkt"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">14:50–15:05</div>
+                            <div>
+                              <p class="program-talk__title">
+                                Towards (H)BIM Integration in Semantic Kompakkt:
+                                Evaluation of Web Libraries for a Modular Import
+                                Pipeline
+                              </p>
+                              <p class="program-talk__authors">
+                                Kai Niebes, Zoe Schubert, Lozana Rossenova, Ina
+                                Blümel
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for From archive to experience"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0027-abstract.pdf"
+                            data-abstract-title="From archive to experience"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">15:05–15:20</div>
+                            <div>
+                              <p class="program-talk__title">
+                                From archive to experience: Reimagining digital
+                                archives as immersive knowledge spaces
+                              </p>
+                              <p class="program-talk__authors">
+                                Max Frühwirt, Gerald Kozicz, Yuting Chen
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for Bridging 3D Visualisation and IIIF"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0029-abstract.pdf"
+                            data-abstract-title="Bridging 3D Visualisation and IIIF"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">15:20–15:35</div>
+                            <div>
+                              <p class="program-talk__title">
+                                Bridging 3D Visualisation and IIIF: The DLF AIM
+                                3D Viewer for Interoperable and FAIR 3D
+                                Workflows
+                              </p>
+                              <p class="program-talk__authors">Daniel Dworak</p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for Reconstructing and Analysing a forgotten World"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0048-abstract.pdf"
+                            data-abstract-title="Reconstructing and Analysing a forgotten World"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">15:35–15:50</div>
+                            <div>
+                              <p class="program-talk__title">
+                                Reconstructing and Analysing a forgotten World:
+                                A 3D-Positioning and Annotation System for the
+                                Paintings of the Kucha Project
+                              </p>
+                              <p class="program-talk__authors">Erik Radisch</p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </article>
               </li>
-
               <li class="program-item reveal">
                 <div class="program-time">16:00–18:00</div>
                 <article class="program-card program-card--service">
@@ -561,7 +609,6 @@ and Annotation System for the Paintings of the Kucha Project
                   </div>
                 </article>
               </li>
-
               <li class="program-item reveal">
                 <div class="program-time">18:00–21:00</div>
                 <article class="program-card program-card--service">
@@ -592,13 +639,12 @@ and Annotation System for the Paintings of the Kucha Project
                   </div>
                 </article>
               </li>
-
               <li class="program-item reveal">
                 <div class="program-time">09:10–09:55</div>
                 <a
+                  aria-label="Read more about keynote speaker Costas Papadopoulos"
                   class="program-card-link"
                   href="keynotes.html#costas-papadopoulos"
-                  aria-label="Read more about keynote speaker Costas Papadopoulos"
                 >
                   <article class="program-card program-card--service">
                     <div class="program-card__body">
@@ -612,7 +658,6 @@ and Annotation System for the Paintings of the Kucha Project
                   </article>
                 </a>
               </li>
-
               <li class="program-item reveal">
                 <div class="program-time">09:55–10:15</div>
                 <article class="program-card program-card--break">
@@ -621,12 +666,17 @@ and Annotation System for the Paintings of the Kucha Project
                   </div>
                 </article>
               </li>
-
               <li class="program-item reveal">
                 <div class="program-time">10:15–11:20</div>
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
-                    <header class="program-session__head">
+                    <header
+                      aria-controls="session-details-4"
+                      aria-expanded="false"
+                      class="program-session__head program-session-summary"
+                      role="button"
+                      tabindex="0"
+                    >
                       <div class="program-topic-number">03</div>
                       <div>
                         <p class="program-kicker">Topic area 03</p>
@@ -635,103 +685,116 @@ and Annotation System for the Paintings of the Kucha Project
                           Strategies
                         </h3>
                         <p class="program-session__subtitle">
-                          Session 3 · Part I · Moderator TBA
+                          Session 3 · Part I · Moderator: TBA · Chair: TBA
                         </p>
                       </div>
+                      <span
+                        aria-hidden="true"
+                        class="program-session-chevron"
+                      ></span
+                      ><span class="visually-hidden program-session-toggle-a11y"
+                        >Show session presentations</span
+                      >
                     </header>
-                    <ul class="program-talks">
-                      <li class="program-talk">
-                        <div class="program-talk__time">10:15–10:20</div>
-                        <div>
-                          <p class="program-talk__title">Intro</p>
-                        </div>
-                      </li>
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0036-abstract.pdf"
-                        data-abstract-title="Identifying Interdisciplinary Challenges Across 3D
+
+                    <div
+                      class="program-session-details"
+                      hidden=""
+                      id="session-details-4"
+                    >
+                      <div class="program-session-details__inner">
+                        <ul class="program-talks">
+                          <li class="program-talk">
+                            <div class="program-talk__time">10:15–10:20</div>
+                            <div>
+                              <p class="program-talk__title">Intro</p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for Identifying Interdisciplinary Challenges Across 3D
                             Data Creation/Curation Workflows"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for Identifying Interdisciplinary Challenges Across 3D
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0036-abstract.pdf"
+                            data-abstract-title="Identifying Interdisciplinary Challenges Across 3D
                             Data Creation/Curation Workflows"
-                      >
-                        <div class="program-talk__time">10:20–10:35</div>
-                        <div>
-                          <p class="program-talk__title">
-                            Identifying Interdisciplinary Challenges Across 3D
-                            Data Creation/Curation Workflows
-                          </p>
-                          <p class="program-talk__authors">
-                            M McCall Borozan, Zack Lischer-Katz, Matt Cook
-                          </p>
-                        </div>
-                      </li>
-
-<li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0014-abstract.pdf"
-                        data-abstract-title="Beyond the Viewer"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for Beyond the Viewer"
-                      >
-<div class="program-talk__time">10:35–10:50</div>
-                        <div>
-                          <p class="program-talk__title">
-                            Beyond the Viewer: Documentation Standards as
-                            Governance Infrastructure in 3D Heritage
-                          </p>
-                          <p class="program-talk__authors">
-                            Shuyi Yin
-                          </p>
-                        </div>
-                      </li>
-
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0041-abstract.pdf"
-                        data-abstract-title="Towards FAIR Architectural Data Collections"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for Towards FAIR Architectural Data Collections"
-                      >
-                        <div class="program-talk__time">10:50–11:05</div>
-                        <div>
-                          <p class="program-talk__title">
-                            Towards FAIR Architectural Data Collections
-                          </p>
-                          <p class="program-talk__authors">
-                            Roger Winkler, Hana Svatoš-Ražnjević, Andreas
-                            Noback, Marc Fuhrmans, Tobias Schwinn, Achim Menges
-                          </p>
-                        </div>
-                      </li>
-
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0046-abstract.pdf"
-                        data-abstract-title="DFG 3D-Viewer as a Distributed Workflow for Publication, Preservation and Reuse"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for DFG 3D-Viewer as a Distributed Workflow for Publication, Preservation and Reuse"
-                      >
-                        <div class="program-talk__time">11:05–11:20</div>
-                        <div>
-                          <p class="program-talk__title">
-                            DFG 3D-Viewer as a Distributed Workflow for Publication, Preservation and Reuse
-                          </p>
-                          <p class="program-talk__authors">
-                            Sander Münster, Piotr Kuroczyński, Marc Mosch, Igor Piotr Bajena, Clemens
-                            Beck, Markus Weigelt, Daniel Dworak
-                          </p>
-                        </div>
-                      </li>
-                    </ul>
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">10:20–10:35</div>
+                            <div>
+                              <p class="program-talk__title">
+                                Identifying Interdisciplinary Challenges Across
+                                3D Data Creation/Curation Workflows
+                              </p>
+                              <p class="program-talk__authors">
+                                M McCall Borozan, Zack Lischer-Katz, Matt Cook
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for Beyond the Viewer"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0014-abstract.pdf"
+                            data-abstract-title="Beyond the Viewer"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">10:35–10:50</div>
+                            <div>
+                              <p class="program-talk__title">
+                                Beyond the Viewer: Documentation Standards as
+                                Governance Infrastructure in 3D Heritage
+                              </p>
+                              <p class="program-talk__authors">Shuyi Yin</p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for Towards FAIR Architectural Data Collections"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0041-abstract.pdf"
+                            data-abstract-title="Towards FAIR Architectural Data Collections"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">10:50–11:05</div>
+                            <div>
+                              <p class="program-talk__title">
+                                Towards FAIR Architectural Data Collections
+                              </p>
+                              <p class="program-talk__authors">
+                                Roger Winkler, Hana Svatoš-Ražnjević, Andreas
+                                Noback, Marc Fuhrmans, Tobias Schwinn, Achim
+                                Menges
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for DFG 3D-Viewer as a Distributed Workflow for Publication, Preservation and Reuse"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0046-abstract.pdf"
+                            data-abstract-title="DFG 3D-Viewer as a Distributed Workflow for Publication, Preservation and Reuse"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">11:05–11:20</div>
+                            <div>
+                              <p class="program-talk__title">
+                                DFG 3D-Viewer as a Distributed Workflow for
+                                Publication, Preservation and Reuse
+                              </p>
+                              <p class="program-talk__authors">
+                                Sander Münster, Piotr Kuroczyński, Marc Mosch,
+                                Igor Piotr Bajena, Clemens Beck, Markus Weigelt,
+                                Daniel Dworak
+                              </p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </article>
               </li>
-
               <li class="program-item reveal">
                 <div class="program-time">11:20–11:40</div>
                 <article class="program-card program-card--break">
@@ -740,12 +803,17 @@ and Annotation System for the Paintings of the Kucha Project
                   </div>
                 </article>
               </li>
-
               <li class="program-item reveal">
                 <div class="program-time">11:40–12:40</div>
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
-                    <header class="program-session__head">
+                    <header
+                      aria-controls="session-details-5"
+                      aria-expanded="false"
+                      class="program-session__head program-session-summary"
+                      role="button"
+                      tabindex="0"
+                    >
                       <div class="program-topic-number">03</div>
                       <div>
                         <p class="program-kicker">Topic area 03</p>
@@ -754,331 +822,362 @@ and Annotation System for the Paintings of the Kucha Project
                           Strategies
                         </h3>
                         <p class="program-session__subtitle">
-                          Session 3 · Part II · Moderator TBA
+                          Session 3 · Part II · Moderator: TBA · Chair: TBA
                         </p>
                       </div>
+                      <span
+                        aria-hidden="true"
+                        class="program-session-chevron"
+                      ></span
+                      ><span class="visually-hidden program-session-toggle-a11y"
+                        >Show session presentations</span
+                      >
                     </header>
-                    <ul class="program-talks">
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0043-abstract.pdf"
-                        data-abstract-title="WebHDP"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for WebHDP"
-                      >
-                        <div class="program-talk__time">11:40–11:55</div>
-                        <div>
-                          <p class="program-talk__title">
-                            WebHDP: A FAIR-Oriented Publication Workflow for 3D Heritage Data
-                          </p>
-                          <p class="program-talk__authors">Dominik Ukolov</p>
-                        </div>
-                      </li>
 
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0023-abstract.pdf"
-                        data-abstract-title="When More Data Is Not Enough"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for When More Data Is Not Enough"
-                      >
-                        <div class="program-talk__time">11:55–12:10</div>
-                        <div>
-                          <p class="program-talk__title">
-                            When More Data Is Not Enough: Preserving Robotically
-                            Fabricated Architecture
-                          </p>
-
-                          <p class="program-talk__authors">
-                            Wen-Shan Cui, Adrian Leander Pöllinger, Laurence
-                            Crouzet, Silke Langenberg
-                          </p>
-                        </div>
-                      </li>
-
-<li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0030-abstract.pdf"
-                        data-abstract-title="From Documentation to Infrastructure"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for From Documentation to Infrastructure"
-                      >
-                        <div class="program-talk__time">12:10–12:25</div>
-                        <div>
-                          <p class="program-talk__title">
-                            From Documentation to Infrastructure: The
-                            Development of 3D Cultural Heritage Digitization in
-                            Ukraine
-                          </p>
-                          <p class="program-talk__authors">
-                            Yuliia Frolova, Iana Boitsova
-                          </p>
-                        </div>
-                      </li>
-
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0015-abstract.pdf"
-                        data-abstract-title="SummitShare"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for Tactile Time"
-                      >
-                        <div class="program-talk__time">12:25–12:40</div>
-                        <div>
-                          <p class="program-talk__title">
-                            SummitShare: Digital Environments in Practice
-                          </p>
-
-                          <p class="program-talk__authors">
-                            Daniel Tembo, Mario Maguya Jere, Thomas M. Gondwe,
-                            Mulenga Mpundu Kapwepwe, Taonga Makashinyi, Nhyira
-                            Amofa-Sekyi, Samba Yonga
-                          </p>
-                        </div>
-                      </li>
-                    </ul>
+                    <div
+                      class="program-session-details"
+                      hidden=""
+                      id="session-details-5"
+                    >
+                      <div class="program-session-details__inner">
+                        <ul class="program-talks">
+                          <li
+                            aria-label="Open abstract PDF for WebHDP"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0043-abstract.pdf"
+                            data-abstract-title="WebHDP"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">11:40–11:55</div>
+                            <div>
+                              <p class="program-talk__title">
+                                WebHDP: A FAIR-Oriented Publication Workflow for
+                                3D Heritage Data
+                              </p>
+                              <p class="program-talk__authors">
+                                Dominik Ukolov
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for When More Data Is Not Enough"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0023-abstract.pdf"
+                            data-abstract-title="When More Data Is Not Enough"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">11:55–12:10</div>
+                            <div>
+                              <p class="program-talk__title">
+                                When More Data Is Not Enough: Preserving
+                                Robotically Fabricated Architecture
+                              </p>
+                              <p class="program-talk__authors">
+                                Wen-Shan Cui, Adrian Leander Pöllinger, Laurence
+                                Crouzet, Silke Langenberg
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for From Documentation to Infrastructure"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0030-abstract.pdf"
+                            data-abstract-title="From Documentation to Infrastructure"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">12:10–12:25</div>
+                            <div>
+                              <p class="program-talk__title">
+                                From Documentation to Infrastructure: The
+                                Development of 3D Cultural Heritage Digitization
+                                in Ukraine
+                              </p>
+                              <p class="program-talk__authors">
+                                Yuliia Frolova, Iana Boitsova
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for Tactile Time"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0015-abstract.pdf"
+                            data-abstract-title="SummitShare"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">12:25–12:40</div>
+                            <div>
+                              <p class="program-talk__title">
+                                SummitShare: Digital Environments in Practice
+                              </p>
+                              <p class="program-talk__authors">
+                                Daniel Tembo, Mario Maguya Jere, Thomas M.
+                                Gondwe, Mulenga Mpundu Kapwepwe, Taonga
+                                Makashinyi, Nhyira Amofa-Sekyi, Samba Yonga
+                              </p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </article>
               </li>
-
               <li class="program-item reveal">
-                <div class="program-time">12:40–13:40</div>
+                <div class="program-time">12:40–14:10</div>
                 <article class="program-card program-card--break">
                   <div class="program-card__body">
                     <h4>Lunch break</h4>
                   </div>
                 </article>
               </li>
-
               <li class="program-item reveal">
-                <div class="program-time">13:40–15:20</div>
+                <div class="program-time">14:10–15:50</div>
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
-                    <header class="program-session__head">
+                    <header
+                      aria-controls="session-details-6"
+                      aria-expanded="false"
+                      class="program-session__head program-session-summary"
+                      role="button"
+                      tabindex="0"
+                    >
                       <div class="program-topic-number">04</div>
                       <div>
                         <p class="program-kicker">Poster spotlights</p>
                         <h3>Poster Session A</h3>
                         <p class="program-session__subtitle">
-                          Documentation and infrastructures · Moderator TBA
+                          Documentation and infrastructures · Moderator: TBA ·
+                          Chair: TBA
                         </p>
                       </div>
+                      <span
+                        aria-hidden="true"
+                        class="program-session-chevron"
+                      ></span
+                      ><span class="visually-hidden program-session-toggle-a11y"
+                        >Show session presentations</span
+                      >
                     </header>
-                    <ul class="program-talks">
-                      <li class="program-talk">
-                        <div class="program-talk__time">13:40–13:45</div>
-                        <div>
-                          <p class="program-talk__title">
-                            Intro: Documentation and Infrastructures
-                          </p>
-                        </div>
-                      </li>
 
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0011-abstract.pdf"
-                        data-abstract-title="Multimodal Digital Twin of a Medieval Armenian Church"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for Multimodal Digital Twin of a Medieval Armenian Church"
-                      >
-                        <div class="program-talk__time">13:45–13:51</div>
-                        <div>
-                          <p class="program-talk__title">
-                            <span class="program-pill">Doc</span>Multimodal Digital Twin of a Medieval Armenian
-Church: 3D Documentation and Acoustic Auralisation
-                          </p>
-                          <p class="program-talk__authors">
-                            Narine Sarvazyan, Aleksei Andrianov, Ethan Bourdeau 
-                          </p>
-                        </div>
-                      </li>
-<li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0026-abstract.pdf"
-                        data-abstract-title="Transparency in 3D Reconstruction"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for Transparency in 3D Reconstruction"
-                      >
-<div class="program-talk__time">13:52–13:58</div>
-                        <div>
-                          <p class="program-talk__title">
-                            <span class="program-pill">Doc</span>Enhancing
-                            Transparency in 3D Reconstruction: An Integrated
-                            Metadata and Paradata Framework for Multimodal UAV
-                            Documentation
-                          </p>
-                          <p class="program-talk__authors">
-                            Ting-Jia Guo, Norbert Köster, Benjamin Risse
-                          </p>
-                        </div>
-                      </li>
-
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0005-abstract.pdf"
-                        data-abstract-title="Towards Automating FAIR Compliance in 3D Heritage Models"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for Towards Automating FAIR Compliance in 3D Heritage Models"
-                      >
-                        <div class="program-talk__time">13:59–14:05</div>
-                        <div>
-                          <p class="program-talk__title">
-                            <span class="program-pill">Doc</span>Towards Automating FAIR Compliance in 3D Heritage
-                            Models: An AI-Enhanced Epistemological-Operational
-                            Framework in the Historic Center of Najaf
-                          </p>
-
-                          <p class="program-talk__authors">
-                            Sabeeh Lafta Farhan
-                          </p>
-                        </div>
-                      </li>
-
-<li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0020-abstract.pdf"
-                        data-abstract-title="3D-Based Design
+                    <div
+                      class="program-session-details"
+                      hidden=""
+                      id="session-details-6"
+                    >
+                      <div class="program-session-details__inner">
+                        <ul class="program-talks">
+                          <li class="program-talk">
+                            <div class="program-talk__time">14:10–14:15</div>
+                            <div>
+                              <p class="program-talk__title">
+                                Intro: Documentation and Infrastructures
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for Multimodal Digital Twin of a Medieval Armenian Church"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0011-abstract.pdf"
+                            data-abstract-title="Multimodal Digital Twin of a Medieval Armenian Church"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">14:15–14:21</div>
+                            <div>
+                              <p class="program-talk__title">
+                                <span class="program-pill">Doc</span>Multimodal
+                                Digital Twin of a Medieval Armenian Church: 3D
+                                Documentation and Acoustic Auralisation
+                              </p>
+                              <p class="program-talk__authors">
+                                Narine Sarvazyan, Aleksei Andrianov, Ethan
+                                Bourdeau
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for Transparency in 3D Reconstruction"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0026-abstract.pdf"
+                            data-abstract-title="Transparency in 3D Reconstruction"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">14:22–14:28</div>
+                            <div>
+                              <p class="program-talk__title">
+                                <span class="program-pill">Doc</span>Enhancing
+                                Transparency in 3D Reconstruction: An Integrated
+                                Metadata and Paradata Framework for Multimodal
+                                UAV Documentation
+                              </p>
+                              <p class="program-talk__authors">
+                                Ting-Jia Guo, Norbert Köster, Benjamin Risse
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for Towards Automating FAIR Compliance in 3D Heritage Models"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0005-abstract.pdf"
+                            data-abstract-title="Towards Automating FAIR Compliance in 3D Heritage Models"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">14:29–14:35</div>
+                            <div>
+                              <p class="program-talk__title">
+                                <span class="program-pill">Doc</span>Towards
+                                Automating FAIR Compliance in 3D Heritage
+                                Models: An AI-Enhanced
+                                Epistemological-Operational Framework in the
+                                Historic Center of Najaf
+                              </p>
+                              <p class="program-talk__authors">
+                                Sabeeh Lafta Farhan
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for 3D-Based Design
                             Environments and Common Data Environments for
                             Sustainable Heritage Interventions"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for 3D-Based Design
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0020-abstract.pdf"
+                            data-abstract-title="3D-Based Design
                             Environments and Common Data Environments for
                             Sustainable Heritage Interventions"
-                      >
-                        <div class="program-talk__time">14:06–14:12</div>
-                        <div>
-                          <p class="program-talk__title">
-                            <span class="program-pill">Doc</span>3D-Based Design
-                            Environments and Common Data Environments for
-                            Sustainable Heritage Interventions: A Case Study in
-                            Castle Ruins
-                          </p>
-                          <p class="program-talk__authors">
-                            Joanna Tokarska, Piotr Kuroczyński
-                          </p>
-                        </div>
-                      </li>
-<li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0019-abstract.pdf"
-                        data-abstract-title="Preservation
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">14:36–14:42</div>
+                            <div>
+                              <p class="program-talk__title">
+                                <span class="program-pill">Doc</span>3D-Based
+                                Design Environments and Common Data Environments
+                                for Sustainable Heritage Interventions: A Case
+                                Study in Castle Ruins
+                              </p>
+                              <p class="program-talk__authors">
+                                Joanna Tokarska, Piotr Kuroczyński
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for Preservation
                             Infrastructure and the Problem of Digital Heritage
                             Loss"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for Preservation
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0019-abstract.pdf"
+                            data-abstract-title="Preservation
                             Infrastructure and the Problem of Digital Heritage
                             Loss"
-                      >
-<div class="program-talk__time">14:13–14:19</div>
-                        <div>
-                          <p class="program-talk__title">
-                            <span class="program-pill">Inf</span>Preservation
-                            Infrastructure and the Problem of Digital Heritage
-                            Loss
-                          </p>
-                          <p class="program-talk__authors">
-                            Somya Goel
-                          </p>
-                        </div>
-                      </li>
-
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0003-abstract.pdf"
-                        data-abstract-title="Completing the
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">14:43–14:49</div>
+                            <div>
+                              <p class="program-talk__title">
+                                <span class="program-pill">Inf</span
+                                >Preservation Infrastructure and the Problem of
+                                Digital Heritage Loss
+                              </p>
+                              <p class="program-talk__authors">Somya Goel</p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for Completing the
                             3D Infrastructure"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for Completing the
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0003-abstract.pdf"
+                            data-abstract-title="Completing the
                             3D Infrastructure"
-                      >
-                        <div class="program-talk__time">14:20–14:26</div>
-                        <div>
-                          <p class="program-talk__title">
-                            <span class="program-pill">Inf</span>Completing the
-                            3D Infrastructure: A One-Set Creation-to-Ingestion
-                            Model
-                          </p>
-                          <p class="program-talk__authors">Winnie Lam</p>
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">14:50–14:56</div>
+                            <div>
+                              <p class="program-talk__title">
+                                <span class="program-pill">Inf</span>Completing
+                                the 3D Infrastructure: A One-Set
+                                Creation-to-Ingestion Model
+                              </p>
+                              <p class="program-talk__authors">Winnie Lam</p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for 3D4Vases"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0032-abstract.pdf"
+                            data-abstract-title="3D4Vases"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">14:57–15:03</div>
+                            <div>
+                              <p class="program-talk__title">
+                                <span class="program-pill">Inf</span>Ancient
+                                Vases in 3D: Digitisation, Research and
+                                Web-based Publication
+                              </p>
+                              <p class="program-talk__authors">
+                                Alexander Wolny, Susanne Erbelding, Christina
+                                Trikidou
+                              </p>
+                            </div>
+                          </li>
+                          <li class="program-talk">
+                            <div class="program-talk__time">15:04–15:10</div>
+                            <div>
+                              <p class="program-talk__title">
+                                <span class="program-pill">Inf</span>Preserving
+                                context in fragmented museum archives: a
+                                methodological approach to digital preservation
+                              </p>
+                              <p class="program-talk__authors">
+                                Carolina Teixeira Sousa
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for Reconstructing Architectural Heritage through 3D and Immersive Technologies"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0045-abstract.pdf"
+                            data-abstract-title="Reconstructing Architectural Heritage through 3D and Immersive Technologies"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">15:11–15:17</div>
+                            <div>
+                              <p class="program-talk__title">
+                                <span class="program-pill">Inf</span>From music
+                                rooms in the illustrated press to FAIR heritage
+                                data: web-based infrastructures, provenance, and
+                                preservation in Digital Art History
+                              </p>
+                              <p class="program-talk__authors">
+                                Ana Ester Tavares, Vera Moitinho de Almeida,
+                                Luís Trigo, Hugo Barreira
+                              </p>
+                            </div>
+                          </li>
+                          <li class="program-talk">
+                            <div class="program-talk__time">15:20–15:50</div>
+                            <div>
+                              <p class="program-talk__title">Discussion</p>
+                              <p class="program-talk__authors">Moderator TBA</p>
+                            </div>
+                          </li>
+                        </ul>
+                        <div class="program-note-row">
+                          Poster viewing and informal discussions may continue
+                          until approximately 17:00–17:30.
                         </div>
-                      </li>
-
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0032-abstract.pdf"
-                        data-abstract-title="3D4Vases"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for 3D4Vases"
-                      >
-                        <div class="program-talk__time">14:27–14:33</div>
-                        <div>
-                          <p class="program-talk__title">
-                            <span class="program-pill">Inf</span>Ancient Vases in 3D: Digitisation, Research and Web-based Publication
-                          </p>
-                          <p class="program-talk__authors">
-                            Alexander Wolny, Susanne Erbelding, Christina
-                            Trikidou
-                          </p>
-                        </div>
-                      </li>
-
-                      <li class="program-talk">
-                        <div class="program-talk__time">14:34–14:40</div>
-                        <div>
-                          <p class="program-talk__title">
-                            <span class="program-pill">Inf</span>Preserving
-                            context in fragmented museum archives: a
-                            methodological approach to digital preservation
-                          </p>
-                          <p class="program-talk__authors">
-                            Carolina Teixeira Sousa
-                          </p>
-                        </div>
-                      </li>
-<li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0045-abstract.pdf"
-                        data-abstract-title="Reconstructing Architectural Heritage through 3D and Immersive Technologies"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for Reconstructing Architectural Heritage through 3D and Immersive Technologies"
-                      >
-<div class="program-talk__time">14:41–14:47</div>
-                        <div>
-                          <p class="program-talk__title">
-                            <span class="program-pill">Inf</span>From music
-                            rooms in the illustrated press to FAIR heritage
-                            data: web-based infrastructures, provenance, and
-                            preservation in Digital Art History
-                          </p>
-                          <p class="program-talk__authors">
-                            Ana Ester Tavares, Vera Moitinho de Almeida, Luís
-                            Trigo, Hugo Barreira
-                          </p>
-                        </div>
-                      </li>
-
-                      <li class="program-talk">
-                        <div class="program-talk__time">14:50–15:20</div>
-                        <div>
-                          <p class="program-talk__title">Discussion</p>
-                          <p class="program-talk__authors">Moderator TBA</p>
-                        </div>
-                      </li>
-                    </ul>
-                    <div class="program-note-row">
-                      Poster viewing and informal discussions may continue until
-                      approximately 17:00–17:30.
+                      </div>
                     </div>
                   </div>
                 </article>
@@ -1097,119 +1196,164 @@ Church: 3D Documentation and Acoustic Auralisation
             </header>
             <ol class="program-timeline">
               <li class="program-item reveal">
-  <div class="program-time">09:00–10:00</div>
-
-  <article class="program-card program-card--service program-card--workshop">
-    <div class="program-card__body">
-
-      <p class="program-kicker">Workshop</p>
-
-      <h4>
-        DFG 3D-Viewer Practical Guidelines on Metadata for 3D Cultural Heritage:
-        Core Recommendations for Aggregation and Interoperability
-      </h4>
-
-<p class="program-talk__authors">
-  Igor Piotr Bajena, Hochschule Mainz – University of Applied Sciences, Germany
-</p>
-
-      <div class="program-workshop-description">
-         <p>
-          The growing publication and reuse of 3D cultural heritage data
-          creates an increasing need for practical and interoperable metadata
-          recommendations. Within the DFG 3D-Viewer project, we are developing
-          guidelines intended to support the description and aggregation of
-          3D cultural heritage resources across repositories, research
-          infrastructures and web-based environments.
-        </p>
-
-        <p>
-          The workshop will first briefly position these recommendations
-          within the wider landscape of standards, infrastructures, projects
-          and tools relevant to the lifecycle of 3D cultural heritage data.
-          This overview will provide a practical orientation for identifying
-          where existing resources can support the creation, documentation,
-          publication, aggregation and reuse of 3D data.
-        </p>
-
-        <p>
-          The main part of the session will focus on the emerging DFG
-          3D-Viewer Practical Guidelines. We will present the proposed core
-          metadata recommendations for aggregation, discuss how this core can
-          be extended for different research and cultural heritage contexts,
-          and examine how interoperability with existing metadata standards,
-          infrastructures and web technologies can be achieved without
-          reproducing complete object-level documentation models.
-        </p>
-
-        <p>
-          Participants will also receive a preview of the developing
-          recommendation guidebook. A short survey and moderated discussion
-          will be used to evaluate the proposed scope, identify missing
-          requirements and use cases, and establish priorities for the next
-          stage of the recommendations. The workshop is therefore intended
-          not only to present the current work, but also to involve the
-          community directly in shaping practical metadata guidance for the
-          aggregation and interoperable publication of 3D cultural heritage.
-        </p>
-
-      </div>
-
-    </div>
-  </article>
-</li>
-<li class="program-item reveal">
-  <div class="program-time">10:00–10:30</div>
-
-  <article class="program-card program-card--service program-card--workshop">
-    <div class="program-card__body">
-
-      <p class="program-kicker">Workshop</p>
-
-      <h4>
-        Virtually There: Building Sustainable Digital Heritage and
-        Developing Virtual Worlds with IIIF 3D
-      </h4>
-
-      <p class="program-talk__authors">
-        Ronald S. Haynes, University of Cambridge, United Kingdom
-      </p>
-
-      <div class="program-workshop-description">
-        <p>
-          With the growing importance of IIIF for the world's most sharable
-          and sustainable digital collections, 3D data is a key addition to
-          the ability to preserve our past and present a future with greater
-          depths and dimensions of suitable narratives and factual fidelity.
-          The great developments and applications of 3D media are explored
-          in the 3D Community Group (CG) and 3D Technical Specification
-          Group (TSG), and some key examples will be shared in the workshop.
-        </p>
-
-        <p>
-          The newly launched IIIF Presentation API 4.0 includes the standards
-          for interoperable 3D content, expanding the potential for all
-          IIIF-based collections. In this session we show you how to try some
-          of the new capabilities, to engage with and help further the
-          refinement of examples from multiple 3D collections.
-        </p>
-
-        <p>
-          The Presentation API 4.0 also has options for incorporation of 2D
-          and A/V with 3D data, including for digital dioramas, scene
-          construction considerations, and for more inclusive and sustainable
-          virtual worlds. This session will provide an overview with use cases,
-          some available demos and take-home examples, and guidelines on the
-          accessible use of AI and other tools for combining and creating
-          files, based on the technical specifications for IIIF 3D, to
-          demonstrate the vast possibilities of using Presentation API 4.0.
-          Please join us!
-        </p>
-      </div>
-
-    </div>
-  </article>
-</li>
+                <div class="program-time">09:00–10:00</div>
+                <article
+                  class="program-card program-card--service program-card--workshop"
+                >
+                  <div class="program-card__body">
+                    <div
+                      aria-controls="workshop-description-1"
+                      aria-expanded="false"
+                      class="program-workshop-summary"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <p class="program-kicker">Workshop</p>
+                      <h4>
+                        DFG 3D-Viewer Practical Guidelines on Metadata for 3D
+                        Cultural Heritage: Core Recommendations for Aggregation
+                        and Interoperability
+                      </h4>
+                      <p class="program-talk__authors">
+                        Igor Piotr Bajena, Hochschule Mainz – University of
+                        Applied Sciences, Germany
+                      </p>
+                      <span
+                        aria-hidden="true"
+                        class="program-workshop-chevron"
+                      ></span
+                      ><span
+                        class="visually-hidden program-workshop-toggle-a11y"
+                        >Show workshop description</span
+                      >
+                    </div>
+                    <div
+                      class="program-workshop-description"
+                      hidden=""
+                      id="workshop-description-1"
+                    >
+                      <div class="program-workshop-description__inner">
+                        <p>
+                          The growing publication and reuse of 3D cultural
+                          heritage data creates an increasing need for practical
+                          and interoperable metadata recommendations. Within the
+                          DFG 3D-Viewer project, we are developing guidelines
+                          intended to support the description and aggregation of
+                          3D cultural heritage resources across repositories,
+                          research infrastructures and web-based environments.
+                        </p>
+                        <p>
+                          The workshop will first briefly position these
+                          recommendations within the wider landscape of
+                          standards, infrastructures, projects and tools
+                          relevant to the lifecycle of 3D cultural heritage
+                          data. This overview will provide a practical
+                          orientation for identifying where existing resources
+                          can support the creation, documentation, publication,
+                          aggregation and reuse of 3D data.
+                        </p>
+                        <p>
+                          The main part of the session will focus on the
+                          emerging DFG 3D-Viewer Practical Guidelines. We will
+                          present the proposed core metadata recommendations for
+                          aggregation, discuss how this core can be extended for
+                          different research and cultural heritage contexts, and
+                          examine how interoperability with existing metadata
+                          standards, infrastructures and web technologies can be
+                          achieved without reproducing complete object-level
+                          documentation models.
+                        </p>
+                        <p>
+                          Participants will also receive a preview of the
+                          developing recommendation guidebook. A short survey
+                          and moderated discussion will be used to evaluate the
+                          proposed scope, identify missing requirements and use
+                          cases, and establish priorities for the next stage of
+                          the recommendations. The workshop is therefore
+                          intended not only to present the current work, but
+                          also to involve the community directly in shaping
+                          practical metadata guidance for the aggregation and
+                          interoperable publication of 3D cultural heritage.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </li>
+              <li class="program-item reveal">
+                <div class="program-time">10:00–10:30</div>
+                <article
+                  class="program-card program-card--service program-card--workshop"
+                >
+                  <div class="program-card__body">
+                    <div
+                      aria-controls="workshop-description-2"
+                      aria-expanded="false"
+                      class="program-workshop-summary"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <p class="program-kicker">Workshop</p>
+                      <h4>
+                        Virtually There: Building Sustainable Digital Heritage
+                        and Developing Virtual Worlds with IIIF 3D
+                      </h4>
+                      <p class="program-talk__authors">
+                        Ronald S. Haynes, University of Cambridge, United
+                        Kingdom
+                      </p>
+                      <span
+                        aria-hidden="true"
+                        class="program-workshop-chevron"
+                      ></span
+                      ><span
+                        class="visually-hidden program-workshop-toggle-a11y"
+                        >Show workshop description</span
+                      >
+                    </div>
+                    <div
+                      class="program-workshop-description"
+                      hidden=""
+                      id="workshop-description-2"
+                    >
+                      <div class="program-workshop-description__inner">
+                        <p>
+                          With the growing importance of IIIF for the world's
+                          most sharable and sustainable digital collections, 3D
+                          data is a key addition to the ability to preserve our
+                          past and present a future with greater depths and
+                          dimensions of suitable narratives and factual
+                          fidelity. The great developments and applications of
+                          3D media are explored in the 3D Community Group (CG)
+                          and 3D Technical Specification Group (TSG), and some
+                          key examples will be shared in the workshop.
+                        </p>
+                        <p>
+                          The newly launched IIIF Presentation API 4.0 includes
+                          the standards for interoperable 3D content, expanding
+                          the potential for all IIIF-based collections. In this
+                          session we show you how to try some of the new
+                          capabilities, to engage with and help further the
+                          refinement of examples from multiple 3D collections.
+                        </p>
+                        <p>
+                          The Presentation API 4.0 also has options for
+                          incorporation of 2D and A/V with 3D data, including
+                          for digital dioramas, scene construction
+                          considerations, and for more inclusive and sustainable
+                          virtual worlds. This session will provide an overview
+                          with use cases, some available demos and take-home
+                          examples, and guidelines on the accessible use of AI
+                          and other tools for combining and creating files,
+                          based on the technical specifications for IIIF 3D, to
+                          demonstrate the vast possibilities of using
+                          Presentation API 4.0. Please join us!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </li>
               <li class="program-item reveal">
                 <div class="program-time">10:30–10:50</div>
                 <article class="program-card program-card--break">
@@ -1218,73 +1362,140 @@ Church: 3D Documentation and Acoustic Auralisation
                   </div>
                 </article>
               </li>
-<li class="program-item reveal">
+              <li class="program-item reveal">
                 <div class="program-time">10:50–12:20</div>
-                <article class="program-card program-card--service">
+                <article
+                  class="program-card program-card--service program-card--workshop"
+                >
                   <div class="program-card__body">
-                    <p class="program-kicker">Workshop</p>
-                    <h4>
-                      What makes 3D virtual reconstructions scientific? Towards a New Charter for the documentation of hypothetical 3D virtual reconstructions in architecture and archaeology.
-                    </h4>
-
-<p class="program-talk__authors">
-  Fabrizio Ivan Apollonio, University of Bologna, Italy
-</p>
-
-<p class="program-talk__authors">
-  Igor Piotr Bajena, Hochschule Mainz – University of Applied Sciences, Germany
-</p>
-
-<p class="program-talk__authors">
-  Jonas Bruschke, HTW Dresden – University of Applied Sciences, Germany
-</p>
-
-<p class="program-talk__authors">
-  Emanuel Demetrescu, National Research Council of Italy (CNR), Institute of Heritage Science (ISPC), Italy
-</p>
-
-<p class="program-talk__authors">
-  Federico Fallavollita, University of Bologna, Italy
-</p>
-
-<p class="program-talk__authors">
-  Marc Grellert, TU Darmstadt, Germany
-</p>
-
-<p class="program-talk__authors">
-  Piotr Kuroczyński, Hochschule Mainz – University of Applied Sciences, Germany
-</p>
-
-<p class="program-talk__authors">
-  Markus Wacker, HTW Dresden – University of Applied Sciences, Germany
-</p>
-<div class="program-workshop-description"></div>
-                    <p>Virtual 3D reconstructions of transformed, lost, or never-built architecture and archaeological contexts are increasingly used as research tools and as forms of knowledge production. However, despite the consolidated principles established by the London Charter and subsequent initiatives such as the Seville Principles, shared criteria for assessing their scientific quality, transparency, and sustainability are still lacking. The use of documentary sources, assumptions, interpretative choices, and degrees of uncertainty is often insufficiently documented, limiting the ability to verify, compare, update, and reuse the results of hypothetical reconstructions.</p>
-
-<p>The workshop What Makes 3D Virtual Reconstructions Scientific? Towards a New Charter for the Documentation of Hypothetical 3D Virtual Reconstructions in Architecture and Archaeology will explore the need for a new shared framework defining good scientific practice in this field. Particular attention will be given to the documentation of research and decision-making processes, metadata and paradata, the representation and communication of uncertainty, interoperability, and alignment with the FAIR principles.</p>
-
-<p>Rather than presenting a predefined solution, the workshop is conceived as an interactive and exploratory session, bringing together different perspectives on what should constitute transparent, verifiable, and reusable scholarly 3D reconstruction. It will provide an opportunity to discuss emerging ideas, identify shared priorities, and critically reflect on the requirements that such a framework should address.</p>
-
-<p>The discussion initiated in Mainz will contribute to a broader collaborative process towards a New Charter, which will continue at CHNT 31 in Vienna in November 2026 and through subsequent exchanges with the international research community.</p>
+                    <div
+                      aria-controls="workshop-description-3"
+                      aria-expanded="false"
+                      class="program-workshop-summary"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <p class="program-kicker">Workshop</p>
+                      <h4>
+                        What makes 3D virtual reconstructions scientific?
+                        Towards a New Charter for the documentation of
+                        hypothetical 3D virtual reconstructions in architecture
+                        and archaeology.
+                      </h4>
+                      <p class="program-talk__authors">
+                        Fabrizio Ivan Apollonio, University of Bologna, Italy
+                      </p>
+                      <p class="program-talk__authors">
+                        Igor Piotr Bajena, Hochschule Mainz – University of
+                        Applied Sciences, Germany
+                      </p>
+                      <p class="program-talk__authors">
+                        Jonas Bruschke, HTW Dresden – University of Applied
+                        Sciences, Germany
+                      </p>
+                      <p class="program-talk__authors">
+                        Emanuel Demetrescu, National Research Council of Italy
+                        (CNR), Institute of Heritage Science (ISPC), Italy
+                      </p>
+                      <p class="program-talk__authors">
+                        Federico Fallavollita, University of Bologna, Italy
+                      </p>
+                      <p class="program-talk__authors">
+                        Marc Grellert, TU Darmstadt, Germany
+                      </p>
+                      <p class="program-talk__authors">
+                        Piotr Kuroczyński, Hochschule Mainz – University of
+                        Applied Sciences, Germany
+                      </p>
+                      <p class="program-talk__authors">
+                        Markus Wacker, HTW Dresden – University of Applied
+                        Sciences, Germany
+                      </p>
+                      <span
+                        aria-hidden="true"
+                        class="program-workshop-chevron"
+                      ></span
+                      ><span
+                        class="visually-hidden program-workshop-toggle-a11y"
+                        >Show workshop description</span
+                      >
+                    </div>
+                    <div
+                      class="program-workshop-description"
+                      hidden=""
+                      id="workshop-description-3"
+                    >
+                      <div class="program-workshop-description__inner">
+                        <p>
+                          Virtual 3D reconstructions of transformed, lost, or
+                          never-built architecture and archaeological contexts
+                          are increasingly used as research tools and as forms
+                          of knowledge production. However, despite the
+                          consolidated principles established by the London
+                          Charter and subsequent initiatives such as the Seville
+                          Principles, shared criteria for assessing their
+                          scientific quality, transparency, and sustainability
+                          are still lacking. The use of documentary sources,
+                          assumptions, interpretative choices, and degrees of
+                          uncertainty is often insufficiently documented,
+                          limiting the ability to verify, compare, update, and
+                          reuse the results of hypothetical reconstructions.
+                        </p>
+                        <p>
+                          The workshop What Makes 3D Virtual Reconstructions
+                          Scientific? Towards a New Charter for the
+                          Documentation of Hypothetical 3D Virtual
+                          Reconstructions in Architecture and Archaeology will
+                          explore the need for a new shared framework defining
+                          good scientific practice in this field. Particular
+                          attention will be given to the documentation of
+                          research and decision-making processes, metadata and
+                          paradata, the representation and communication of
+                          uncertainty, interoperability, and alignment with the
+                          FAIR principles.
+                        </p>
+                        <p>
+                          Rather than presenting a predefined solution, the
+                          workshop is conceived as an interactive and
+                          exploratory session, bringing together different
+                          perspectives on what should constitute transparent,
+                          verifiable, and reusable scholarly 3D reconstruction.
+                          It will provide an opportunity to discuss emerging
+                          ideas, identify shared priorities, and critically
+                          reflect on the requirements that such a framework
+                          should address.
+                        </p>
+                        <p>
+                          The discussion initiated in Mainz will contribute to a
+                          broader collaborative process towards a New Charter,
+                          which will continue at CHNT 31 in Vienna in November
+                          2026 and through subsequent exchanges with the
+                          international research community.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </article>
               </li>
-              
-
               <li class="program-item reveal">
-                <div class="program-time">12:30–13:30</div>
+                <div class="program-time">12:30–14:00</div>
                 <article class="program-card program-card--break">
                   <div class="program-card__body">
                     <h4>Lunch break</h4>
                   </div>
                 </article>
               </li>
-
               <li class="program-item reveal">
-                <div class="program-time">13:30–14:35</div>
+                <div class="program-time">14:00–15:05</div>
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
-                    <header class="program-session__head">
+                    <header
+                      aria-controls="session-details-7"
+                      aria-expanded="false"
+                      class="program-session__head program-session-summary"
+                      role="button"
+                      tabindex="0"
+                    >
                       <div class="program-topic-number">05</div>
                       <div>
                         <p class="program-kicker">Topic area 04</p>
@@ -1292,258 +1503,286 @@ Church: 3D Documentation and Acoustic Auralisation
                           Education, Outreach and Public Engagement with 3D
                         </h3>
                         <p class="program-session__subtitle">
-                          Session 6 · Moderator TBA
+                          Session 4 · Moderator: TBA · Chair: TBA
                         </p>
                       </div>
+                      <span
+                        aria-hidden="true"
+                        class="program-session-chevron"
+                      ></span
+                      ><span class="visually-hidden program-session-toggle-a11y"
+                        >Show session presentations</span
+                      >
                     </header>
-                    <ul class="program-talks">
-                      <li class="program-talk">
-                        <div class="program-talk__time">13:30–13:35</div>
-                        <div>
-                          <p class="program-talk__title">Intro</p>
-                        </div>
-                      </li>
 
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0031-abstract.pdf"
-                        data-abstract-title="How can MorphoSource, a community 3D repository,
+                    <div
+                      class="program-session-details"
+                      hidden=""
+                      id="session-details-7"
+                    >
+                      <div class="program-session-details__inner">
+                        <ul class="program-talks">
+                          <li class="program-talk">
+                            <div class="program-talk__time">14:00–14:05</div>
+                            <div>
+                              <p class="program-talk__title">Intro</p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="How can MorphoSource, a community 3D repository,
                             support educators and museum partners managing
                             student-created data?"
-                        role="button"
-                        tabindex="0"
-                        aria-label="How can MorphoSource, a community 3D repository,
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0031-abstract.pdf"
+                            data-abstract-title="How can MorphoSource, a community 3D repository,
                             support educators and museum partners managing
                             student-created data?"
-                      >
-                        <div class="program-talk__time">13:35–13:50</div>
-                        <div>
-                          <p class="program-talk__title">
-                           How can MorphoSource, a community 3D repository,
-                            support educators and museum partners managing
-                            student-created data?
-                          </p>
-                          <p class="program-talk__authors">
-                            Jocelyn Triplett, Douglas Boyer, Julie Winchester
-                          </p>
-                        </div>
-                      </li>
- 
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0038-abstract.pdf"
-                        data-abstract-title="Reconstructing Architectural Heritage through 3D and Immersive Technologies"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for Reconstructing Architectural Heritage through 3D and Immersive Technologies"
-                      >
-                        <div class="program-talk__time">13:50–14:05</div>
-                        <div>
-                          <p class="program-talk__title">
-                           Reconstructing Architectural Heritage through 3D and
-                            Immersive Technologies: Integrating Intangible
-                            Practices for Authentic Representation — A
-                            Transferable Framework from the Gedi Ruins Case
-                            Study
-                          </p>
-                          <p class="program-talk__authors">
-                            Francisca Ayoo Omondi
-                          </p>
-                        </div>
-                      </li>
-
-
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0004-abstract.pdf"
-                        data-abstract-title="Tactile Time"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for Tactile Time"
-                      >
-                        <div class="program-talk__time">14:05–14:20</div>
-                        <div>
-                          <p class="program-talk__title">
-                            Tactile Time: Interactive 3D Heritage and Art
-                            Experiences with TouchDesigner
-                          </p>
-
-                          <p class="program-talk__authors">
-                            Eslam El Shamy, Mohamed W. Fareed
-                          </p>
-                        </div>
-                      </li>
-<li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0012-abstract.pdf"
-                        data-abstract-title="Learning in Immersive Museum Environments"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Learning in Immersive Museum Environments"
-                      >
-                        <div class="program-talk__time">14:20–14:35</div>
-                        <div>
-                          <p class="program-talk__title">
-                            From Documentation to Infrastructure: The
-                            Development of 3D Cultural Heritage Digitization in
-                            Ukraine
-                          </p>
-                          <p class="program-talk__authors">
-                            Emma June Huebner
-                          </p>
-                        </div>
-                      </li>
-                    </ul>
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">14:05–14:20</div>
+                            <div>
+                              <p class="program-talk__title">
+                                How can MorphoSource, a community 3D repository,
+                                support educators and museum partners managing
+                                student-created data?
+                              </p>
+                              <p class="program-talk__authors">
+                                Jocelyn Triplett, Douglas Boyer, Julie
+                                Winchester
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for Reconstructing Architectural Heritage through 3D and Immersive Technologies"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0038-abstract.pdf"
+                            data-abstract-title="Reconstructing Architectural Heritage through 3D and Immersive Technologies"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">14:20–14:35</div>
+                            <div>
+                              <p class="program-talk__title">
+                                Reconstructing Architectural Heritage through 3D
+                                and Immersive Technologies: Integrating
+                                Intangible Practices for Authentic
+                                Representation — A Transferable Framework from
+                                the Gedi Ruins Case Study
+                              </p>
+                              <p class="program-talk__authors">
+                                Francisca Ayoo Omondi
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for Tactile Time"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0004-abstract.pdf"
+                            data-abstract-title="Tactile Time"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">14:35–14:50</div>
+                            <div>
+                              <p class="program-talk__title">
+                                Tactile Time: Interactive 3D Heritage and Art
+                                Experiences with TouchDesigner
+                              </p>
+                              <p class="program-talk__authors">
+                                Eslam El Shamy, Mohamed W. Fareed
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Learning in Immersive Museum Environments"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0012-abstract.pdf"
+                            data-abstract-title="Learning in Immersive Museum Environments"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">14:50–15:05</div>
+                            <div>
+                              <p class="program-talk__title">
+                                Learning in Immersive Museum Environments
+                              </p>
+                              <p class="program-talk__authors">
+                                Emma June Huebner
+                              </p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </article>
               </li>
-
- <li class="program-item reveal">
-                <div class="program-time">14:35–14:50</div>
+              <li class="program-item reveal">
+                <div class="program-time">15:05–15:20</div>
                 <article class="program-card program-card--break">
                   <div class="program-card__body">
                     <h4>Coffee break</h4>
                   </div>
                 </article>
               </li>
-
-
               <li class="program-item reveal">
-                <div class="program-time">14:50–16:00</div>
+                <div class="program-time">15:20–16:30</div>
                 <article class="program-card program-card--session">
                   <div class="program-card__body">
-                    <header class="program-session__head">
+                    <header
+                      aria-controls="session-details-8"
+                      aria-expanded="false"
+                      class="program-session__head program-session-summary"
+                      role="button"
+                      tabindex="0"
+                    >
                       <div class="program-topic-number">06</div>
                       <div>
                         <p class="program-kicker">Poster spotlights</p>
                         <h3>Poster Session B</h3>
                         <p class="program-session__subtitle">
                           Web visualisation, education and public outreach ·
-                          Moderator TBA
+                          Moderator: TBA · Chair: TBA
                         </p>
                       </div>
+                      <span
+                        aria-hidden="true"
+                        class="program-session-chevron"
+                      ></span
+                      ><span class="visually-hidden program-session-toggle-a11y"
+                        >Show session presentations</span
+                      >
                     </header>
-                    <ul class="program-talks">
-                      <li class="program-talk">
-                        <div class="program-talk__time">14:50–14:55</div>
-                        <div>
-                          <p class="program-talk__title">
-                            Intro: Web visualisation, education and public
-                            outreach
-                          </p>
-                        </div>
-                      </li>
 
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0021-abstract.pdf"
-                        data-abstract-title="Stratigraphic categorisation as documentation"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for Stratigraphic categorisation as documentation"
-                      >
-                        <div class="program-talk__time">14:55–15:01</div>
-                        <div>
-                          <p class="program-talk__title">
-                            <span class="program-pill">Vis</span>Integration of
-                            the fourth dimension in heritage visualization: A
-                            GIS-Based environment as a tool for multi-source
-                            data integration
-                          </p>
-
-                          <p class="program-talk__authors">
-                            Maria Monica Cabarcas Granados, Filiberto
-                            Chiabrando, Daniel Luengas Carreño
-                          </p>
-                        </div>
-                      </li>
-
-                       <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0034-abstract.pdf"
-                        data-abstract-title="From Geometric Documentation to Knowledge Integration"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for From Geometric Documentation to Knowledge Integration"
-                      >
-                        <div class="program-talk__time">15:02–15:08</div>
-                        <div>
-                          <p class="program-talk__title">
-                            <span class="program-pill">Vis</span>From Geometric
-                            Documentation to Knowledge Integration: A Web-Based
-                            Approach to Lightweight Point Cloud Management and
-                            Interaction for Historic Buildings
-                          </p>
-                          <p class="program-talk__authors">
-                            Zhang Zhimin, Gao Panyu, Qin Zhiyun
-                          </p>
-                        </div>
-                      </li>
-
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0008-abstract.pdf"
-                        data-abstract-title="Innovative Digital Documentation Framework"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for Innovative Digital Documentation Framework"
-                      >
-                        <div class="program-talk__time">15:09–15:15</div>
-                        <div>
-                          <p class="program-talk__title">
-                            <span class="program-pill">Edu</span>Innovative Digital Documentation Framework for Heritage Education and Outreach: Case study from India
-                          </p>
-                          <p class="program-talk__authors">
-                            Khushi Shah, Rishabh Sharma
-                          </p>
-                        </div>
-                      </li>
-
-                      <li class="program-talk">
-                        <div class="program-talk__time">15:16–15:22</div>
-                        <div>
-                          <p class="program-talk__title">
-                            <span class="program-pill">Edu</span>A Roadmap for
-                            Education-Driven Heritage Sustainability: The Case
-                            of Harput Castle
-                          </p>
-                          <p class="program-talk__authors">Fatih Ozkaynak</p>
-                        </div>
-                      </li>
-
-                      <li
-                        class="program-talk program-talk--clickable"
-                        data-abstract-pdf="assets/abstracts/FDH-0024-abstract.pdf"
-                        data-abstract-title="From Points to Structured Knowledge"
-                        role="button"
-                        tabindex="0"
-                        aria-label="Open abstract PDF for From Points to Structured Knowledge"
-                      >
-                        <div class="program-talk__time">15:23–15:29</div>
-                        <div>
-                          <p class="program-talk__title">
-                            <span class="program-pill">Edu</span>From Points to
-                            Structured Knowledge: Teaching HBIM Workflows in
-                            Architectural Heritage Documentation
-                          </p>
-                          <p class="program-talk__authors">Julian Gajdos, Piotr Kuroczyński</p>
-                        </div>
-                      </li>
-
-                      <li class="program-talk">
-                        <div class="program-talk__time">15:30–16:00</div>
-                        <div>
-                          <p class="program-talk__title">Discussion</p>
-                          <p class="program-talk__authors">Moderator TBA</p>
-                        </div>
-                      </li>
-                    </ul>
+                    <div
+                      class="program-session-details"
+                      hidden=""
+                      id="session-details-8"
+                    >
+                      <div class="program-session-details__inner">
+                        <ul class="program-talks">
+                          <li class="program-talk">
+                            <div class="program-talk__time">15:20–15:25</div>
+                            <div>
+                              <p class="program-talk__title">
+                                Intro: Web visualisation, education and public
+                                outreach
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for Stratigraphic categorisation as documentation"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0021-abstract.pdf"
+                            data-abstract-title="Stratigraphic categorisation as documentation"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">15:25–15:31</div>
+                            <div>
+                              <p class="program-talk__title">
+                                <span class="program-pill">Vis</span>Integration
+                                of the fourth dimension in heritage
+                                visualization: A GIS-Based environment as a tool
+                                for multi-source data integration
+                              </p>
+                              <p class="program-talk__authors">
+                                Maria Monica Cabarcas Granados, Filiberto
+                                Chiabrando, Daniel Luengas Carreño
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for From Geometric Documentation to Knowledge Integration"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0034-abstract.pdf"
+                            data-abstract-title="From Geometric Documentation to Knowledge Integration"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">15:32–15:38</div>
+                            <div>
+                              <p class="program-talk__title">
+                                <span class="program-pill">Vis</span>From
+                                Geometric Documentation to Knowledge
+                                Integration: A Web-Based Approach to Lightweight
+                                Point Cloud Management and Interaction for
+                                Historic Buildings
+                              </p>
+                              <p class="program-talk__authors">
+                                Zhang Zhimin, Gao Panyu, Qin Zhiyun
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for Innovative Digital Documentation Framework"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0008-abstract.pdf"
+                            data-abstract-title="Innovative Digital Documentation Framework"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">15:39–15:45</div>
+                            <div>
+                              <p class="program-talk__title">
+                                <span class="program-pill">Edu</span>Innovative
+                                Digital Documentation Framework for Heritage
+                                Education and Outreach: Case study from India
+                              </p>
+                              <p class="program-talk__authors">
+                                Khushi Shah, Rishabh Sharma
+                              </p>
+                            </div>
+                          </li>
+                          <li class="program-talk">
+                            <div class="program-talk__time">15:46–15:52</div>
+                            <div>
+                              <p class="program-talk__title">
+                                <span class="program-pill">Edu</span>A Roadmap
+                                for Education-Driven Heritage Sustainability:
+                                The Case of Harput Castle
+                              </p>
+                              <p class="program-talk__authors">
+                                Fatih Ozkaynak
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            aria-label="Open abstract PDF for From Points to Structured Knowledge"
+                            class="program-talk program-talk--clickable"
+                            data-abstract-pdf="assets/abstracts/FDH-0024-abstract.pdf"
+                            data-abstract-title="From Points to Structured Knowledge"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div class="program-talk__time">15:53–15:59</div>
+                            <div>
+                              <p class="program-talk__title">
+                                <span class="program-pill">Edu</span>From Points
+                                to Structured Knowledge: Teaching HBIM Workflows
+                                in Architectural Heritage Documentation
+                              </p>
+                              <p class="program-talk__authors">
+                                Julian Gajdos, Piotr Kuroczyński
+                              </p>
+                            </div>
+                          </li>
+                          <li class="program-talk">
+                            <div class="program-talk__time">16:00–16:30</div>
+                            <div>
+                              <p class="program-talk__title">Discussion</p>
+                              <p class="program-talk__authors">Moderator TBA</p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </article>
               </li>
-
               <li class="program-item reveal">
-                <div class="program-time">16:00–16:30</div>
+                <div class="program-time">16:30–17:00</div>
                 <article class="program-card program-card--service">
                   <div class="program-card__body">
                     <h4>Closing remarks</h4>
@@ -1555,7 +1794,6 @@ Church: 3D Documentation and Acoustic Auralisation
         </div>
       </section>
     </main>
-
     <!-- FOOTER -->
     <footer class="site-footer">
       <h2 class="visually-hidden">Footer</h2>
@@ -1564,44 +1802,41 @@ Church: 3D Documentation and Acoustic Auralisation
       </div>
     </footer>
     <div
-      class="abstract-modal"
-      id="abstractPdfModal"
-      hidden
       aria-hidden="true"
-      role="dialog"
-      aria-modal="true"
       aria-labelledby="abstractPdfTitle"
+      aria-modal="true"
+      class="abstract-modal"
+      hidden=""
+      id="abstractPdfModal"
+      role="dialog"
     >
-      <div class="abstract-modal__backdrop" data-abstract-modal-close></div>
-
+      <div class="abstract-modal__backdrop" data-abstract-modal-close=""></div>
       <div class="abstract-modal__dialog">
         <button
-          class="abstract-modal__close"
-          type="button"
           aria-label="Close abstract PDF viewer"
-          data-abstract-modal-close
+          class="abstract-modal__close"
+          data-abstract-modal-close=""
+          type="button"
         >
           ×
         </button>
-
         <header class="abstract-modal__header">
           <h3 id="abstractPdfTitle">Abstract</h3>
           <a
             class="abstract-modal__open-link"
-            id="abstractPdfOpenLink"
             href="#"
-            target="_blank"
+            id="abstractPdfOpenLink"
             rel="noopener noreferrer"
+            target="_blank"
           >
             Open PDF in new tab
           </a>
         </header>
-
         <iframe
           class="abstract-modal__iframe"
           id="abstractPdfFrame"
-          title="Abstract PDF viewer"
           src=""
+          title="Abstract PDF viewer"
         ></iframe>
       </div>
     </div>
