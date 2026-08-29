@@ -3798,10 +3798,6 @@ body.abstract-modal-open {
   outline: none;
 }
 
-.program-workshop-summary:focus-visible {
-  box-shadow: inset 0 0 0 2px rgba(0, 136, 255, 0.42);
-}
-
 /* When open, the summary becomes the top part of one continuous card.
    Its lower corners therefore must be square. */
 .program-workshop-summary[aria-expanded="true"] {

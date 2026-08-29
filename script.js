@@ -818,3 +818,47 @@
     initSessionAccordions();
   }
 })();
+
+/* =========================================================
+   PROGRAMME — auto-open session cards on scroll
+   ========================================================= */
+
+const programmeSessionHeaders = document.querySelectorAll(
+  ".program-session__head[aria-controls]",
+);
+
+if ("IntersectionObserver" in window && programmeSessionHeaders.length) {
+  const sessionObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        const header = entry.target;
+
+        /*
+         * Open the session only if it is currently closed.
+         * The existing click handler remains responsible
+         * for the actual expand/collapse behaviour.
+         */
+        if (header.getAttribute("aria-expanded") === "false") {
+          header.click();
+        }
+
+        /*
+         * Only auto-open once.
+         * If the visitor later closes it manually,
+         * scrolling back will NOT reopen it.
+         */
+        observer.unobserve(header);
+      });
+    },
+    {
+      threshold: 0.35,
+      rootMargin: "0px 0px -15% 0px",
+    },
+  );
+
+  programmeSessionHeaders.forEach((header) => {
+    sessionObserver.observe(header);
+  });
+}
