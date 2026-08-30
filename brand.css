@@ -523,3 +523,14 @@ body.authors-page .authors-section--dark .authors-btn--light:focus-visible {
   border-color: var(--brand-yellow);
   opacity: 1;
 }
+
+/* =========================================================
+   FUNDING & COSTS — consistent body typography
+   ========================================================= */
+
+#funding .funding-list {
+  font-family: var(--font-futura);
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 500;
+}
