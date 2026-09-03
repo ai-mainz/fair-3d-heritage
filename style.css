@@ -4034,3 +4034,83 @@ body.abstract-modal-open {
     padding-right: 22px;
   }
 }
+
+.registration-note {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #657080;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+/* =========================================================
+   REGISTRATION — ONLINE WORKSHOPS DARK SECTION
+   ========================================================= */
+
+.registration-workshops {
+  min-height: calc(100dvh - var(--topnav-h));
+  display: flex;
+  align-items: center;
+  background: var(--blue-primary);
+  padding-top: clamp(64px, 8vw, 108px);
+  padding-bottom: clamp(64px, 8vw, 108px);
+}
+
+.registration-workshops__panel {
+  width: min(880px, 100%);
+}
+
+.registration-workshops .registration-title {
+  color: #fff200;
+}
+
+.registration-workshops .registration-panel p {
+  color: #fff200;
+}
+
+.registration-workshops .registration-actions {
+  margin: 36px 0 0;
+}
+
+.registration-workshop-btn {
+  min-width: 300px;
+  background: transparent;
+  color: #fff200;
+  border: 2px solid #fff200;
+  box-shadow: none;
+}
+
+.registration-workshop-btn:hover,
+.registration-workshop-btn:focus-visible {
+  background: rgba(255, 242, 0, 0.12);
+  color: #fff200;
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+html:has(body.registration-page) {
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+}
+
+body.registration-page main > section {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+body.registration-page main > section[id] {
+  scroll-margin-top: var(--topnav-h);
+}
+
+@media (max-width: 860px) {
+  html:has(body.registration-page) {
+    scroll-snap-type: none;
+  }
+
+  .registration-workshops {
+    min-height: auto;
+    display: block;
+    padding-top: 54px;
+    padding-bottom: 54px;
+  }
+}
