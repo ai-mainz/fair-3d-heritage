@@ -625,3 +625,28 @@ body.authors-page .authors-section--dark .authors-btn--light:focus-visible {
   max-width: none;
   width: 100%;
 }
+.program-format-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  margin-right: 0.45rem;
+  padding: 0.12rem 0.45rem;
+
+  border: 1px solid currentColor;
+  border-radius: 999px;
+
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+  vertical-align: 0.08em;
+}
+
+.program-format-badge--video {
+  color: var(--blue-primary);
+  background: transparent;
+}
