@@ -67,12 +67,6 @@
             href: "program.html",
           },
           { key: "keynotes", label: "Keynote speakers", href: "keynotes.html" },
-          {
-            key: "programme-pdf",
-            label: "Download programme PDF",
-            href: "assets/Confernece_program_2026-05-23_draft.pdf",
-            target: "_blank",
-          },
         ],
       },
       {
