@@ -6,17 +6,23 @@
       .forEach((el) => el.classList.add("is-visible"));
   });
 
-  // 2) Reszta wchodzi przy scrollu
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add("is-visible");
-      });
-    },
-    { threshold: 0.15 },
-  );
+  // 2) Reveal on scroll, with a no-IntersectionObserver fallback.
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("is-visible");
+        });
+      },
+      { threshold: 0.15 },
+    );
 
-  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  } else {
+    document
+      .querySelectorAll(".reveal")
+      .forEach((el) => el.classList.add("is-visible"));
+  }
 
   function renderTopnav() {
     const mount = document.getElementById("site-header");
@@ -202,37 +208,56 @@
     const burgerIcon = "assets/Burger.svg";
     const closeIcon = "assets/mingcute--close-line.svg";
     const toggleImg = navToggle.querySelector(".topnav__toggle-icon");
+    const mobileMq = window.matchMedia("(max-width: 860px)");
 
     function setMenuState(isOpen) {
-      nav.classList.toggle("menu-open", isOpen);
-      document.body.classList.toggle("nav-open", isOpen);
-      navToggle.setAttribute("aria-expanded", String(isOpen));
-      navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
-      if (toggleImg) toggleImg.src = isOpen ? closeIcon : burgerIcon;
+      const mobile = mobileMq.matches;
+      const shouldOpen = mobile && isOpen;
+
+      nav.classList.toggle("menu-open", shouldOpen);
+      document.body.classList.toggle("nav-open", shouldOpen);
+      navToggle.setAttribute("aria-expanded", String(shouldOpen));
+      navToggle.setAttribute("aria-label", shouldOpen ? "Close menu" : "Open menu");
+
+      if (toggleImg) toggleImg.src = shouldOpen ? closeIcon : burgerIcon;
+
+      // On mobile the closed full-screen menu must be truly non-interactive.
+      // This prevents invisible navigation links from catching taps on page content.
+      if (mobile) {
+        menu.setAttribute("aria-hidden", String(!shouldOpen));
+        try {
+          menu.inert = !shouldOpen;
+        } catch (_) {}
+      } else {
+        menu.removeAttribute("aria-hidden");
+        try {
+          menu.inert = false;
+        } catch (_) {}
+      }
     }
 
     navToggle.addEventListener("click", () => {
-      const open = !nav.classList.contains("menu-open");
-      setMenuState(open);
+      setMenuState(!nav.classList.contains("menu-open"));
     });
 
-    // zamknięcie po kliknięciu linku
     menu.querySelectorAll("a").forEach((a) => {
       a.addEventListener("click", () => setMenuState(false));
     });
 
-    // ESC zamyka menu
     window.addEventListener("keydown", (e) => {
       if (e.key === "Escape") setMenuState(false);
     });
 
-    // przy przejściu na desktop zamknij overlay
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 860) setMenuState(false);
-    });
+    const syncMenuMode = () => setMenuState(false);
+    if (typeof mobileMq.addEventListener === "function") {
+      mobileMq.addEventListener("change", syncMenuMode);
+    } else if (typeof mobileMq.addListener === "function") {
+      mobileMq.addListener(syncMenuMode);
+    }
+    setMenuState(false);
   }
 
-  // 5) Programme day navigation: highlight active day while scrolling
+  // 5) Programme day navigation: exact sticky-header-aware scrolling
   function initProgramDayNavigation() {
     const dayNav = document.querySelector(".program-daynav");
     if (!dayNav) return;
@@ -247,36 +272,65 @@
 
     if (!days.length) return;
 
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let ticking = false;
+
+    function syncMeasurements() {
+      const height = Math.ceil(dayNav.getBoundingClientRect().height || 0);
+      document.documentElement.style.setProperty(
+        "--program-daynav-h",
+        `${height}px`,
+      );
+    }
+
+    function getTopOffset() {
+      const navEl = document.getElementById("topnav");
+      const navHeight = navEl ? Math.ceil(navEl.getBoundingClientRect().height) : 0;
+      const dayNavHeight = Math.ceil(dayNav.getBoundingClientRect().height || 0);
+      return navHeight + dayNavHeight + 14;
+    }
+
     function setActiveDay(activeId) {
       days.forEach(({ id, link }) => {
         const isActive = id === activeId;
         link.classList.toggle("is-active", isActive);
-        if (isActive) {
-          link.setAttribute("aria-current", "true");
-        } else {
-          link.removeAttribute("aria-current");
-        }
+        if (isActive) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
       });
     }
 
-    let ticking = false;
+    function scrollToDay(id, { updateHistory = true, behavior } = {}) {
+      const item = days.find((day) => day.id === id);
+      if (!item) return;
 
-    function getOffset() {
-      const navEl = document.getElementById("topnav");
-      const navHeight = navEl ? navEl.getBoundingClientRect().height : 0;
-      const dayNavHeight = dayNav.getBoundingClientRect().height || 0;
-      return navHeight + dayNavHeight + 28;
+      syncMeasurements();
+      const targetY =
+        item.section.getBoundingClientRect().top +
+        window.scrollY -
+        getTopOffset();
+
+      if (updateHistory) {
+        const url = new URL(window.location.href);
+        url.hash = id;
+        history.pushState({ programmeDay: id }, "", url);
+      }
+
+      setActiveDay(id);
+      window.scrollTo({
+        top: Math.max(0, targetY),
+        behavior:
+          behavior || (reducedMotion.matches ? "auto" : "smooth"),
+      });
     }
 
     function updateActiveDay() {
-      const offset = getOffset();
+      syncMeasurements();
+      const offset = getTopOffset() + 8;
       let activeId = days[0].id;
 
-      days.forEach(({ id, section }) => {
-        if (section.getBoundingClientRect().top <= offset) {
-          activeId = id;
-        }
-      });
+      for (const { id, section } of days) {
+        if (section.getBoundingClientRect().top <= offset) activeId = id;
+      }
 
       setActiveDay(activeId);
       ticking = false;
@@ -284,22 +338,50 @@
 
     function requestUpdate() {
       if (!ticking) {
-        window.requestAnimationFrame(updateActiveDay);
         ticking = true;
+        window.requestAnimationFrame(updateActiveDay);
       }
     }
 
     links.forEach((link) => {
-      link.addEventListener("click", () => {
-        const id = link.getAttribute("href").slice(1);
-        setActiveDay(id);
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        scrollToDay(link.getAttribute("href").slice(1));
       });
     });
 
+    const alignHash = (behavior = "auto") => {
+      const id = window.location.hash.replace(/^#/, "");
+      if (!days.some((day) => day.id === id)) return;
+      window.requestAnimationFrame(() => scrollToDay(id, { updateHistory: false, behavior }));
+    };
+
+    if ("ResizeObserver" in window) {
+      const resizeObserver = new ResizeObserver(() => {
+        syncMeasurements();
+        requestUpdate();
+      });
+      resizeObserver.observe(dayNav);
+      const topnav = document.getElementById("topnav");
+      if (topnav) resizeObserver.observe(topnav);
+    }
+
+    syncMeasurements();
     updateActiveDay();
     window.addEventListener("scroll", requestUpdate, { passive: true });
-    window.addEventListener("resize", requestUpdate);
-    window.addEventListener("hashchange", requestUpdate);
+    window.addEventListener("resize", requestUpdate, { passive: true });
+    window.addEventListener("orientationchange", requestUpdate, { passive: true });
+    window.addEventListener("hashchange", () => alignHash("auto"));
+    window.addEventListener("popstate", () => alignHash("auto"));
+
+    // Correct the browser's native initial hash jump after sticky bars/fonts settle.
+    if (window.location.hash) {
+      alignHash("auto");
+      window.addEventListener("load", () => alignHash("auto"), { once: true });
+      if (document.fonts?.ready) {
+        document.fonts.ready.then(() => alignHash("auto")).catch(() => {});
+      }
+    }
   }
 
   initProgramDayNavigation();
@@ -398,75 +480,6 @@
     document.fonts.ready.then(placeChevron).catch(() => {});
   }
 
-  // 6) Venue map (MapLibre + Positron style)
-  function initVenueMap() {
-    const mapEl = document.getElementById("venueMap");
-    if (!mapEl) return;
-    if (!window.maplibregl) {
-      console.warn("MapLibre is not loaded.");
-      return;
-    }
-
-    // default fallback (Mainz city center)
-    const fallbackCenter = [8.247253, 49.992863]; // lon, lat (Mainz)
-    const fallbackZoom = 13;
-
-    const map = new maplibregl.Map({
-      container: mapEl,
-      // Positron (OpenMapTiles) style CDN
-      style: "https://tiles.openfreemap.org/styles/positron",
-      center: fallbackCenter,
-      zoom: fallbackZoom,
-      attributionControl: true,
-    });
-
-    map.addControl(
-      new maplibregl.NavigationControl({ showCompass: false }),
-      "top-right",
-    );
-
-    // Build a custom marker with primary color
-    const markerEl = document.createElement("div");
-    markerEl.className = "venue__marker";
-
-    function placeMarker(lon, lat) {
-      // fresh marker element each time (safe for fallback + re-try)
-      const el = document.createElement("div");
-      el.className = "venue__marker";
-
-      new maplibregl.Marker({ element: el, anchor: "center" })
-        .setLngLat([lon, lat])
-        .addTo(map);
-
-      // show the city context while keeping the marker visible
-      map.flyTo({ center: [lon, lat], zoom: 13, speed: 0.8, essential: true });
-    }
-
-    // Resolve address via Nominatim (no key). If it fails, keep fallback center.
-    const addressQuery = "Ludwigsstraße 2, 55116 Mainz, Germany";
-    const url =
-      "https://nominatim.openstreetmap.org/search?format=json&limit=1&q=" +
-      encodeURIComponent(addressQuery);
-
-    fetch(url, {
-      headers: { "Accept-Language": "en" },
-    })
-      .then((r) => r.json())
-      .then((data) => {
-        if (!Array.isArray(data) || !data[0]) throw new Error("No results");
-        const lon = Number(data[0].lon);
-        const lat = Number(data[0].lat);
-        if (!Number.isFinite(lon) || !Number.isFinite(lat))
-          throw new Error("Bad coords");
-        placeMarker(lon, lat);
-      })
-      .catch(() => {
-        // fallback marker in city center
-        placeMarker(fallbackCenter[0], fallbackCenter[1]);
-      });
-  }
-
-  window.addEventListener("DOMContentLoaded", initVenueMap);
 })();
 (() => {
   function initVenueMap() {
@@ -614,57 +627,75 @@
   }
 })();
 
-/* Abstract PDF modal */
+/* Abstract PDF access: native on touch/mobile, modal enhancement on desktop */
 (() => {
-  function initAbstractPdfModal() {
+  function initAbstractPdfAccess() {
     const modal = document.getElementById("abstractPdfModal");
     const frame = document.getElementById("abstractPdfFrame");
     const title = document.getElementById("abstractPdfTitle");
     const openLink = document.getElementById("abstractPdfOpenLink");
+    const triggers = Array.from(document.querySelectorAll("[data-abstract-pdf]"));
 
-    if (!modal || !frame || !title || !openLink) return;
+    if (!triggers.length) return;
 
     let lastTrigger = null;
+    const mobileOrTouch = () =>
+      window.matchMedia("(max-width: 900px), (pointer: coarse)").matches;
+
+    // Progressive enhancement: expose a real URL/"link" semantic even before activation.
+    triggers.forEach((trigger) => {
+      trigger.setAttribute("role", "link");
+      if (!trigger.hasAttribute("tabindex")) trigger.tabIndex = 0;
+      trigger.dataset.abstractHref = trigger.dataset.abstractPdf || "";
+    });
+
+    function openNative(pdfUrl) {
+      // Synchronous call from the user gesture: least likely to be blocked on iOS/iPadOS.
+      const opened = window.open(pdfUrl, "_blank");
+      if (opened) {
+        try {
+          opened.opener = null;
+        } catch (_) {}
+      } else {
+        window.location.href = pdfUrl;
+      }
+    }
 
     function openModal(trigger) {
       const pdfUrl = trigger.dataset.abstractPdf;
       const abstractTitle = trigger.dataset.abstractTitle || "Abstract";
-
       if (!pdfUrl) return;
 
-      lastTrigger = trigger;
+      if (mobileOrTouch() || !modal || !frame || !title || !openLink) {
+        openNative(pdfUrl);
+        return;
+      }
 
+      lastTrigger = trigger;
       title.textContent = abstractTitle;
       frame.src = pdfUrl;
       openLink.href = pdfUrl;
-
       modal.hidden = false;
       modal.setAttribute("aria-hidden", "false");
       document.body.classList.add("abstract-modal-open");
 
       const closeButton = modal.querySelector("[data-abstract-modal-close]");
-      if (closeButton) closeButton.focus();
+      if (closeButton) closeButton.focus({ preventScroll: true });
     }
 
     function closeModal() {
+      if (!modal || modal.hidden) return;
       modal.hidden = true;
       modal.setAttribute("aria-hidden", "true");
       document.body.classList.remove("abstract-modal-open");
-
-      // Reset src so the PDF stops rendering in the background
-      frame.src = "";
-      openLink.href = "#";
-
-      if (lastTrigger && typeof lastTrigger.focus === "function") {
-        lastTrigger.focus();
-      }
-
+      if (frame) frame.src = "";
+      if (openLink) openLink.href = "#";
+      if (lastTrigger?.focus) lastTrigger.focus({ preventScroll: true });
       lastTrigger = null;
     }
 
     document.addEventListener("click", (event) => {
       const trigger = event.target.closest("[data-abstract-pdf]");
-
       if (trigger) {
         event.preventDefault();
         openModal(trigger);
@@ -672,29 +703,44 @@
       }
 
       if (event.target.closest("[data-abstract-modal-close]")) {
+        event.preventDefault();
         closeModal();
       }
     });
 
     document.addEventListener("keydown", (event) => {
-      const trigger = event.target.closest("[data-abstract-pdf]");
-
+      const trigger = event.target.closest?.("[data-abstract-pdf]");
       if (trigger && (event.key === "Enter" || event.key === " ")) {
         event.preventDefault();
         openModal(trigger);
         return;
       }
 
-      if (event.key === "Escape" && !modal.hidden) {
-        closeModal();
+      if (event.key === "Escape") closeModal();
+
+      // Keep keyboard focus inside the desktop modal.
+      if (event.key === "Tab" && modal && !modal.hidden) {
+        const focusable = Array.from(
+          modal.querySelectorAll('a[href], button:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])'),
+        ).filter((el) => !el.hidden);
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
       }
     });
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initAbstractPdfModal);
+    document.addEventListener("DOMContentLoaded", initAbstractPdfAccess);
   } else {
-    initAbstractPdfModal();
+    initAbstractPdfAccess();
   }
 })();
 
@@ -813,46 +859,3 @@
   }
 })();
 
-/* =========================================================
-   PROGRAMME — auto-open session cards on scroll
-   ========================================================= */
-
-const programmeSessionHeaders = document.querySelectorAll(
-  ".program-session__head[aria-controls]",
-);
-
-if ("IntersectionObserver" in window && programmeSessionHeaders.length) {
-  const sessionObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-
-        const header = entry.target;
-
-        /*
-         * Open the session only if it is currently closed.
-         * The existing click handler remains responsible
-         * for the actual expand/collapse behaviour.
-         */
-        if (header.getAttribute("aria-expanded") === "false") {
-          header.click();
-        }
-
-        /*
-         * Only auto-open once.
-         * If the visitor later closes it manually,
-         * scrolling back will NOT reopen it.
-         */
-        observer.unobserve(header);
-      });
-    },
-    {
-      threshold: 0.35,
-      rootMargin: "0px 0px -15% 0px",
-    },
-  );
-
-  programmeSessionHeaders.forEach((header) => {
-    sessionObserver.observe(header);
-  });
-}

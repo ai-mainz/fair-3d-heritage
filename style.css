@@ -4114,3 +4114,341 @@ body.registration-page main > section[id] {
     padding-bottom: 54px;
   }
 }
+
+/* =========================================================
+   HOME HERO — DESKTOP VERTICAL RHYTHM FIX
+   Keeps the opening copy and scroll arrow comfortably inside
+   the viewport when its height becomes smaller (e.g. DevTools).
+   ========================================================= */
+
+@media (min-width: 861px) {
+  /* The original desktop value is 300px. 33dvh makes the block
+     move upwards progressively as the viewport becomes shorter,
+     while clamp() preserves the original position on tall screens. */
+  .hero__content .container--wide {
+    padding-top: clamp(190px, 33dvh, 300px);
+  }
+
+  /* script.js currently writes an inline top value on the arrow.
+     Anchor it to the bottom instead so it always keeps breathing room. */
+  .hero__chevron {
+    top: auto !important;
+    bottom: clamp(36px, 5dvh, 52px);
+  }
+}
+
+/* Extra protection for unusually short desktop/laptop viewports. */
+@media (min-width: 861px) and (max-height: 620px) {
+  .hero__content .container--wide {
+    padding-top: clamp(155px, 30dvh, 190px);
+  }
+
+  .hero__chevron {
+    bottom: 30px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE UX STABILISATION — 2026-09-17
+   Final override layer. Keeps sticky navigation, anchor offsets,
+   touch targets and modal behaviour consistent across devices.
+   ========================================================= */
+
+/* One source of truth for the actual fixed header height. */
+@media (max-width: 860px) {
+  :root {
+    --topnav-h: var(--mobile-topnav-h, 88px);
+    --nav-offset: var(--mobile-topnav-h, 88px);
+  }
+}
+
+@media (max-width: 420px) {
+  :root {
+    --topnav-h: var(--mobile-topnav-h, 84px);
+    --nav-offset: var(--mobile-topnav-h, 84px);
+  }
+}
+
+/* Prevent hidden mobile navigation from ever intercepting page taps. */
+@media (max-width: 860px) {
+  .topnav:not(.menu-open) .menu {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  .topnav.menu-open .menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  .home-page .hero__copy,
+  .home-page .hero__actions,
+  .home-page .hero__actions .btn {
+    position: relative;
+    z-index: 20;
+    pointer-events: auto;
+  }
+
+  .home-page .hero__actions .btn {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(255, 237, 0, 0.18);
+  }
+}
+
+/* Internal hash targets must clear the real fixed header on every viewport. */
+body.page main > section[id],
+body.page .keynote-card[id] {
+  scroll-margin-top: calc(var(--topnav-h) + 18px);
+}
+
+/* Programme: sticky day switcher on desktop, tablet and phone. */
+.program-document {
+  scroll-behavior: smooth;
+  scroll-snap-type: none !important;
+}
+
+.program-page .program-daynav {
+  position: sticky;
+  top: var(--topnav-h);
+  z-index: 900;
+  margin-bottom: clamp(28px, 4vw, 46px);
+  background: rgba(255, 255, 255, 0.96);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 8px 22px rgba(11, 25, 54, 0.08);
+}
+
+.program-page .program-day {
+  scroll-margin-top: calc(
+    var(--topnav-h) + var(--program-daynav-h, 54px) + 14px
+  );
+}
+
+.program-page .program-daynav a {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(11, 25, 54, 0.08);
+}
+
+@media (max-width: 900px) {
+  .program-page .program-shell {
+    padding-top: clamp(30px, 6vw, 46px);
+  }
+
+  .program-page .program-daynav {
+    position: sticky;
+    top: var(--topnav-h);
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding: 7px 0;
+  }
+
+  .program-page .program-daynav__list {
+    width: calc(100% - 24px);
+    max-width: 680px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .program-page .program-daynav a {
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+    padding: 6px 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1px;
+    text-align: center;
+    line-height: 1.05;
+  }
+
+  .program-page .program-daynav__day {
+    font-size: clamp(10px, 2.8vw, 12px);
+  }
+
+  .program-page .program-daynav__date {
+    font-size: clamp(9px, 2.5vw, 11px);
+  }
+
+  .program-page .program-day__heading {
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    gap: 10px;
+  }
+
+  .program-page .program-day__label {
+    margin-bottom: 5px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+  }
+
+  .program-page .program-day__heading h2 {
+    font-size: clamp(30px, 9vw, 44px);
+  }
+
+  .program-page .program-day__focus {
+    font-size: 15px;
+    line-height: 1.24;
+  }
+
+  .program-page .program-card {
+    border-radius: 18px;
+  }
+
+  .program-page .program-session-summary,
+  .program-page .program-workshop-summary,
+  .program-page .program-talk--clickable {
+    touch-action: manipulation;
+  }
+}
+
+@media (max-width: 420px) {
+  .program-page .program-daynav__list {
+    width: calc(100% - 16px);
+    gap: 4px;
+  }
+
+  .program-page .program-daynav a {
+    min-height: 46px;
+    padding-inline: 4px;
+  }
+}
+
+/* Abstracts: make each row visibly and reliably interactive. */
+.program-page .program-talk--clickable {
+  cursor: pointer;
+  position: relative;
+}
+
+.program-page .program-talk--clickable::after {
+  content: "↗";
+  position: absolute;
+  top: 14px;
+  right: 8px;
+  font-family: var(--font-title);
+  font-size: 13px;
+  font-weight: 800;
+  color: rgba(11, 25, 54, 0.48);
+  pointer-events: none;
+}
+
+.program-page .program-talk--clickable > :last-child {
+  padding-right: 22px;
+}
+
+@media (pointer: coarse), (max-width: 900px) {
+  .program-page .program-talk--clickable {
+    min-height: 52px;
+    border-radius: 12px;
+  }
+
+  .program-page .program-talk--clickable:active {
+    background: rgba(11, 25, 54, 0.06);
+  }
+}
+
+/* Desktop PDF modal: safe within short laptop viewports; touch devices bypass it in JS. */
+.abstract-modal {
+  overscroll-behavior: contain;
+}
+
+.abstract-modal__dialog {
+  max-height: calc(100dvh - 28px);
+}
+
+.abstract-modal__iframe {
+  min-height: 0;
+}
+
+@media (max-width: 900px), (pointer: coarse) {
+  .abstract-modal:not([hidden]) {
+    display: none !important;
+  }
+}
+
+/* Reliable minimum touch areas without changing desktop visual density. */
+@media (pointer: coarse) {
+  .topnav__toggle,
+  .btn,
+  .keynote-lang-btn,
+  .committee-card__bio-btn,
+  .program-session-summary,
+  .program-workshop-summary {
+    min-height: 44px;
+  }
+}
+
+/* Long URLs/file names must never create horizontal scrolling on small screens. */
+.fx-link,
+.authors-prose strong,
+.program-talk__title,
+.program-talk__authors {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+/* Avoid accidental horizontal page drift caused by full-bleed/sticky components. */
+body {
+  overflow-x: clip;
+}
+
+@supports not (overflow: clip) {
+  body {
+    overflow-x: hidden;
+  }
+}
+
+
+/* Home organizers: Supported by + Funded by in one compact row. */
+#organizers .support-funding-row {
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) minmax(320px, 420px);
+  justify-content: center;
+  align-items: start;
+  column-gap: clamp(3rem, 7vw, 7rem);
+  margin-top: 2.5rem;
+}
+
+#organizers .support-funding-row .supported,
+#organizers .support-funding-row .funded {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+}
+
+#organizers .supported__label,
+#organizers .support-funding-row .funded__label {
+  margin: 0 0 0.65rem;
+  text-align: center;
+}
+
+#organizers .supported__logo {
+  display: block;
+  height: 100px;
+  max-height: 100px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+#organizers .support-funding-row .funded__logo {
+  display: block;
+  width: min(100%, 370px);
+  max-height: 105px;
+  object-fit: contain;
+}
+
+@media (max-width: 760px) {
+  #organizers .support-funding-row {
+    grid-template-columns: 1fr;
+    row-gap: 1.5rem;
+    margin-top: 2rem;
+  }
+}

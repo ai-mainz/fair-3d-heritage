@@ -33,7 +33,7 @@
 
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="brand.css" />
-    <!-- MapLibre GL JS (for Venue map) -->
+<!-- MapLibre GL JS (for Venue map) -->
     <link
       rel="stylesheet"
       href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css"
@@ -45,7 +45,7 @@
     <script defer src="script.js"></script>
   </head>
 
-  <body>
+  <body class="home-page">
     <div id="site-header" data-active="home"></div>
 
     <main id="main">
@@ -78,6 +78,8 @@
                 <div class="hero__actions reveal on-load delay-4">
                   <a
                     class="btn"
+                    id="joinZoomButton"
+                    aria-label="Join FAIR 3D Heritage online via Zoom"
                     href="https://hs-mainz-de.zoom-x.de/j/62476591085"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -253,14 +255,28 @@
             />
           </div>
 
-          <div class="funded reveal">
-            <p class="funded__label">Funded by:</p>
-            <img
-              class="funded__logo"
-              src="assets/Logo_German_Research_Foundation.png"
-              alt="German Research Foundation (DFG)"
-              onerror="this.style.display = 'none'"
-            />
+          <div class="support-funding-row reveal">
+            <div class="supported">
+              <p class="supported__label">Supported by:</p>
+              <img
+                class="supported__logo"
+                src="https://www.timemachine.eu/wp-content/uploads/2020/02/TM-logo-RGB_p.png"
+                alt="Time Machine Organisation"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                onerror="this.style.display = 'none'"
+              />
+            </div>
+
+            <div class="funded">
+              <p class="funded__label">Funded by:</p>
+              <img
+                class="funded__logo"
+                src="assets/Logo_German_Research_Foundation.png"
+                alt="German Research Foundation (DFG)"
+                onerror="this.style.display = 'none'"
+              />
+            </div>
           </div>
         </div>
       </section>
